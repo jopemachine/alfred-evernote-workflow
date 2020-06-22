@@ -1,0 +1,22 @@
+{
+  "name": "alfy-github-workflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jopemachine/Alfred-github-workflow.git"
+  },
+  "author": "jopemachine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jopemachine/Alfred-github-workflow/issues"
+  },
+  "homepage": "https://github.com/jopemachine/Alfred-github-workflow#readme",
+  "dependencies": {
+    "alfy": "^0.9.1"
+  }
+}
