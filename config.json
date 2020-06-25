@@ -1,4 +1,17 @@
 {
   "search_count": 20,
-  "search_subtitle": "tags"
+  "search_subtitle": "tags",
+  "search_include": {
+    "includeTitle": true,
+    "includeContentLength": true,
+    "includeCreated": true,
+    "includeUpdated": true,
+    "includeDeleted": true,
+    "includeUpdateSequenceNum": true,
+    "includeNotebookGuid": true,
+    "includeTagGuids": true,
+    "includeAttributes": true,
+    "includeLargestResourceMime": true,
+    "includeLargestResourceSize": true
+  }
 }

@@ -1,12 +1,8 @@
 const alfy = require('alfy');
-const OAuth = require('./OAuth.json');
 const Evernote = require("evernote");
 const _ = require('lodash');
+const OAuth = require('./OAuth.json');
 const config = require('./config.json');
-
-if(!OAuth) {
-  return;
-}
 
 var authenticatedClient = new Evernote.Client({
   token: OAuth.oauthToken,
@@ -21,19 +17,7 @@ var filter = new Evernote.NoteStore.NoteFilter({
   ascending: true
 });
 
-var spec = new Evernote.NoteStore.NotesMetadataResultSpec({
-  includeTitle: true,
-  includeContentLength: true,
-  includeCreated: true,
-  includeUpdated: true,
-  includeDeleted: true,
-  includeUpdateSequenceNum: true,
-  includeNotebookGuid: true,
-  includeTagGuids: true,
-  includeAttributes: true,
-  includeLargestResourceMime: true,
-  includeLargestResourceSize: true,
-});
+var spec = new Evernote.NoteStore.NotesMetadataResultSpec(config.search_include);
 
 noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async notesMetadataList => {
   const searchedNotes = notesMetadataList.notes;
@@ -51,7 +35,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
 			arg: note.title,
 			valid: true,
       autocomplete: note.title,
-			subtitle: `tags: ${tagNameStr}`,
+			subtitle: tagNameStr === '' ? "none" : `tags: ${tagNameStr}`,
 		};
   }));
   
