@@ -11,12 +11,4 @@ if(!config) {
   return;
 }
 
-if(config.search_subtitle === "created_time") {
-  require('./searchNoteWithCreatedTime');
-} 
-else if(config.search_subtitle === "tags") {
-  require('./searchNoteWithTags');
-}
-else {
-  console.log("config file error, set the proper search_subtitle value");
-}
+require('./searchNote');
