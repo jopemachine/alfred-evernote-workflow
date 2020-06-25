@@ -34,7 +34,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: `created in ${createdTime}`,
+          subtitle: `Created in ${createdTime}`,
         };
       });
       break;
@@ -48,7 +48,21 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: `last edited in ${updatedTime}`,
+          subtitle: `Last edited in ${updatedTime}`,
+        };
+      });
+      break;
+
+    case "content_length":
+      result = _.map(searchedNotes, note => {
+        const contentLength = note.contentLength;
+
+        return {
+          title: note.title,
+          arg: note.title,
+          valid: true,
+          autocomplete: note.title,
+          subtitle: `Length: ${contentLength}`,
         };
       });
       break;
@@ -82,7 +96,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: tagNameStr === '' ? "none" : `tags: ${tagNameStr}`,
+          subtitle: tagNameStr === '' ? "None" : `Tags: ${tagNameStr}`,
         };
       }));
       break;
