@@ -1,22 +1,44 @@
 {
-  "name": "alfy-github-workflow",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jopemachine/Alfred-github-workflow.git"
-  },
-  "author": "jopemachine",
+  "name": "alfy-evernote-workflow",
+  "version": "0.0.1",
+  "description": "Alfred evernote workflow",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jopemachine/Alfred-github-workflow/issues"
+  "repository": "jopemachine/Alfred-evernote-workflow",
+  "author": {
+    "name": "jopemachine",
+    "email": "jopemachine@naver.com",
+    "url": "github.com/jopemachine/Alfred-evernote-workflow"
   },
-  "homepage": "https://github.com/jopemachine/Alfred-github-workflow#readme",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "files": [
+    "index.js",
+    "icon.png",
+    "info.plist",
+    "searchIcon.png",
+    "tagIcon.png"
+  ],
+  "keywords": [
+    "alfred",
+    "workflow",
+    "alfy",
+    "evernote"
+  ],
   "dependencies": {
-    "alfy": "^0.9.1"
+    "alfy": "^0.6.0",
+    "axios": "^0.19.2",
+    "evernote": "^2.0.5",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "alfy-test": "^0.3.0",
+    "ava": "^0.18.0",
+    "xo": "^0.17.0"
   }
 }
