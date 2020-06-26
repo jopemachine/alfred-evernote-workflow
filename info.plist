@@ -60,7 +60,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>clipAndOpen</key>
+		<key>clipAndOpenIcon</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -73,7 +73,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>clipBoardIcon</key>
+		<key>clipIcon</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -359,32 +359,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>clipBoardIcon</string>
+			<string>clipIcon</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node clipAndOpen.js</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>4A633FCA-0B14-4563-929B-FDB3AA4533D4</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -431,9 +408,32 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>clipAndOpen</string>
+			<string>clipAndOpenIcon</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node clipAndOpen.js</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>4A633FCA-0B14-4563-929B-FDB3AA4533D4</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -672,14 +672,14 @@ evernote.openCollectionWindow({withQueryString: '{query}'});</string>
 			<key>ypos</key>
 			<integer>285</integer>
 		</dict>
-		<key>clipAndOpen</key>
+		<key>clipAndOpenIcon</key>
 		<dict>
 			<key>xpos</key>
 			<integer>335</integer>
 			<key>ypos</key>
 			<integer>710</integer>
 		</dict>
-		<key>clipBoardIcon</key>
+		<key>clipIcon</key>
 		<dict>
 			<key>xpos</key>
 			<integer>335</integer>
