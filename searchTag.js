@@ -15,8 +15,9 @@ var authenticatedClient = new Evernote.Client({
 
 const noteStore = authenticatedClient.getNoteStore();
 
-noteStore.listTags().then((tags) => {
+noteStore.listTags().then(async tags => {
 	let items = _.filter(tags, (tag) => {
+
 		// alfy.input를 normalize 시켜서 인코딩을 맞춰줘야 한글로도 정상적으로 검색할 수 있다.
 		const tagName = tag.name.toLowerCase();
 		const input = alfy.input.normalize().toLowerCase();
@@ -27,12 +28,26 @@ noteStore.listTags().then((tags) => {
 		return true;
 	});
 
-	const result = alfy.inputMatches(items, "name").map((tag) => ({
-		title: tag.name,
-		arg: tag.name,
-		valid: true,
-		autocomplete: tag.name,
-		subtitle: `태그 이름 중 ${tag.name} 검색`,
+	const result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => 
+	{
+		const tagFilter = new Evernote.NoteStore.NoteFilter({
+			tagGuids: [tag.guid],
+			ascending: true
+		});
+
+		let tagCounts = -1;
+
+		await noteStore.findNoteCounts(tagFilter, false).then(taggedNotesCnt => {
+			tagCounts = taggedNotesCnt.tagCounts[tag.guid];
+		});
+
+		return {
+			title: tag.name,
+			arg: tag.name,
+			valid: true,
+			autocomplete: tag.name,
+			subtitle: `Notes count in ${tag.name} : ${tagCounts}`,
+		}
 	}));
 
 	alfy.output(result);
