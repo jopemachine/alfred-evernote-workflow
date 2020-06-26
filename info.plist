@@ -47,6 +47,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>clipBoardIcon</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>81A525BC-4CA2-4F28-AC00-1F46159D86A6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>searchIcon</key>
 		<array>
 			<dict>
@@ -127,6 +140,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>tell application "Evernote" to synchronize</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D5FEBB6F-7436-479D-99A5-7AAB2E322C65</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -148,25 +184,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>en &gt; todo</string>
+				<key>subtext</key>
+				<string>Search all notes including checkbox</string>
+				<key>text</key>
+				<string>Search to do notes</string>
+				<key>withspace</key>
 				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>tell application "Evernote" to synchronize</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>6</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>D5FEBB6F-7436-479D-99A5-7AAB2E322C65</string>
+			<string>9CC8DD71-892A-46BA-9FEE-5442F55DFB8E</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -196,23 +230,71 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node clip.js</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>81A525BC-4CA2-4F28-AC00-1F46159D86A6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>en &gt; todo</string>
+				<string>clip</string>
 				<key>subtext</key>
-				<string>Search all notes including checkbox</string>
+				<string>Create note by clipboard text</string>
 				<key>text</key>
-				<string>Search to do notes</string>
+				<string>Clip text</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>9CC8DD71-892A-46BA-9FEE-5442F55DFB8E</string>
+			<string>clipBoardIcon</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>var evernote = Application('Evernote');
+evernote.activate();
+evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>7</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>23AC567D-9B2F-4B39-9515-1463033EED2B</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -262,31 +344,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<string>tagIcon</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>var evernote = Application('Evernote');
-evernote.activate();
-evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>7</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>23AC567D-9B2F-4B39-9515-1463033EED2B</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -370,72 +427,86 @@ evernote.openCollectionWindow({withQueryString: '{query}'});</string>
 		<key>23AC567D-9B2F-4B39-9515-1463033EED2B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>495</integer>
 			<key>ypos</key>
-			<integer>475</integer>
+			<integer>635</integer>
 		</dict>
 		<key>3389732A-48A5-4423-926F-8936986E6D4E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>215</integer>
 		</dict>
 		<key>42E05535-027E-4DED-AECC-BD275077C1EF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>500</integer>
 			<key>ypos</key>
-			<integer>335</integer>
+			<integer>350</integer>
+		</dict>
+		<key>81A525BC-4CA2-4F28-AC00-1F46159D86A6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>495</integer>
+			<key>ypos</key>
+			<integer>490</integer>
 		</dict>
 		<key>9CC8DD71-892A-46BA-9FEE-5442F55DFB8E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>335</integer>
+			<integer>350</integer>
 		</dict>
 		<key>B40F3691-20C4-4C10-A470-DD3DCAB65C7C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>285</integer>
+			<integer>320</integer>
 			<key>ypos</key>
-			<integer>60</integer>
+			<integer>75</integer>
 		</dict>
 		<key>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>495</integer>
 			<key>ypos</key>
-			<integer>630</integer>
+			<integer>790</integer>
 		</dict>
 		<key>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>465</integer>
+			<integer>500</integer>
 			<key>ypos</key>
-			<integer>60</integer>
+			<integer>75</integer>
 		</dict>
 		<key>D5FEBB6F-7436-479D-99A5-7AAB2E322C65</key>
 		<dict>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>495</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>215</integer>
+		</dict>
+		<key>clipBoardIcon</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>490</integer>
 		</dict>
 		<key>searchIcon</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>630</integer>
+			<integer>790</integer>
 		</dict>
 		<key>tagIcon</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>475</integer>
+			<integer>635</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -31,8 +31,11 @@
     "evernote"
   ],
   "dependencies": {
+    "@jxa/global-type": "^1.3.1",
+    "@jxa/run": "^1.3.2",
     "alfy": "^0.6.0",
     "axios": "^0.19.2",
+    "clipboardy": "^2.3.0",
     "evernote": "^2.0.5",
     "lodash": "^4.17.15"
   },
