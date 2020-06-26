@@ -8,7 +8,9 @@ const turnOnEvernote = (clipStr) => {
   let callback = (clipStr) => {
     // below is JXA
     const Evernote = Application("Evernote");
-    Evernote.createNote({ withText: clipStr });
+    const createdNote = Evernote.createNote({ withText: clipStr });
+    // Evernote.openNoteWindow(createdNote); // doesn't work..
+    Evernote.openCollectionWindow({ withQueryString: clipStr });
   }
   
   return run(callback, clipStr);
