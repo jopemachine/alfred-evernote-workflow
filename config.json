@@ -13,5 +13,6 @@
     "includeAttributes": true,
     "includeLargestResourceMime": true,
     "includeLargestResourceSize": true
-  }
+  },
+  "tag_search_subtitle": "none"
 }

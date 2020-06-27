@@ -1,9 +1,10 @@
-const alfy = require('alfy');
-const OAuth = require('./OAuth.json');
+const alfy = require("alfy");
+const OAuth = require("./OAuth.json");
 const Evernote = require("evernote");
-const _ = require('lodash');
+const _ = require("lodash");
+const config = require("./config.json");
 
-if(!OAuth) {
+if (!OAuth) {
   return;
 }
 
@@ -15,40 +16,62 @@ var authenticatedClient = new Evernote.Client({
 
 const noteStore = authenticatedClient.getNoteStore();
 
-noteStore.listTags().then(async tags => {
-	let items = _.filter(tags, (tag) => {
+noteStore.listTags().then(async (tags) => {
+  let items = tags;
 
-		// alfy.input를 normalize 시켜서 인코딩을 맞춰줘야 한글로도 정상적으로 검색할 수 있다.
-		const tagName = tag.name.toLowerCase();
-		const input = alfy.input.normalize().toLowerCase();
+  if (alfy.input) {
+    items = _.filter(tags, (tag) => {
+      // alfy.input를 normalize 시켜서 인코딩을 맞춰줘야 한글로도 정상적으로 검색할 수 있다.
+      const tagName = tag.name.toLowerCase();
+      const input = alfy.input.normalize().toLowerCase();
 
-		if (tagName.search(input) == -1) {
-			return false;
-		}
-		return true;
-	});
+      if (!tagName.includes(input)) {
+        return false;
+      }
+      return true;
+    });
+  }
 
-	const result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => 
-	{
-		const tagFilter = new Evernote.NoteStore.NoteFilter({
-			tagGuids: [tag.guid],
-			ascending: true
-		});
+  let result;
 
-		let tagCounts = -1;
+  switch (config.tag_search_subtitle) {
+    case "none":
+      result = alfy.inputMatches(items, "name").map((tag) => {
+        return {
+          title: tag.name,
+          arg: tag.name,
+          valid: true,
+          autocomplete: tag.name,
+          subtitle: ``,
+        };
+      });
+      break;
 
-		await noteStore.findNoteCounts(tagFilter, false).then(taggedNotesCnt => {
-			tagCounts = taggedNotesCnt.tagCounts[tag.guid];
-		});
+    case "note_count":
+      result = await Promise.all(alfy.inputMatches(items, "name").map(async (tag) => {
+        const tagFilter = new Evernote.NoteStore.NoteFilter({
+          tagGuids: [tag.guid],
+          ascending: true,
+        });
 
-		return {
-			title: tag.name,
-			arg: tag.name,
-			valid: true,
-			autocomplete: tag.name,
-			subtitle: `Notes count in ${tag.name} : ${tagCounts}`,
-		}
-	}));
+        let tagCounts = -1;
 
-	alfy.output(result);
+        await noteStore
+          .findNoteCounts(tagFilter, false)
+          .then((taggedNotesCnt) => {
+            tagCounts = taggedNotesCnt.tagCounts[tag.guid];
+          });
+
+        return {
+          title: tag.name,
+          arg: tag.name,
+          valid: true,
+          autocomplete: tag.name,
+          subtitle: `Counts: ${tagCounts}`,
+        };
+      }));
+      break;
+  }
+
+  alfy.output(result);
 });
