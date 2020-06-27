@@ -31,19 +31,18 @@ In Alfred, type below query, <kbd>Enter</kbd>.
 
 You can use below feature.
 
-| Keyword | Desc |
-|:----:|:----:|
-| en | Switch to your Evernote App |
-| en > login | This command is required only for the initial authentication process. |
-| en > auth | This command is required only for the initial authentication process. |
-| en > sync | Sync Evernote |
-| en > todo | Search for notes with check boxes. |
-| clip | Adds the text from the current clipboard to the Evernote as a new note. |
-| oclip | Adds the text from the current clipboard to the Evernote as a new note and Open the note. |
-| ens | Search the Evernote's notes |
-| tag | Search Evernote's tag. You can filter notes by entering on that tag. |
-| tagc |  |
-
+|  Keyword  | Argument |   Desc   |
+|:----:|:----:|:----:|
+|  en  | No argument |   Switch to your Evernote App   |
+|  en > login  |  No argument  |    This command is required only for the initial authentication process.    |
+|  en > auth  | { your api key } |    This command is required only for the initial authentication process.    |
+|  en > sync  |   No argument   |    Sync Evernote    |
+|  en > todo  |   No argument   |    Search for notes with check boxes.    |
+|  clip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
+|  oclip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
+|  ens  | { content to search } |    Search the Evernote's notes    |
+|  tag  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
+|  tagc  | { note title to create } |  |
 
 
 

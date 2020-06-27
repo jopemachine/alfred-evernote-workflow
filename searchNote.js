@@ -28,7 +28,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
     case "created_time":
       result = _.map(searchedNotes, note => {
         const createdTime = new Date(note.created).toLocaleString();
-    
+
         return {
           title: note.title,
           arg: note.title,

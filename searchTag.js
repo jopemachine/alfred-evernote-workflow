@@ -31,7 +31,7 @@ noteStore.listTags().then(async tags => {
       return true;
     });
   } else {
-    // To prevent error of alpy
+    // To prevent error of alfy
     alfy.input = "";
   }
 
@@ -42,7 +42,7 @@ noteStore.listTags().then(async tags => {
       result = alfy.inputMatches(items, "name").map(tag => {
         return {
           title: tag.name,
-          arg: tag.name,
+          arg: tag.guid,
           valid: true,
           autocomplete: tag.name,
           subtitle: ``,
