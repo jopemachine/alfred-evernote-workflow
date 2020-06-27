@@ -10,8 +10,7 @@ const turnOnEvernote = (clipStr) => {
     const Evernote = Application("Evernote");
     Evernote.activate();
     const createdNote = Evernote.createNote({ withText: clipStr });
-    // Evernote.openNoteWindow(createdNote); // doesn't work..
-    Evernote.openCollectionWindow({ withQueryString: clipStr });
+    const noteWindow = Evernote.openNoteWindow({ with: createdNote });
   }
   
   return run(callback, clipStr);
