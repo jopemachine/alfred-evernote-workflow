@@ -9,7 +9,7 @@ const turnOnEvernote = (clipStr) => {
     // below is JXA
     const Evernote = Application("Evernote");
     Evernote.activate();
-    const createdNote = Evernote.createNote({ withHTML: clipStr });
+    const createdNote = Evernote.createNote({ withText: clipStr });
     // Evernote.openNoteWindow(createdNote); // doesn't work..
     Evernote.openCollectionWindow({ withQueryString: clipStr });
   }
