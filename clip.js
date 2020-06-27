@@ -3,7 +3,7 @@ const clipboardy = require('clipboardy');
 require('@jxa/global-type');
 const run = require('@jxa/run').run;
 
-const turnOnEvernote = (clipStr) => {
+const createNoteByText = (clipStr) => {
 
   let callback = (clipStr) => {
     // below is JXA
@@ -15,5 +15,5 @@ const turnOnEvernote = (clipStr) => {
 }
 
 clipboardy.read().then(async data => {
-  await turnOnEvernote(data);
+  await createNoteByText(data);
 });

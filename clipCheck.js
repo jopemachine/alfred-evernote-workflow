@@ -5,9 +5,9 @@ clipboardy.read().then(data => {
   const title = alfy.input === "{clip}" ? "Clip" : "Clip and Open";
 
   const strs = data.split('\n');
-  
+
   const subtitle = strs.length > 1 ? `${strs[0]} ...` : data;
-  
+
   const item = [
       {
         title,
@@ -17,6 +17,6 @@ clipboardy.read().then(data => {
         subtitle: `Data: "${subtitle}"`,
       }
     ]
-      
+
   alfy.output(item);
 });

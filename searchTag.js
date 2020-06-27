@@ -1,7 +1,7 @@
 const alfy = require("alfy");
-const OAuth = require("./OAuth.json");
 const Evernote = require("evernote");
 const _ = require("lodash");
+const OAuth = require("./OAuth.json");
 const config = require("./config.json");
 
 if (!OAuth) {
@@ -42,7 +42,7 @@ noteStore.listTags().then(async tags => {
       result = alfy.inputMatches(items, "name").map(tag => {
         return {
           title: tag.name,
-          arg: tag.guid,
+          arg: tag.name,
           valid: true,
           autocomplete: tag.name,
           subtitle: ``,
