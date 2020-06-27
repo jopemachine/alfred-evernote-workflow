@@ -48,7 +48,7 @@ noteStore.listTags().then(async tags => {
           subtitle: ``,
         };
       });
-      break;
+    break;
 
     case "note_count":
       result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
@@ -73,7 +73,7 @@ noteStore.listTags().then(async tags => {
           subtitle: `Counts: ${tagCounts}`,
         };
       }));
-      break;
+    break;
   }
 
   alfy.output(result);

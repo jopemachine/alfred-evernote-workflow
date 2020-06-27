@@ -36,8 +36,8 @@ You can use below feature.
 |  en  | No argument |   Switch to your Evernote App   |
 |  en > login  |  No argument  |    This command is required only for the initial authentication process.    |
 |  en > auth  | { your api key } |    This command is required only for the initial authentication process.    |
-|  en > sync  |   No argument   |    Sync Evernote    |
-|  en > todo  |   No argument   |    Search for notes with check boxes.    |
+|  sync  |   No argument   |    Sync Evernote    |
+|  todo  |   No argument   |    Search for notes with check boxes.    |
 |  clip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
 |  oclip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
 |  ens  | { content to search } |    Search the Evernote's notes    |

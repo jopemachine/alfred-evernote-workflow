@@ -13,9 +13,14 @@ var authenticatedClient = new Evernote.Client({
 const noteStore = authenticatedClient.getNoteStore();
 
 var filter = new Evernote.NoteStore.NoteFilter({
-  words: alfy.input,
-  ascending: true
+  ascending: false
 });
+
+if(alfy.input) {
+  filter.words = alfy.input;
+} else {
+  alfy.input = "";
+}
 
 var spec = new Evernote.NoteStore.NotesMetadataResultSpec(config.search_include);
 
