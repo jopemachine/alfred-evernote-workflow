@@ -36,6 +36,8 @@ async function searchTag(tags) {
   let result;
   let subtitle = '';
 
+  items = _.orderBy(items, ['name'], ['asc']);
+
   switch (config.tag_search_subtitle) {
     case "none":
       result = alfy.inputMatches(items, "name").map(tag => {

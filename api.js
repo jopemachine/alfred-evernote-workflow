@@ -71,7 +71,9 @@ async function findNoteCountsWithTag(tagGuid) {
   await noteStore
     .findNoteCounts(tagFilter, false)
     .then(taggedNotesCnt => {
-      result = `Counts: ${taggedNotesCnt.tagCounts[tagGuid]}`
+      result = taggedNotesCnt.tagCounts[tagGuid]
+        ? `Counts: ${taggedNotesCnt.tagCounts[tagGuid]}`
+        : `Counts: 0`;
   });
 
   return result;
