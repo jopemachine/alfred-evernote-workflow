@@ -1,128 +1,142 @@
-const alfy = require('alfy');
+const alfy = require("alfy");
 const Evernote = require("evernote");
-const _ = require('lodash');
-const OAuth = require('./OAuth.json');
-const config = require('./config.json');
+const _ = require("lodash");
+const OAuth = require("./OAuth.json");
+const config = require("./config.json");
+const api = require("./api");
 
-if(!OAuth) {
-  console.log("oauth file error, please create OAuth.json file referring README.md");
+if (!OAuth) {
+  console.log(
+    "oauth file error, please create OAuth.json file referring README.md"
+  );
   return;
 }
 
-if(!config) {
+if (!config) {
   console.log("can't find config file");
   return;
 }
-
-var authenticatedClient = new Evernote.Client({
-  token: OAuth.oauthToken,
-  sandbox: false,
-  china: false,
-});
-
-const noteStore = authenticatedClient.getNoteStore();
 
 let filter = new Evernote.NoteStore.NoteFilter({
   ascending: true,
 });
 
-if(alfy.input) {
+if (alfy.input) {
   filter.words = alfy.input;
 } else {
   alfy.input = "";
   filter.ascending = false;
 }
 
-var spec = new Evernote.NoteStore.NotesMetadataResultSpec(config.search_include);
+var spec = new Evernote.NoteStore.NotesMetadataResultSpec(
+  config.search_include
+);
 
-noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async notesMetadataList => {
+async function searchNote(notesMetadataList) {
   const searchedNotes = notesMetadataList.notes;
 
   let result;
+  let subtitle = "";
 
-  switch(config.search_subtitle) {
+  switch (config.search_subtitle) {
     case "created_time":
-      result = _.map(searchedNotes, note => {
+      result = _.map(searchedNotes, (note) => {
         const createdTime = new Date(note.created).toLocaleString();
+        subtitle = `Created in ${createdTime}`;
 
         return {
           title: note.title,
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: `Created in ${createdTime}`,
+          subtitle,
         };
       });
       break;
 
     case "last_edited_time":
-      result = _.map(searchedNotes, note => {
+      result = _.map(searchedNotes, (note) => {
         const updatedTime = new Date(note.updated).toLocaleString();
+        subtitle = `Last edited in ${updatedTime}`;
 
         return {
           title: note.title,
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: `Last edited in ${updatedTime}`,
+          subtitle,
         };
       });
       break;
 
     case "content_length":
-      result = _.map(searchedNotes, note => {
+      result = _.map(searchedNotes, (note) => {
         const contentLength = note.contentLength;
+        subtitle = `Length: ${contentLength}`;
 
         return {
           title: note.title,
           arg: note.title,
           valid: true,
           autocomplete: note.title,
-          subtitle: `Length: ${contentLength}`,
+          subtitle,
         };
       });
       break;
 
     case "notebook":
-      result = await Promise.all(_.map(searchedNotes, async note => {
-        let notebookName;
+      result = await Promise.all(
+        _.map(searchedNotes, async (note) => {
 
-        await noteStore.getNotebook(note.notebookGuid).then(notebook => notebookName = notebook.name);
+          subtitle = await api.getNotebookName(
+            searchedNotes.length,
+            note.notebookGuid
+          );
 
-        return {
-          title: note.title,
-          arg: note.title,
-          valid: true,
-          autocomplete: note.title,
-          subtitle: `Notebook: ${notebookName}`,
-        };
-      }));
+          return {
+            title: note.title,
+            arg: note.title,
+            valid: true,
+            autocomplete: note.title,
+            subtitle,
+          };
+        })
+      );
       break;
 
     case "tags":
-      result = await Promise.all(_.map(searchedNotes, async note => {
-        let tagNames;
+      result = await Promise.all(
+        _.map(searchedNotes, async (note) => {
+          subtitle = await api.getNoteTagNames(searchedNotes.length, note.guid);
 
-        await noteStore.getNoteTagNames(note.guid).then(tagNameList => tagNames = tagNameList);
-
-        const tagNameStr = tagNames.join(', ');
-
-        return {
-          title: note.title,
-          arg: note.title,
-          valid: true,
-          autocomplete: note.title,
-          subtitle: tagNameStr === '' ? "None" : `Tags: ${tagNameStr}`,
-        };
-      }));
+          return {
+            title: note.title,
+            arg: note.title,
+            valid: true,
+            autocomplete: note.title,
+            subtitle,
+          };
+        })
+      );
       break;
+
     default:
       console.log("config file error, set the proper search_subtitle value");
       break;
   }
 
-  alfy.output(result);
+  return result;
+}
 
-}).catch(err => {
-  console.log(err);
-});
+(async function () {
+  const result = await api.findNotesMetadata(
+    filter,
+    config.search_count,
+    spec,
+    {
+      callback: searchNote,
+    }
+  );
+
+  alfy.output(result);
+})();

@@ -8,8 +8,6 @@ const createNoteByText = (clipStr, tag) => {
 
   let callback = (clipStr, tag) => {
     const Evernote = Application("Evernote");
-    Evernote.createNote({ withText: clipStr });
-
     const date = new Date().toLocaleString();
 
     if(tag !== "") {

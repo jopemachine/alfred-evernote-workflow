@@ -3,20 +3,18 @@ const Evernote = require("evernote");
 const _ = require("lodash");
 const OAuth = require("./OAuth.json");
 const config = require("./config.json");
+const api = require("./api");
 
 if (!OAuth) {
   return;
 }
 
-var authenticatedClient = new Evernote.Client({
-  token: OAuth.oauthToken,
-  sandbox: false,
-  china: false,
-});
+if (!config) {
+  console.log("can't find config file");
+  return;
+}
 
-const noteStore = authenticatedClient.getNoteStore();
-
-noteStore.listTags().then(async tags => {
+async function searchTag(tags) {
   let items = tags;
   
   if (alfy.input) {
@@ -36,6 +34,7 @@ noteStore.listTags().then(async tags => {
   }
 
   let result;
+  let subtitle = '';
 
   switch (config.tag_search_subtitle) {
     case "none":
@@ -45,56 +44,49 @@ noteStore.listTags().then(async tags => {
           arg: tag.name,
           valid: true,
           autocomplete: tag.name,
-          subtitle: ``,
+          subtitle,
         };
       });
-    break;
+      break;
 
     case "parent_tag":
       result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
-        let parentTagName = "none";
-
-        if(tag.parentGuid) {
-          await noteStore.getTag(tag.parentGuid).then(parentTag => {
-            parentTagName = parentTag.name;
-          });
-        } 
+        subtitle = await api.getTag(items.length, tag.parentGuid);
 
         return {
           title: tag.name,
           arg: tag.name,
           valid: true,
           autocomplete: tag.name,
-          subtitle: `Parent Tag: ${parentTagName}`,
+          subtitle,
         };
       }));
-    break;
+      break;
 
     case "note_count":
       result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
-        const tagFilter = new Evernote.NoteStore.NoteFilter({
-          tagGuids: [tag.guid],
-          ascending: true,
-        });
-
-        let tagCounts = -1;
-
-        await noteStore
-          .findNoteCounts(tagFilter, false)
-          .then((taggedNotesCnt) => {
-            tagCounts = taggedNotesCnt.tagCounts[tag.guid];
-          });
+        subtitle = await api.findNoteCountsWithTag(items.length, tag.guid);
 
         return {
           title: tag.name,
           arg: tag.name,
           valid: true,
           autocomplete: tag.name,
-          subtitle: `Counts: ${tagCounts}`,
+          subtitle,
         };
       }));
-    break;
+      break;
   }
 
+  return result;
+}
+
+(async function () {
+  const result = await api.listTags(
+    {
+      callback: searchTag,
+    }
+  );
+
   alfy.output(result);
-});
+})();

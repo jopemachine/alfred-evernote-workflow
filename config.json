@@ -1,6 +1,6 @@
 {
   "search_count": 20,
-  "search_subtitle": "created_time",
+  "search_subtitle": "tags",
   "search_include": {
     "includeTitle": true,
     "includeContentLength": true,
@@ -14,6 +14,7 @@
     "includeLargestResourceMime": true,
     "includeLargestResourceSize": true
   },
-  "tag_search_subtitle": "none",
-  "cliped_note_tag": "Cliper"
+  "tag_search_subtitle": "note_count",
+  "cliped_note_tag": "Cliper",
+  "subtitle_restrictor": 5
 }
