@@ -4,6 +4,16 @@ const _ = require('lodash');
 const OAuth = require('./OAuth.json');
 const config = require('./config.json');
 
+if(!OAuth) {
+  console.log("oauth file error, please create OAuth.json file referring README.md");
+  return;
+}
+
+if(!config) {
+  console.log("can't find config file");
+  return;
+}
+
 var authenticatedClient = new Evernote.Client({
   token: OAuth.oauthToken,
   sandbox: false,
@@ -12,14 +22,15 @@ var authenticatedClient = new Evernote.Client({
 
 const noteStore = authenticatedClient.getNoteStore();
 
-var filter = new Evernote.NoteStore.NoteFilter({
-  ascending: false
+let filter = new Evernote.NoteStore.NoteFilter({
+  ascending: true,
 });
 
 if(alfy.input) {
   filter.words = alfy.input;
 } else {
   alfy.input = "";
+  filter.ascending = false;
 }
 
 var spec = new Evernote.NoteStore.NotesMetadataResultSpec(config.search_include);
