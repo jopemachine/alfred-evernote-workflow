@@ -15,7 +15,7 @@ clipboardy.read().then(data => {
       arg: title,
       valid: true,
       autocomplete: title,
-      subtitle: `Data: "${subtitle}"`,
+      subtitle: `Clipboard: "${subtitle}"`,
     }
   ]
 

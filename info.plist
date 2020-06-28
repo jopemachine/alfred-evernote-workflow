@@ -1201,7 +1201,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<integer>510</integer>
 			<key>ypos</key>
 			<integer>145</integer>
 		</dict>

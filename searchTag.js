@@ -50,6 +50,26 @@ noteStore.listTags().then(async tags => {
       });
     break;
 
+    case "parent_tag":
+      result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
+        let parentTagName = "none";
+
+        if(tag.parentGuid) {
+          await noteStore.getTag(tag.parentGuid).then(parentTag => {
+            parentTagName = parentTag.name;
+          });
+        } 
+
+        return {
+          title: tag.name,
+          arg: tag.name,
+          valid: true,
+          autocomplete: tag.name,
+          subtitle: `Parent Tag: ${parentTagName}`,
+        };
+      }));
+    break;
+
     case "note_count":
       result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
         const tagFilter = new Evernote.NoteStore.NoteFilter({
