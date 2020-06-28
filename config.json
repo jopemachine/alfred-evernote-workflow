@@ -14,5 +14,6 @@
     "includeLargestResourceMime": true,
     "includeLargestResourceSize": true
   },
-  "tag_search_subtitle": "none"
+  "tag_search_subtitle": "none",
+  "cliped_note_tag": "Cliper"
 }
