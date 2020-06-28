@@ -7,14 +7,15 @@ const run = require('@jxa/run').run;
 const createNoteByText = (clipStr, tag) => {
 
   let callback = (clipStr, tag) => {
-    // below is JXA
     const Evernote = Application("Evernote");
     Evernote.createNote({ withText: clipStr });
 
+    const date = new Date().toLocaleString();
+
     if(tag !== "") {
-      Evernote.createNote({ withText: clipStr, tags: [tag] });
+      Evernote.createNote({ title: date, withText: clipStr, tags: [tag] });
     } else {
-      Evernote.createNote({ withText: clipStr });
+      Evernote.createNote({ title: date, withText: clipStr });
     }
   }
 

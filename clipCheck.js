@@ -8,15 +8,16 @@ clipboardy.read().then(data => {
 
   const subtitle = strs.length > 1 ? `${strs[0]} ...` : data;
 
-  const item = [
-      {
-        title,
-        arg: title,
-        valid: true,
-        autocomplete: title,
-        subtitle: `Data: "${subtitle}"`,
-      }
-    ]
+  const item = 
+  [
+    {
+      title,
+      arg: title,
+      valid: true,
+      autocomplete: title,
+      subtitle: `Data: "${subtitle}"`,
+    }
+  ]
 
   alfy.output(item);
 });

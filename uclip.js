@@ -7,7 +7,6 @@ const run = require('@jxa/run').run;
 const createNoteByHTML = (html) => {
 
   let callback = (html) => {
-    // below is JXA
     const Evernote = Application("Evernote");
     const createdNote = Evernote.createNote({ withHtml: html });
     Evernote.openNoteWindow({ with: createdNote });

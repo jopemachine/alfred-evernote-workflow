@@ -47,7 +47,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
     case "last_edited_time":
       result = _.map(searchedNotes, note => {
         const updatedTime = new Date(note.updated).toLocaleString();
-    
+
         return {
           title: note.title,
           arg: note.title,
@@ -71,13 +71,13 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
         };
       });
       break;
-      
+
     case "notebook":
       result = await Promise.all(_.map(searchedNotes, async note => {
         let notebookName;
 
         await noteStore.getNotebook(note.notebookGuid).then(notebook => notebookName = notebook.name);
-    
+
         return {
           title: note.title,
           arg: note.title,
@@ -91,11 +91,11 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
     case "tags":
       result = await Promise.all(_.map(searchedNotes, async note => {
         let tagNames;
-    
+
         await noteStore.getNoteTagNames(note.guid).then(tagNameList => tagNames = tagNameList);
-    
+
         const tagNameStr = tagNames.join(', ');
-    
+
         return {
           title: note.title,
           arg: note.title,
@@ -109,7 +109,7 @@ noteStore.findNotesMetadata(filter, 0, config.search_count, spec).then(async not
       console.log("config file error, set the proper search_subtitle value");
       break;
   }
-  
+
   alfy.output(result);
 
 }).catch(err => {
