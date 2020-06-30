@@ -816,6 +816,32 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>var evernote = Application('Evernote');
+evernote.activate();
+var notes = evernote.findNotes('{query}');
+evernote.openNoteWindow({ with: notes[0] });</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>7</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -862,32 +888,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>var evernote = Application('Evernote');
-evernote.activate();
-var notes = evernote.findNotes('{query}');
-evernote.openNoteWindow({ with: notes[0] });</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>7</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -896,7 +896,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>083F324A-BB2F-4771-8A93-8507F723B0C9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>680</integer>
+			<integer>675</integer>
 			<key>ypos</key>
 			<integer>845</integer>
 		</dict>
@@ -910,7 +910,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>23AC567D-9B2F-4B39-9515-1463033EED2B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1085</integer>
+			<integer>1065</integer>
 			<key>ypos</key>
 			<integer>15</integer>
 		</dict>
@@ -938,14 +938,14 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>4A633FCA-0B14-4563-929B-FDB3AA4533D4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<integer>510</integer>
 			<key>ypos</key>
-			<integer>980</integer>
+			<integer>985</integer>
 		</dict>
 		<key>59271E4F-27C2-49A0-9869-9F968E3256FE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>690</integer>
+			<integer>685</integer>
 			<key>ypos</key>
 			<integer>285</integer>
 		</dict>
@@ -987,9 +987,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<integer>510</integer>
 			<key>ypos</key>
-			<integer>1130</integer>
+			<integer>1125</integer>
 		</dict>
 		<key>BF58CB99-FBC2-4A56-9E28-EE4DD49755BC</key>
 		<dict>
@@ -1015,7 +1015,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>D26E6118-944F-4344-A6A0-CEAD85E4E200</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<integer>510</integer>
 			<key>ypos</key>
 			<integer>285</integer>
 		</dict>
@@ -1036,7 +1036,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>E3E5275F-DBA8-4E71-A7F9-F0C8F663D845</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<integer>510</integer>
 			<key>ypos</key>
 			<integer>845</integer>
 		</dict>
@@ -1045,7 +1045,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<key>xpos</key>
 			<integer>340</integer>
 			<key>ypos</key>
-			<integer>980</integer>
+			<integer>985</integer>
 		</dict>
 		<key>clipIcon</key>
 		<dict>
@@ -1059,7 +1059,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<key>xpos</key>
 			<integer>340</integer>
 			<key>ypos</key>
-			<integer>1130</integer>
+			<integer>1125</integer>
 		</dict>
 		<key>tagIcon2</key>
 		<dict>

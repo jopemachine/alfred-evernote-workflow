@@ -1,6 +1,6 @@
-const OAuth = require('./OAuth.json');
-const config = require('./config.json');
-const Evernote = require('evernote');
+const OAuth = require("./OAuth.json");
+const config = require("./config.json");
+const Evernote = require("evernote");
 
 var authenticatedClient = new Evernote.Client({
   token: OAuth.oauthToken,
@@ -23,7 +23,7 @@ const catchThriftException = func => async (...args) => {
       console.log(err);
     }
   }
-}
+};
 
 const handleSubtitleRestrictor = func => async (count, ...args) => {
   if (count < config.subtitle_restrictor) return await func(...args);
@@ -32,74 +32,61 @@ const handleSubtitleRestrictor = func => async (count, ...args) => {
 // ---------------------------------------------------------------------------------
 
 async function getNotebookName(notebookGuid) {
-  let result;
-  await noteStore.getNotebook(notebookGuid).then(notebook => {
-    result = `Notebook: ${notebook.name}`
-  });
-  return result;
+  const notebook = await noteStore.getNotebook(notebookGuid);
+  return `Notebook: ${notebook.name}`;
 }
 
 async function getNoteTagNames(noteGuid) {
-  let result;
-  await noteStore.getNoteTagNames(noteGuid).then(tagNameList => {
-    const tagNameStr = tagNameList.join(', ');
-    result = tagNameStr === '' ? "None" : `Tags: ${tagNameStr}`
-  });
-  return result;
+  const tagNameList = await noteStore.getNoteTagNames(noteGuid);
+  const tagNameStr = tagNameList.join(", ");
+
+  return tagNameStr === "" ? "None" : `Tags: ${tagNameStr}`;
 }
 
 async function getTag(parentTagGuid) {
   let result;
-  if(parentTagGuid) {
-    await noteStore.getTag(parentTagGuid).then(parentTag => {
-      result = `Parent Tag: ${parentTag.name}`;
-    });
+  if (parentTagGuid) {
+    const parentTag = await noteStore.getTag(parentTagGuid);
+    result = `Parent Tag: ${parentTag.name}`;
   } else {
-    result = 'none';
+    result = "none";
   }
   return result;
 }
 
 async function findNoteCountsWithTag(tagGuid) {
-  let result;
-
   const tagFilter = new Evernote.NoteStore.NoteFilter({
     tagGuids: [tagGuid],
     ascending: false,
   });
 
-  await noteStore
-    .findNoteCounts(tagFilter, false)
-    .then(taggedNotesCnt => {
-      result = taggedNotesCnt.tagCounts[tagGuid]
-        ? `Counts: ${taggedNotesCnt.tagCounts[tagGuid]}`
-        : `Counts: 0`;
-  });
+  const taggedNotesCnt = (await noteStore.findNoteCounts(tagFilter, false))
+    .tagCounts[tagGuid];
 
-  return result;
+  return taggedNotesCnt ? `Counts: ${taggedNotesCnt}` : `Counts: 0`;
 }
 
-async function findNotesMetadata(filter, search_count, spec, { callback }) {
-  let result;
-  await noteStore.findNotesMetadata(filter, 0, search_count, spec).then(async notesMetadataList => {
-    result = callback(notesMetadataList);
-  })
-  return result;
+async function findNotesMetadata(filter, search_max_count, spec, { callback }) {
+  return callback(
+    await noteStore.findNotesMetadata(filter, 0, search_max_count, spec)
+  );
 }
 
 async function listTags({ callback }) {
-  let result;
-  await noteStore.listTags().then(async tags => {
-    result = callback(tags);
-  });
-  return result;
+  return callback(await noteStore.listTags());
 }
 
 module.exports = {
-  getNotebookName:          catchThriftException(handleSubtitleRestrictor(getNotebookName)),
-  getNoteTagNames:          catchThriftException(handleSubtitleRestrictor(getNoteTagNames)),
-  getTag:                   catchThriftException(handleSubtitleRestrictor(getTag)),
-  findNoteCountsWithTag:    catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
-  findNotesMetadata:        catchThriftException(findNotesMetadata),
-  listTags:                 catchThriftException(listTags)
-}
+  getNotebookName: catchThriftException(
+    handleSubtitleRestrictor(getNotebookName)
+  ),
+  getNoteTagNames: catchThriftException(
+    handleSubtitleRestrictor(getNoteTagNames)
+  ),
+  getTag: catchThriftException(handleSubtitleRestrictor(getTag)),
+  findNoteCountsWithTag: catchThriftException(
+    handleSubtitleRestrictor(findNoteCountsWithTag)
+  ),
+  findNotesMetadata: catchThriftException(findNotesMetadata),
+  listTags: catchThriftException(listTags),
+};

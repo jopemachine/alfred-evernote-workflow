@@ -29,7 +29,7 @@ if (alfy.input) {
 }
 
 var spec = new Evernote.NoteStore.NotesMetadataResultSpec(
-  config.search_include
+  config.search_include_options
 );
 
 async function searchNote(notesMetadataList) {
@@ -131,7 +131,7 @@ async function searchNote(notesMetadataList) {
 (async function () {
   const result = await api.findNotesMetadata(
     filter,
-    config.search_count,
+    config.search_max_count,
     spec,
     {
       callback: searchNote,
