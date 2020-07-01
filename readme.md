@@ -33,16 +33,16 @@ You can use below feature.
 
 |  Keyword  | Argument |   Desc   |
 |:----:|:----:|:----:|
-|  en  | No argument |   Switch to your Evernote App   |
-|  en > login  |  No argument  |    This command is required only for the initial authentication process.    |
-|  en > auth  | { your api key } |    This command is required only for the initial authentication process.    |
-|  sync  |   No argument   |    Sync Evernote    |
-|  todo  |   No argument   |    Search for notes with check boxes.    |
-|  clip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
-|  oclip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
-|  ens  | { content to search } |    Search the Evernote's notes    |
-|  tag  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  tagc  | { note title to create } |  |
+|  `en`  | No argument |   Switch to your Evernote App   |
+|  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
+|  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
+|  `sync`  |   No argument   |    Sync Evernote    |
+|  `todo`  |   No argument   |    Search for notes with check boxes.    |
+|  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
+|  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
+|  `ens`  | { content to search } |    Search the Evernote's notes    |
+|  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
+|  `tagc`  | { note title to create } |  |
 
 ## Options
 
