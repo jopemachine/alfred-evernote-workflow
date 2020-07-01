@@ -44,7 +44,51 @@ You can use below feature.
 |  tag  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
 |  tagc  | { note title to create } |  |
 
+## Options
 
+You can change various option, including search options by changing value of `config.json`
+
+* **search_max_count**
+
+| Name | Type |
+|:----:|:----:|
+| search_max_count | {number} |
+
+Determines how many items you want to search for in the `ens` command.
+
+* **search_subtitle**
+
+| Possible Value | Desc |
+|:----:|:----:|
+| tags |  In the search results subtitle, specify the tags that contain the note. |
+| created_time | In the search results subtitle, specify the date when the note was created. |
+| last_edited_time |  In the search results subtitle, specify the date when the note was updated.  |
+| content_length |  In the search results subtitle, specify the length of the note |
+| notebook |   In the search results subtitle, specify the notebook name of note |
+
+In the `ens` search results subtitle, specify which item Alfred show.
+
+* **search_include_options**
+
+Specifies the items to include in the `ens` search results.
+
+* **tag_search_subtitle**
+
+| Possible Value | Desc |
+|:----:|:----:|
+| none | none |
+| parent_tag | In the search results subtitle, specify parent's tag of the tag |
+| note_count |  In the search results subtitle, specify number of notes that the tag has |
+
+In the `tag` search results subtitle, specify which item Alfred show.
+
+* **cliped_note_tag**
+
+Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name
+
+* **subtitle_restrictor**
+
+To refrain from frequent occurrence of api rate, it was made to make subtitle api calls only less than below a certain number.
 
 ## License
 
