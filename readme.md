@@ -48,6 +48,10 @@ You can use below feature.
 
 You can change various option, including search options by changing value of `config.json`
 
+<br>
+
+<hr>
+
 * **search_max_count**
 
 | Name | Type |
@@ -55,6 +59,8 @@ You can change various option, including search options by changing value of `co
 | search_max_count | {number} |
 
 Determines how many items you want to search for in the `ens` command.
+
+<hr>
 
 * **search_subtitle**
 
@@ -68,9 +74,13 @@ Determines how many items you want to search for in the `ens` command.
 
 In the `ens` search results subtitle, specify which item Alfred show.
 
+<hr>
+
 * **search_include_options**
 
 Specifies the items to include in the `ens` search results.
+
+<hr>
 
 * **tag_search_subtitle**
 
@@ -82,9 +92,13 @@ Specifies the items to include in the `ens` search results.
 
 In the `tag` search results subtitle, specify which item Alfred show.
 
+<hr>
+
 * **cliped_note_tag**
 
 Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name
+
+<hr>
 
 * **subtitle_restrictor**
 
