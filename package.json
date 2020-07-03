@@ -1,9 +1,11 @@
 {
-  "name": "alfy-evernote-workflow",
+  "name": "@jopemachine/alfy-evernote-workflow",
   "version": "0.0.1",
   "description": "Alfred evernote workflow",
   "license": "MIT",
-  "repository": "jopemachine/Alfred-evernote-workflow",
+  "repository": {
+    "url": "git://github.com/jopemachine/Alfred-evernote-workflow.git"
+  },
   "author": {
     "name": "jopemachine",
     "email": "jopemachine@naver.com",

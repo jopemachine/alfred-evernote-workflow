@@ -30,10 +30,8 @@ const catchThriftException = func => async (...args) => {
       switch (err.errorCode) {
         case 2:
           return makeScreenFilterJson({ title: "Not valid oauth token, please read README.md first" });
-          break;
         case 19:
           return makeScreenFilterJson({ title: "Evernote sdk's ratelimit has reached its limit. Please try again in an hour." });
-          break;
       }
     }
   }
@@ -91,16 +89,17 @@ async function listTags({ callback }) {
 }
 
 module.exports = {
-  getNotebookName: catchThriftException(
-    handleSubtitleRestrictor(getNotebookName)
-  ),
-  getNoteTagNames: catchThriftException(
-    handleSubtitleRestrictor(getNoteTagNames)
-  ),
-  getTag: catchThriftException(handleSubtitleRestrictor(getTag)),
-  findNoteCountsWithTag: catchThriftException(
-    handleSubtitleRestrictor(findNoteCountsWithTag)
-  ),
-  findNotesMetadata: catchThriftException(findNotesMetadata),
-  listTags: catchThriftException(listTags),
+  makeScreenFilterJson,
+  getNotebookName:
+    catchThriftException(handleSubtitleRestrictor(getNotebookName)),
+  getNoteTagNames:
+    catchThriftException(handleSubtitleRestrictor(getNoteTagNames)),
+  getTag:
+    catchThriftException(handleSubtitleRestrictor(getTag)),
+  findNoteCountsWithTag:
+    catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
+  findNotesMetadata:
+    catchThriftException(findNotesMetadata),
+  listTags:
+    catchThriftException(listTags),
 };

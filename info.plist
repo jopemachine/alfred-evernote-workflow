@@ -321,7 +321,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>http://localhost:3000/oauth</string>
+				<string>https://fk5dbjl4x5.execute-api.us-east-1.amazonaws.com/prod/auth</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
