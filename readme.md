@@ -27,22 +27,22 @@ Alfred-evernote-workflow use your token to authenticate your account.
 
 ## How to use
 
-In Alfred, type below query, <kbd>Enter</kbd>.
+In Alfred, type below query and <kbd>Enter</kbd>
 
 You can use below feature.
 
 |  Keyword  | Argument |   Desc   |
 |:----:|:----:|:----:|
-|  en  | No argument |   Switch to your Evernote App   |
-|  en > login  |  No argument  |    This command is required only for the initial authentication process.    |
-|  en > auth  | { your api key } |    This command is required only for the initial authentication process.    |
-|  sync  |   No argument   |    Sync Evernote    |
-|  todo  |   No argument   |    Search for notes with check boxes.    |
-|  clip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
-|  oclip  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
-|  ens  | { content to search } |    Search the Evernote's notes    |
-|  tag  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  tagc  | { note title to create } |  |
+|  `en`  | No argument |   Switch to your Evernote App   |
+|  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
+|  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
+|  `sync`  |   No argument   |    Sync Evernote    |
+|  `todo`  |   No argument   |    Search for notes with check boxes.    |
+|  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
+|  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
+|  `ens`  | { content to search } |    Search the Evernote's notes    |
+|  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
+|  `tagc`  | { note title to create } |  |
 
 ## Options
 
@@ -54,9 +54,9 @@ You can change various option, including search options by changing value of `co
 
 * **search_max_count**
 
-| Name | Type |
+| Possible Value | Desc |
 |:----:|:----:|
-| search_max_count | {number} |
+| "search_max_count" | {number} |
 
 Determines how many items you want to search for in the `ens` command.
 
@@ -66,11 +66,11 @@ Determines how many items you want to search for in the `ens` command.
 
 | Possible Value | Desc |
 |:----:|:----:|
-| tags |  In the search results subtitle, specify the tags that contain the note. |
-| created_time | In the search results subtitle, specify the date when the note was created. |
-| last_edited_time |  In the search results subtitle, specify the date when the note was updated.  |
-| content_length |  In the search results subtitle, specify the length of the note |
-| notebook |   In the search results subtitle, specify the notebook name of note |
+| "tags" |  In the search results subtitle, specify the tags that contain the note. |
+| "created_time" | In the search results subtitle, specify the date when the note was created. |
+| "last_edited_time" |  In the search results subtitle, specify the date when the note was updated.  |
+| "content_length" |  In the search results subtitle, specify the length of the note |
+| "notebook" |   In the search results subtitle, specify the notebook name of note |
 
 In the `ens` search results subtitle, specify which item Alfred show.
 
@@ -86,9 +86,9 @@ Specifies the items to include in the `ens` search results.
 
 | Possible Value | Desc |
 |:----:|:----:|
-| none | none |
-| parent_tag | In the search results subtitle, specify parent's tag of the tag |
-| note_count |  In the search results subtitle, specify number of notes that the tag has |
+| "none" | none |
+| "parent_tag" | In the search results subtitle, specify parent's tag of the tag |
+| "note_count" |  In the search results subtitle, specify number of notes that the tag has |
 
 In the `tag` search results subtitle, specify which item Alfred show.
 
@@ -102,7 +102,7 @@ Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name
 
 * **subtitle_restrictor**
 
-To refrain from frequent occurrence of api rate, it was made to make subtitle api calls only less than below a certain number.
+To refrain from frequent occurrence of api rate, it was made to make subtitle api calls only less than below a certain number
 
 ## License
 
