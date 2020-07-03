@@ -14,13 +14,27 @@ const noteStore = authenticatedClient.getNoteStore();
 // ------------------------------- Util function -----------------------------------
 // ---------------------------------------------------------------------------------
 
+const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon }) => {
+  return [
+    {
+      uid, type, title, subtitle, arg, autocomplete, icon
+    }
+  ]
+}
+
 const catchThriftException = func => async (...args) => {
   try {
     return await func(...args);
   } catch (err) {
-    // To do : Need to distinguish ThriftException here
     if (err) {
-      console.log(err);
+      switch (err.errorCode) {
+        case 2:
+          return makeScreenFilterJson({ title: "Not valid oauth token, please read README.md first" });
+          break;
+        case 19:
+          return makeScreenFilterJson({ title: "Evernote sdk's ratelimit has reached its limit. Please try again in an hour." });
+          break;
+      }
     }
   }
 };
