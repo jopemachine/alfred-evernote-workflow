@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.jopemachine.alfyevernoteworkflow</string>
+	<string>com.jopemachine.alfredevernoteworkflow</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
@@ -198,7 +198,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>alfy-evernote-workflow</string>
+	<string>alfred-evernote-workflow</string>
 	<key>objects</key>
 	<array>
 		<dict>
