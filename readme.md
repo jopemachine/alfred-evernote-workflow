@@ -6,25 +6,37 @@ Evernote workflow for Alfred 4
 
 * *View your latest notes*
 
-<img src="./imgs/ens.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/ens.png" width = "60%" height="60%" />
+</p>
 
 * *Search evernote with keyword*
 
-<img src="./imgs/ens_Javascript.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/ens_Javascript.png" width = "60%" height="60%" />
+</p>
 
 * *Search evernote with `Advanced Search Syntax`*
 
-<img src="./imgs/ens_tagJavascript.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/ens_tagJavascript.png" width = "60%" height="60%" />
+</p>
 
-<img src="./imgs/ens_Java.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/ens_Java.png" width = "60%" height="60%" />
+</p>
 
 * *View your all tags*
 
-<img src="./imgs/tag.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/tag.png" width = "60%" height="60%" />
+</p>
 
 * *Search your tag*
 
-<img src="./imgs/tag_Javascript.png" width = "50%" height="50%" />
+<p align="center">
+<img src="./imgs/tag_Javascript.png" width = "60%" height="60%" />
+</p>
 
 ## How to install
 
