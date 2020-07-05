@@ -1,7 +1,6 @@
 const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const {
-  makeScreenFilterJson,
   catchThriftException,
   handleSubtitleRestrictor
 } = require('./utils');
@@ -62,7 +61,6 @@ async function listTags({ callback }) {
 }
 
 module.exports = {
-  makeScreenFilterJson,
   getNotebookName:
     catchThriftException(handleSubtitleRestrictor(getNotebookName)),
   getNoteTagNames:
