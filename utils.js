@@ -1,3 +1,5 @@
+const config = require('./config.json');
+
 const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon }) => {
   return [
     {
