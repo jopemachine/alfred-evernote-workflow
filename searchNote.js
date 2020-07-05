@@ -18,14 +18,6 @@ if (!config) {
   return;
 }
 
-// order 0 : ?? (It seems that results are inconsistent)
-// order 1 : Created
-// order 2 : Updated
-// order 3 : ??
-// order 4 : Updated
-// order 5 : ??
-// order 6 : ?? (It seems that results are inconsistent)
-
 let filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,

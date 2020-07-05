@@ -80,14 +80,8 @@ In the `ens` search results subtitle, specify which item Alfred show.
 |:----:|:----:|
 | "created" | Search notes in the order in which they were created. |
 | "updated" | Search notes in the order in which they were updated. |
-
-<hr>
-
-* **search_include_options**
-
-Specifies the items to include in the `ens` search results.
-
-if you're sure that some attribute is useless in your search, you can optimize your search by excluding the attribute (by setting the value false).
+| "relevance" | Search notes in the order in their relevance. |
+| "title" | Search notes in the order in their title. |
 
 <hr>
 
@@ -100,6 +94,14 @@ if you're sure that some attribute is useless in your search, you can optimize y
 | "note_count" |  In the search results subtitle, specify number of notes that the tag has |
 
 In the `tag` search results subtitle, specify which item Alfred show.
+
+<hr>
+
+* **search_include_options**
+
+Specifies the items to include in the `ens` search results.
+
+if you're sure that some attribute is useless in your search, you can optimize your search by excluding the attribute (by setting the value false).
 
 <hr>
 
