@@ -26,7 +26,7 @@ const handleSubtitleRestrictor = func => async (count, ...args) => {
 };
 
 module.exports = {
-  makeScreenFilterJson,
   catchThriftException,
-  handleSubtitleRestrictor
+  handleSubtitleRestrictor,
+  makeScreenFilterJson,
 }

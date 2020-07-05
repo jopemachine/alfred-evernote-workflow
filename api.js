@@ -1,13 +1,12 @@
-const OAuth = require("./OAuth.json");
-const config = require("./config.json");
 const Evernote = require("evernote");
+const OAuth = require("./OAuth.json");
 const {
   makeScreenFilterJson,
   catchThriftException,
   handleSubtitleRestrictor
 } = require('./utils');
 
-var authenticatedClient = new Evernote.Client({
+const authenticatedClient = new Evernote.Client({
   token: OAuth.oauthToken,
   sandbox: false,
   china: false,

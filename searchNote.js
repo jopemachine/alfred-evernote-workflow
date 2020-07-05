@@ -1,9 +1,9 @@
 const alfy = require("alfy");
-const Evernote = require("evernote");
-const _ = require("lodash");
-const OAuth = require("./OAuth.json");
-const config = require("./config.json");
 const api = require("./api");
+const config = require("./config.json");
+const Evernote = require("evernote");
+const OAuth = require("./OAuth.json");
+const _ = require("lodash");
 
 if (!OAuth) {
   console.log(

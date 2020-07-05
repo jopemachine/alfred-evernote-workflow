@@ -33,22 +33,20 @@ You can use below feature.
 
 |  Keyword  | Argument |   Desc   |
 |:----:|:----:|:----:|
-|  `en`  | No argument |   Switch to your Evernote App   |
+|  `en`  | No argument |   Switch to Evernote App.   |
 |  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
 |  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
-|  `sync`  |   No argument   |    Sync Evernote    |
+|  `sync`  |   No argument   |    Sync Evernote.    |
 |  `todo`  |   No argument   |    Search for notes with check boxes.    |
 |  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
 |  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
-|  `ens`  | { content to search } |    Search the Evernote's notes    |
+|  `ens`  | { content to search } |    Search the Evernote's notes.    |
 |  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  `tagc`  | { note title to create } |  |
+|  `tagc`  | { note title to create } | Search tag name and create note by the selected tag. |
 
 ## Options
 
 You can change various option, including search options by changing value of `config.json`
-
-<br>
 
 <hr>
 
@@ -80,6 +78,8 @@ In the `ens` search results subtitle, specify which item Alfred show.
 
 Specifies the items to include in the `ens` search results.
 
+if you're sure that some attribute is useless in your search, you can optimize your search by excluding the attribute (by setting the value false).
+
 <hr>
 
 * **tag_search_subtitle**
@@ -96,13 +96,13 @@ In the `tag` search results subtitle, specify which item Alfred show.
 
 * **cliped_note_tag**
 
-Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name
+Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name.
 
 <hr>
 
 * **subtitle_restrictor**
 
-To refrain from frequent occurrence of api rate, it was made to make subtitle api calls only less than below a certain number
+To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api calls are restricted above a certain number.
 
 ## License
 

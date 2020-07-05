@@ -1,5 +1,5 @@
-const clipboardy = require('clipboardy');
 const alfy = require('alfy');
+const clipboardy = require('clipboardy');
 const { makeScreenFilterJson } = require('./utils');
 
 clipboardy.read().then(data => {
