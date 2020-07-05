@@ -84,11 +84,9 @@ async function searchTag(tags) {
 }
 
 (async function () {
-  const result = await api.listTags(
+  alfy.output(await api.listTags(
     {
       callback: searchTag,
     }
-  );
-
-  alfy.output(result);
+  ));
 })();

@@ -129,14 +129,12 @@ async function searchNote(notesMetadataList) {
 }
 
 (async function () {
-  const result = await api.findNotesMetadata(
+  alfy.output(await api.findNotesMetadata(
     filter,
     config.search_max_count,
     spec,
     {
       callback: searchNote,
     }
-  );
-
-  alfy.output(result);
+  ));
 })();
