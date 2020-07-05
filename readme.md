@@ -4,27 +4,27 @@ Evernote workflow for Alfred 4
 
 ## Outline
 
-* View your latest notes
+* *View your latest notes*
 
 ![1](./imgs/ens.png)
 
-* Search evernote with keyword
+* *Search evernote with keyword*
 
-![2](./imgs/ens Javascript.png)
+![2](./imgs/ens_Javascript.png)
 
-* Search evernote with `Advanced Search Syntax`
+* *Search evernote with `Advanced Search Syntax`*
 
-![3](./imgs/ens tagJavascript.png)
+![3](./imgs/ens_tagJavascript.png)
 
-![4](./imgs/ens Java.png)
+![4](./imgs/ens_Java.png)
 
-* View your all tags
+* *View your all tags*
 
 ![5](./imgs/tag.png)
 
-* Search your tag
+* *Search your tag*
 
-![6](./imgs/tag Javascript.png)
+![6](./imgs/tag_Javascript.png)
 
 ## How to install
 

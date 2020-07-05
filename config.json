@@ -8,7 +8,7 @@
     "includeCreated": true,
     "includeUpdated": true,
     "includeDeleted": true,
-    "includeUpdateSequenceNum": true,
+    "includeUpdateSequenceNum": false,
     "includeNotebookGuid": true,
     "includeTagGuids": true,
     "includeAttributes": true,
