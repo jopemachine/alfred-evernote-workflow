@@ -33,6 +33,7 @@ clipboardy.read().then(url => {
   if (url.match(regex)) {
     axios.get(url).then(resp => {
       createNoteByHTML(resp.data, config.cliped_note_tag);
+      console.log(" ");
     });
   } else {
 

@@ -12,8 +12,8 @@
     "includeNotebookGuid": true,
     "includeTagGuids": true,
     "includeAttributes": true,
-    "includeLargestResourceMime": true,
-    "includeLargestResourceSize": true
+    "includeLargestResourceMime": false,
+    "includeLargestResourceSize": false
   },
   "tag_search_subtitle": "note_count",
   "cliped_note_tag": "Cliper",
