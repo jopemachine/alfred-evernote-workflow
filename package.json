@@ -35,14 +35,14 @@
   "dependencies": {
     "@jxa/global-type": "^1.3.1",
     "@jxa/run": "^1.3.2",
-    "alfy": "^0.6.0",
+    "alfy": "^0.9.1",
     "clipboardy": "^2.3.0",
     "evernote": "^2.0.5",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
     "alfy-test": "^0.3.0",
-    "ava": "^0.18.0",
-    "xo": "^0.17.0"
+    "ava": "^0.18.2",
+    "xo": "^0.17.1"
   }
 }
