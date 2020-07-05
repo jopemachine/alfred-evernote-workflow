@@ -1,6 +1,7 @@
 {
   "search_max_count": 20,
   "search_subtitle": "tags",
+  "search_order": "created",
   "search_include_options": {
     "includeTitle": true,
     "includeContentLength": true,

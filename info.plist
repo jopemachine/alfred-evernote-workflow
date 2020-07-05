@@ -369,7 +369,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>tagc</string>
+				<string>ctag</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>

@@ -27,7 +27,17 @@ const handleSubtitleRestrictor = func => async (count, ...args) => {
   if (count < config.subtitle_restrictor) return await func(...args);
 };
 
+const decideSearchOrder = (option) => {
+  switch(option) {
+    case "created":
+      return 1;
+    case "updated":
+      return 2;
+  }
+}
+
 module.exports = {
+  decideSearchOrder,
   catchThriftException,
   handleSubtitleRestrictor,
   makeScreenFilterJson,

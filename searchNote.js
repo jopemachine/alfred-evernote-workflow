@@ -4,6 +4,7 @@ const config = require("./config.json");
 const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
+const { decideSearchOrder } = require('./utils');
 
 if (!OAuth) {
   console.log(
@@ -17,16 +18,19 @@ if (!config) {
   return;
 }
 
-let filter = new Evernote.NoteStore.NoteFilter({
-  ascending: true,
-});
+// order 0 : ?? (It seems that results are inconsistent)
+// order 1 : Created
+// order 2 : Updated
+// order 3 : ??
+// order 4 : Updated
+// order 5 : ??
+// order 6 : ?? (It seems that results are inconsistent)
 
-if (alfy.input) {
-  filter.words = alfy.input;
-} else {
-  alfy.input = "";
-  filter.ascending = false;
-}
+let filter = new Evernote.NoteStore.NoteFilter({
+  order: decideSearchOrder(config.search_order),
+  ascending: false,
+  words: alfy.input ? alfy.input : ""
+});
 
 var spec = new Evernote.NoteStore.NotesMetadataResultSpec(
   config.search_include_options

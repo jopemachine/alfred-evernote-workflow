@@ -42,7 +42,7 @@ You can use below feature.
 |  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
 |  `ens`  | { content to search } |    Search the Evernote's notes.    |
 |  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  `tagc`  | { note title to create } | Search tag name and create note by the selected tag. |
+|  `ctag`  | { note title to create } | Search tag name and create note by the selected tag. |
 
 ## Options
 
@@ -71,6 +71,15 @@ Determines how many items you want to search for in the `ens` command.
 | "notebook" |   In the search results subtitle, specify the notebook name of note |
 
 In the `ens` search results subtitle, specify which item Alfred show.
+
+<hr>
+
+* **search_order**
+
+| Possible Value | Desc |
+|:----:|:----:|
+| "created" | Search notes in the order in which they were created. |
+| "updated" | Search notes in the order in which they were updated. |
 
 <hr>
 
