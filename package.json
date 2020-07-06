@@ -1,37 +1,36 @@
 {
-  "name": "alfred-evernote-workflow",
-  "version": "0.0.1",
-  "description": "Alfred evernote workflow",
-  "license": "MIT",
-  "repository": {
-    "url": "git://github.com/jopemachine/Alfred-evernote-workflow.git"
+  "_from": "alfred-evernote-workflow",
+  "_id": "alfred-evernote-workflow@0.0.4",
+  "_inBundle": false,
+  "_integrity": "sha512-AAqNMxhKyDv3stRseYR7W9vkzUTPdqf4b2/zeRsAR4ICysbrQj0NpdtCijZ3OhcJHORmPadXi4pMk6WFsxk8Ww==",
+  "_location": "/alfred-evernote-workflow",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "alfred-evernote-workflow",
+    "name": "alfred-evernote-workflow",
+    "escapedName": "alfred-evernote-workflow",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/alfred-evernote-workflow/-/alfred-evernote-workflow-0.0.4.tgz",
+  "_shasum": "66af391dc9f9c738b1cccfb1a264011a77a0ac81",
+  "_spec": "alfred-evernote-workflow",
+  "_where": "/Users/igyubong/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8A34E19E-3B95-497D-8274-D0776DF242F3",
   "author": {
     "name": "jopemachine",
     "email": "jopemachine@naver.com",
     "url": "github.com/jopemachine/Alfred-evernote-workflow"
   },
-  "engines": {
-    "node": ">=4"
+  "bugs": {
+    "url": "https://github.com/jopemachine/Alfred-evernote-workflow/issues"
   },
-  "scripts": {
-    "test": "xo && ava",
-    "postinstall": "alfy-init",
-    "preuninstall": "alfy-cleanup"
-  },
-  "files": [
-    "index.js",
-    "icon.png",
-    "info.plist",
-    "searchIcon.png",
-    "tagIcon.png"
-  ],
-  "keywords": [
-    "alfred",
-    "workflow",
-    "alfy",
-    "evernote"
-  ],
+  "bundleDependencies": false,
   "dependencies": {
     "@jxa/global-type": "^1.3.1",
     "@jxa/run": "^1.3.2",
@@ -40,9 +39,39 @@
     "evernote": "^2.0.5",
     "lodash": "^4.17.15"
   },
+  "deprecated": false,
+  "description": "Alfred evernote workflow",
   "devDependencies": {
     "alfy-test": "^0.3.0",
     "ava": "^0.18.2",
     "xo": "^0.17.1"
-  }
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "*.js",
+    "*.png",
+    "imgs/*",
+    "info.plist",
+    "config.json"
+  ],
+  "homepage": "https://github.com/jopemachine/Alfred-evernote-workflow#readme",
+  "keywords": [
+    "alfred",
+    "workflow",
+    "alfy",
+    "evernote"
+  ],
+  "license": "MIT",
+  "name": "alfred-evernote-workflow",
+  "repository": {
+    "url": "git://github.com/jopemachine/Alfred-evernote-workflow.git"
+  },
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup",
+    "test": "xo && ava"
+  },
+  "version": "0.0.4"
 }

@@ -191,7 +191,7 @@
 	<key>createdby</key>
 	<string>jopemachine</string>
 	<key>description</key>
-	<string></string>
+	<string>Alfred evernote workflow</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -1069,7 +1069,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<integer>15</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>0.0.4</string>
 	<key>webaddress</key>
-	<string>https://github.com/jopemachine/Alfred-evernote-workflow</string>
+	<string>https://github.com/jopemachine/Alfred-evernote-workflow#readme</string>
 </dict>
 </plist>
