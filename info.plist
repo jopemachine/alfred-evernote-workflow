@@ -391,8 +391,6 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
-				<key>keyword</key>
-				<string>ens</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1070,7 +1068,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>0.0.4</string>
+	<string>0.0.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/jopemachine/Alfred-evernote-workflow#readme</string>
 </dict>

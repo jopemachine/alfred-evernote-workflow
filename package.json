@@ -1,6 +1,6 @@
 {
   "_from": "alfred-evernote-workflow",
-  "_id": "alfred-evernote-workflow@0.0.4",
+  "_id": "alfred-evernote-workflow@0.0.7",
   "_inBundle": false,
   "_integrity": "sha512-AAqNMxhKyDv3stRseYR7W9vkzUTPdqf4b2/zeRsAR4ICysbrQj0NpdtCijZ3OhcJHORmPadXi4pMk6WFsxk8Ww==",
   "_location": "/alfred-evernote-workflow",
@@ -18,7 +18,7 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/alfred-evernote-workflow/-/alfred-evernote-workflow-0.0.4.tgz",
+  "_resolved": "https://registry.npmjs.org/alfred-evernote-workflow/-/alfred-evernote-workflow-0.0.7.tgz",
   "_shasum": "66af391dc9f9c738b1cccfb1a264011a77a0ac81",
   "_spec": "alfred-evernote-workflow",
   "_where": "/Users/igyubong/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8A34E19E-3B95-497D-8274-D0776DF242F3",
@@ -73,5 +73,5 @@
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava"
   },
-  "version": "0.0.4"
+  "version": "0.0.7"
 }
