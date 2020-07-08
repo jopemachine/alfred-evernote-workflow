@@ -72,6 +72,7 @@ You can use below feature.
 |  `en`  | No argument |   Switch to Evernote App.   |
 |  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
 |  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
+|  `en > help`  |  No argument  |    Open Github link to view README.md    |
 |  `sync`  |   No argument   |    Sync Evernote.    |
 |  `todo`  |   No argument   |    Search for notes with check boxes.    |
 |  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
