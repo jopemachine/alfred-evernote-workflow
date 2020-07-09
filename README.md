@@ -42,7 +42,7 @@ Evernote workflow for Alfred 4
 
 1. **Install package**
 ```
-$ npm install --global alfred-evernote-flow
+$ npm install --global alfred-evernote-workflow
 ```
 
 *You need to [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/) to use this package*
