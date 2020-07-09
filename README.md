@@ -73,15 +73,15 @@ You can use below feature.
 |  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
 |  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
 |  `en > help`  |  No argument  |    Open Github link to view README.md    |
-|  `sync`  |   No argument   |    Sync Evernote.    |
-|  `todo`  |   No argument   |    Search for notes with check boxes.    |
-|  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
-|  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
-|  `et`  | { Note content } |    Create note by text    |
+|  `ensync`  |   No argument   |    Sync Evernote.    |
+|  `entodo`  |   No argument   |    Search for notes with check boxes.    |
+|  `encl`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
+|  `enclo`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
+|  `enc`  | { Note content } |    Create note by text    |
+|  `enct`  | { note title to create } | Search tag name and create note by the selected tag and note content if you want |
 |  `enu`  | { url } |    Search Notes by url    |
 |  `ens`  | { content to search } |    Search the Evernote's notes.    |
-|  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  `ctag`  | { note title to create } | Search tag name and create note by the selected tag. |
+|  `ent`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
 
 ## Options
 
@@ -132,7 +132,7 @@ In the `ens` search results subtitle, specify which item Alfred show.
 | "parent_tag" | In the search results subtitle, specify parent's tag of the tag |
 | "note_count" |  In the search results subtitle, specify number of notes that the tag has |
 
-In the `tag` search results subtitle, specify which item Alfred show.
+In the `ent` search results subtitle, specify which item Alfred show.
 
 <hr>
 
@@ -146,7 +146,7 @@ if you're sure that some attribute is useless in your search, you can optimize y
 
 * **cliped_note_tag**
 
-Tag notes that you clip with the `clip`, `uclip`, `oclip` command with that name.
+Tag notes that you clip with the `encl`, `enclo` command with that name.
 
 <hr>
 

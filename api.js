@@ -47,7 +47,7 @@ async function findNoteCountsWithTag(tagGuid) {
   const taggedNotesCnt = (await noteStore.findNoteCounts(tagFilter, false))
     .tagCounts[tagGuid];
 
-  return taggedNotesCnt ? `Counts: ${taggedNotesCnt}` : `Counts: 0`;
+  return taggedNotesCnt ? `Note counts: ${taggedNotesCnt}` : `Note counts: 0`;
 }
 
 async function findNotesMetadata(filter, search_max_count, spec, { callback }) {

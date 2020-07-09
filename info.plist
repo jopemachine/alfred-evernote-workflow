@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>A0BF5587-B49C-4C87-A8A3-AEDFD8944F34</string>
+				<string>B682AF9E-BBAC-4D9B-9423-E13215621523</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -61,18 +61,7 @@
 			</dict>
 		</array>
 		<key>68D45F64-7BFC-464D-BF4B-9E706B836DDA</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>ED3D9A30-F676-4580-A098-806EF74442F9</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 		<key>81A525BC-4CA2-4F28-AC00-1F46159D86A6</key>
 		<array>
 			<dict>
@@ -143,6 +132,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B682AF9E-BBAC-4D9B-9423-E13215621523</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A0BF5587-B49C-4C87-A8A3-AEDFD8944F34</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -339,7 +341,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>tag</string>
+				<string>ent</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -349,7 +351,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<string>Tag searching...</string>
 				<key>script</key>
 				<string>./node_modules/.bin/run-node searchTag.js "$1"</string>
 				<key>scriptargtype</key>
@@ -357,7 +359,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>scriptfile</key>
 				<string>index.js</string>
 				<key>subtext</key>
-				<string>Keyword: ent</string>
+				<string></string>
 				<key>title</key>
 				<string>Search Tag..</string>
 				<key>type</key>
@@ -371,25 +373,6 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 			<string>tagIcon2</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://fk5dbjl4x5.execute-api.us-east-1.amazonaws.com/prod/auth</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -415,28 +398,21 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>var evernote = Application('Evernote');
-evernote.activate();
-var notes = evernote.findNotes('{query}');
-evernote.openNoteWindow({ with: notes[0] });</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
+				<key>browser</key>
 				<string></string>
-				<key>type</key>
-				<integer>7</integer>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://fk5dbjl4x5.execute-api.us-east-1.amazonaws.com/prod/auth</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>8339CA5F-37AF-4BD9-AA16-5550F10343B5</string>
+			<string>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -488,21 +464,28 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>var evernote = Application('Evernote');
+evernote.activate();
+var notes = evernote.findNotes('{query}');
+evernote.openNoteWindow({ with: notes[0] });</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
 				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://github.com/jopemachine/Alfred-evernote-workflow</string>
-				<key>utf8</key>
-				<true/>
+				<key>type</key>
+				<integer>7</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</string>
+			<string>8339CA5F-37AF-4BD9-AA16-5550F10343B5</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -528,6 +511,44 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/jopemachine/Alfred-evernote-workflow</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Create Note..</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B682AF9E-BBAC-4D9B-9423-E13215621523</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -541,7 +562,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>ctag</string>
+				<string>enct</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -551,9 +572,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<string>Tag searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node searchTag.js "$1"</string>
+				<string>./node_modules/.bin/run-node ctag.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -584,7 +605,12 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<key>script</key>
 				<string>var evernote = Application('Evernote');
 evernote.activate();
-var newNote = evernote.createNote({ withText: ' ', tags: ['{query}'] });
+var queryList = '{query}'.split("$content:");
+var noteContent = queryList[1] !== '' ? queryList[1] : ' ';
+
+var date = new Date().toLocaleString();
+
+var newNote = evernote.createNote({ title: date, withText: noteContent, tags: [queryList[0]] });
 evernote.openNoteWindow({ with: newNote });</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -599,27 +625,6 @@ evernote.openNoteWindow({ with: newNote });</string>
 			<string>A0BF5587-B49C-4C87-A8A3-AEDFD8944F34</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>Auth Complete!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>59271E4F-27C2-49A0-9869-9F968E3256FE</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -647,6 +652,27 @@ evernote.openNoteWindow({ with: newNote });</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Auth Complete!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>59271E4F-27C2-49A0-9869-9F968E3256FE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -668,27 +694,6 @@ evernote.openNoteWindow({ with: newNote });</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>Note created!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>ED3D9A30-F676-4580-A098-806EF74442F9</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -697,7 +702,8 @@ evernote.openNoteWindow({ with: newNote });</string>
 				<string>var evernote = Application('Evernote');
 var date = new Date().toLocaleString();
 
-evernote.createNote({ title: date, withText: "{query}" });</string>
+var newNote = evernote.createNote({ title: date, withText: "{query}" });
+evernote.openNoteWindow({ with: newNote });</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -718,7 +724,7 @@ evernote.createNote({ title: date, withText: "{query}" });</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>et</string>
+				<string>enc</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
@@ -739,7 +745,7 @@ evernote.createNote({ title: date, withText: "{query}" });</string>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>sync</string>
+				<string>ensync</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
@@ -793,7 +799,7 @@ evernote.createNote({ title: date, withText: "{query}" });</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>todo</string>
+				<string>entodo</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -880,29 +886,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node clip.js</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>81A525BC-4CA2-4F28-AC00-1F46159D86A6</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -916,7 +899,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>clip</string>
+				<string>encl</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -978,7 +961,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node clipAndOpen.js</string>
+				<string>./node_modules/.bin/run-node clip.js</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -989,7 +972,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>4A633FCA-0B14-4563-929B-FDB3AA4533D4</string>
+			<string>81A525BC-4CA2-4F28-AC00-1F46159D86A6</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1009,7 +992,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>oclip</string>
+				<string>enclo</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1048,23 +1031,20 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>68</integer>
 				<key>script</key>
-				<string>var evernote = Application('Evernote');
-evernote.activate();
-var notes = evernote.findNotes('{query}');
-evernote.openNoteWindow({ with: notes[0] });</string>
+				<string>./node_modules/.bin/run-node clipAndOpen.js</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>7</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</string>
+			<string>4A633FCA-0B14-4563-929B-FDB3AA4533D4</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1139,7 +1119,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>745E3149-57CB-4300-B683-202D0BA433F2</string>
+			<string>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1192,6 +1172,32 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>var evernote = Application('Evernote');
+evernote.activate();
+var notes = evernote.findNotes('{query}');
+evernote.openNoteWindow({ with: notes[0] });</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>7</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>745E3149-57CB-4300-B683-202D0BA433F2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -1200,9 +1206,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>13280E8F-C7F8-468D-91D5-2F41BC0D0F20</key>
 		<dict>
 			<key>xpos</key>
-			<integer>895</integer>
+			<integer>900</integer>
 			<key>ypos</key>
-			<integer>290</integer>
+			<integer>280</integer>
 		</dict>
 		<key>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</key>
 		<dict>
@@ -1263,9 +1269,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>68D45F64-7BFC-464D-BF4B-9E706B836DDA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1065</integer>
+			<integer>1070</integer>
 			<key>ypos</key>
-			<integer>415</integer>
+			<integer>410</integer>
 		</dict>
 		<key>745E3149-57CB-4300-B683-202D0BA433F2</key>
 		<dict>
@@ -1298,16 +1304,16 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>9E53E6C4-0BB7-4D56-A552-5AE714561D73</key>
 		<dict>
 			<key>xpos</key>
-			<integer>895</integer>
+			<integer>900</integer>
 			<key>ypos</key>
-			<integer>415</integer>
+			<integer>410</integer>
 		</dict>
 		<key>A0BF5587-B49C-4C87-A8A3-AEDFD8944F34</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1065</integer>
+			<integer>1240</integer>
 			<key>ypos</key>
-			<integer>290</integer>
+			<integer>280</integer>
 		</dict>
 		<key>A8E57FB8-8252-4D29-95FF-1A81FDB33C76</key>
 		<dict>
@@ -1329,6 +1335,13 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<integer>335</integer>
 			<key>ypos</key>
 			<integer>145</integer>
+		</dict>
+		<key>B682AF9E-BBAC-4D9B-9423-E13215621523</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1065</integer>
+			<key>ypos</key>
+			<integer>280</integer>
 		</dict>
 		<key>BE13B880-EC5B-44A8-BD30-8534BBE87551</key>
 		<dict>
@@ -1378,13 +1391,6 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<integer>510</integer>
 			<key>ypos</key>
 			<integer>545</integer>
-		</dict>
-		<key>ED3D9A30-F676-4580-A098-806EF74442F9</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1235</integer>
-			<key>ypos</key>
-			<integer>415</integer>
 		</dict>
 		<key>F7CB6A3D-6A81-4DB3-AA38-9ECDB4DC320D</key>
 		<dict>
