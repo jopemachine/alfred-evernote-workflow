@@ -77,6 +77,8 @@ You can use below feature.
 |  `todo`  |   No argument   |    Search for notes with check boxes.    |
 |  `clip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
 |  `oclip`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
+|  `et`  | { Note content } |    Create note by text    |
+|  `enu`  | { url } |    Search Notes by url    |
 |  `ens`  | { content to search } |    Search the Evernote's notes.    |
 |  `tag`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
 |  `ctag`  | { note title to create } | Search tag name and create note by the selected tag. |

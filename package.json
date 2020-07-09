@@ -1,33 +1,9 @@
 {
-  "_from": "alfred-evernote-workflow",
-  "_id": "alfred-evernote-workflow@0.0.8",
-  "_inBundle": false,
-  "_integrity": "sha512-AAqNMxhKyDv3stRseYR7W9vkzUTPdqf4b2/zeRsAR4ICysbrQj0NpdtCijZ3OhcJHORmPadXi4pMk6WFsxk8Ww==",
-  "_location": "/alfred-evernote-workflow",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "alfred-evernote-workflow",
-    "name": "alfred-evernote-workflow",
-    "escapedName": "alfred-evernote-workflow",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/alfred-evernote-workflow/-/alfred-evernote-workflow-0.0.8.tgz",
-  "_shasum": "66af391dc9f9c738b1cccfb1a264011a77a0ac81",
-  "_spec": "alfred-evernote-workflow",
-  "_where": "/Users/igyubong/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8A34E19E-3B95-497D-8274-D0776DF242F3",
   "author": {
     "name": "jopemachine",
     "email": "jopemachine@naver.com",
     "url": "github.com/jopemachine/Alfred-evernote-workflow"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "bugs": {
     "url": "https://github.com/jopemachine/Alfred-evernote-workflow/issues"
   },
