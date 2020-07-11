@@ -35,6 +35,9 @@ switch (option) {
   case "--notebook":
     input = `notebook: "${input}"`;
     break;
+  case "--todo":
+    input = `todo:*`;
+    break;
 }
 
 let filter = new Evernote.NoteStore.NoteFilter({

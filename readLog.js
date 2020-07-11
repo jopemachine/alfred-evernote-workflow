@@ -2,7 +2,7 @@ const commandLog = require("./commandLog.json");
 const _ = require("lodash");
 const alfy = require("alfy");
 
-const logs = _.map(commandLog, (log, date) => {
+const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
   const [keyword, ...query] = log.split(" ");
 
   let argument;
@@ -41,6 +41,6 @@ const logs = _.map(commandLog, (log, date) => {
     autocomplete: log,
     subtitle: date,
   };
-});
+})), item => item.title);
 
-alfy.output(_.reverse(logs));
+alfy.output(logs);
