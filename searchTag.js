@@ -3,6 +3,7 @@ const api = require("./api");
 const config = require("./config.json");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
+const { handleInput } = require('./utils');
 
 if (!OAuth) {
   return;
@@ -13,14 +14,16 @@ if (!config) {
   return;
 }
 
+let alfyInput = handleInput(alfy.input);
+
 async function searchTag(tags) {
   let items = tags;
   
-  if (alfy.input) {
+  if (alfyInput) {
     items = _.filter(tags, tag => {
       // Need to normalize alfy.input and match the encoding so that users can search normally in Korean
       const tagName = tag.name.toLowerCase();
-      const input = alfy.input.normalize().toLowerCase();
+      const input = alfyInput.normalize().toLowerCase();
 
       if (!tagName.includes(input)) {
         return false;
@@ -29,7 +32,7 @@ async function searchTag(tags) {
     });
   } else {
     // To prevent error of alfy
-    alfy.input = "";
+    alfyInput = "";
   }
 
   let result;
@@ -39,19 +42,22 @@ async function searchTag(tags) {
 
   switch (config.tag_search_subtitle) {
     case "none":
-      result = alfy.inputMatches(items, "name").map(tag => {
+      result = _.map(items, tag => {
         return {
           title: tag.name,
           arg: tag.name,
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       });
       break;
 
     case "parent_tag":
-      result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
+      result = await Promise.all(_.map(items, async tag => {
         subtitle = await api.getTag(items.length, tag.parentGuid);
 
         return {
@@ -60,20 +66,26 @@ async function searchTag(tags) {
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       }));
       break;
 
     case "note_count":
-      result = await Promise.all(alfy.inputMatches(items, "name").map(async tag => {
+      result = await Promise.all(_.map(items, async tag => {
         subtitle = await api.findNoteCountsWithTag(items.length, tag.guid);
-
+      
         return {
           title: tag.name,
           arg: tag.name,
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       }));
       break;

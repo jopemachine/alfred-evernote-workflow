@@ -38,9 +38,16 @@ Evernote workflow for Alfred 4
 <img src="./imgs/tag_Javascript.png" width = "60%" height="60%" />
 </p>
 
+* *View and execute your usage log*
+
+<p align="center">
+<img src="./imgs/log.png" width = "60%" height="60%" />
+</p>
+
 ## How to install
 
 1. **Install package**
+
 ```
 $ npm install --global alfred-evernote-workflow
 ```
@@ -84,6 +91,7 @@ You can use below feature.
 |  `ent`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
 |  `enr`  | { tag name } |    Search notes with reminder    |
 |  `enb`  | { notebook name } |    Search notes by Notebook    |
+|  `enl`  |  No argument  |    Check your command usage log    |
 
 ## Options
 
@@ -155,6 +163,11 @@ Tag notes that you clip with the `encl`, `enclo` command with that name.
 * **subtitle_restrictor**
 
 To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api calls are restricted above a certain number.
+
+
+* **cache_save_count**
+
+Determine how many logs you want to save and display in `enl` command.
 
 ## License
 
