@@ -1,5 +1,16 @@
 const config = require('./config.json');
 
+const handleInput = (str) => {
+  const re = /\$\{.*\}/;
+  const [first, ...query] = str.split(" ");
+
+  if(re.test(first)) {
+    return query.join(" ");
+  }
+
+  return str;
+}
+
 const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon }) => {
   return [
     {
@@ -47,6 +58,7 @@ const decideSearchOrder = (option) => {
 }
 
 module.exports = {
+  handleInput,
   decideSearchOrder,
   catchThriftException,
   handleSubtitleRestrictor,

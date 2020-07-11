@@ -4,7 +4,7 @@ const config = require("./config.json");
 const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
-const { decideSearchOrder } = require('./utils');
+const { decideSearchOrder, handleInput } = require('./utils');
 
 if (!OAuth) {
   console.log(
@@ -18,10 +18,31 @@ if (!config) {
   return;
 }
 
+let [ input, option ] = process.argv.slice(2);
+
+input = handleInput(input);
+
+switch (option) {
+  case "--intitle":
+    input = `intitle: "${input}"`;
+    break;
+  case "--reminder":
+    input = `reminderTime:* -reminderDoneTime:* "${input}"`;
+    break;
+  case "--sourceurl":
+    input = `sourceurl:* "${input}"`;
+    break;
+  case "--notebook":
+    input = `notebook: "${input}"`;
+    break;
+}
+
+console.log(input);
+
 let filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
-  words: alfy.input ? alfy.input : ""
+  words: input ? input : ""
 });
 
 var spec = new Evernote.NoteStore.NotesMetadataResultSpec(

@@ -17,5 +17,6 @@
   },
   "tag_search_subtitle": "note_count",
   "cliped_note_tag": "Cliper",
-  "subtitle_restrictor": 5
+  "subtitle_restrictor": 5,
+  "cache_save_count": 10
 }
