@@ -60,6 +60,10 @@ async function listTags({ callback }) {
   return callback(await noteStore.listTags());
 }
 
+async function listNotebooks({ callback }) {
+  return callback(await noteStore.listNotebooks());
+}
+
 module.exports = {
   getNotebookName:
     catchThriftException(handleSubtitleRestrictor(getNotebookName)),
@@ -73,4 +77,6 @@ module.exports = {
     catchThriftException(findNotesMetadata),
   listTags:
     catchThriftException(listTags),
+  listNotebooks:
+    catchThriftException(listNotebooks),
 };

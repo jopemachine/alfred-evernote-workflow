@@ -82,6 +82,8 @@ You can use below feature.
 |  `enu`  | { url } |    Search Notes by url    |
 |  `ens`  | { content to search } |    Search the Evernote's notes.    |
 |  `ent`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
+|  `enr`  | { tag name } |    Search notes with reminder    |
+|  `enb`  | { notebook name } |    Search notes by Notebook    |
 
 ## Options
 
