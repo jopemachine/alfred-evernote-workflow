@@ -24,7 +24,7 @@ input = handleInput(input);
 
 switch (option) {
   case "--intitle":
-    input = `intitle: "${input}"`;
+    input = `intitle:* "${input}"`;
     break;
   case "--reminder":
     input = `reminderTime:* -reminderDoneTime:* "${input}"`;
@@ -36,8 +36,6 @@ switch (option) {
     input = `notebook: "${input}"`;
     break;
 }
-
-console.log(input);
 
 let filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
