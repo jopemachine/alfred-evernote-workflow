@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.jopemachine.alfredevernoteworkflow</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>13280E8F-C7F8-468D-91D5-2F41BC0D0F20</key>
@@ -940,7 +940,7 @@
 				<key>runningsubtext</key>
 				<string>Tag searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node ctag.js "$1"</string>
+				<string>./node_modules/.bin/run-node createNoteByTag.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -2538,7 +2538,9 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Evernote workflow for Alfred 4
+
+https://github.com/jopemachine/alfred-evernote-workflow</string>
 	<key>uidata</key>
 	<dict>
 		<key>0372C173-2B86-4F4E-A0B6-0F567C611E6F</key>
@@ -2761,7 +2763,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 		<key>A5A27912-A8F8-4A45-BD05-D80A613CC193</key>
 		<dict>
 			<key>xpos</key>
-			<integer>220</integer>
+			<integer>225</integer>
 			<key>ypos</key>
 			<integer>825</integer>
 		</dict>
@@ -2983,10 +2985,8 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 			<integer>2930</integer>
 		</dict>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>0.0.6</string>
+	<string>_developing</string>
 	<key>webaddress</key>
 	<string>https://github.com/jopemachine/Alfred-evernote-workflow#readme</string>
 </dict>

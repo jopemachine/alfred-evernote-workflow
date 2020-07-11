@@ -47,6 +47,9 @@ async function searchNotebook(listNotebooks) {
       valid: true,
       autocomplete: notebook.name,
       subtitle: notebook.serviceCreated,
+      icon: {
+        "path": "./icon/searchIcon.png"
+      }
     };
   });
 

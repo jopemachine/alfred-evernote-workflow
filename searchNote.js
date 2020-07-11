@@ -68,6 +68,9 @@ async function searchNote(notesMetadataList) {
           valid: true,
           autocomplete: note.title,
           subtitle,
+          icon: {
+            "path": "./icon/searchIcon.png"
+          }
         };
       });
       break;
@@ -83,6 +86,9 @@ async function searchNote(notesMetadataList) {
           valid: true,
           autocomplete: note.title,
           subtitle,
+          icon: {
+            "path": "./icon/searchIcon.png"
+          }
         };
       });
       break;
@@ -98,6 +104,9 @@ async function searchNote(notesMetadataList) {
           valid: true,
           autocomplete: note.title,
           subtitle,
+          icon: {
+            "path": "./icon/searchIcon.png"
+          }
         };
       });
       break;
@@ -117,6 +126,9 @@ async function searchNote(notesMetadataList) {
             valid: true,
             autocomplete: note.title,
             subtitle,
+            icon: {
+              "path": "./icon/searchIcon.png"
+            }
           };
         })
       );
@@ -133,6 +145,9 @@ async function searchNote(notesMetadataList) {
             valid: true,
             autocomplete: note.title,
             subtitle,
+            icon: {
+              "path": "./icon/searchIcon.png"
+            }
           };
         })
       );

@@ -49,6 +49,9 @@ async function searchTag(tags) {
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       });
       break;
@@ -63,6 +66,9 @@ async function searchTag(tags) {
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       }));
       break;
@@ -77,6 +83,9 @@ async function searchTag(tags) {
           valid: true,
           autocomplete: tag.name,
           subtitle,
+          icon: {
+            "path": "./icon/tagIcon.png"
+          }
         };
       }));
       break;

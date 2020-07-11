@@ -30,8 +30,10 @@
     "*.js",
     "*.png",
     "imgs/*",
+    "icon/*",
     "info.plist",
-    "config.json"
+    "config.json",
+    "commandLog.json"
   ],
   "homepage": "https://github.com/jopemachine/Alfred-evernote-workflow#readme",
   "keywords": [
@@ -50,5 +52,5 @@
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava"
   },
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

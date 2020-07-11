@@ -40,6 +40,9 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
     valid: true,
     autocomplete: log,
     subtitle: date,
+    icon: {
+      "path": "./icon/log.png"
+    }
   };
 })), item => item.title);
 

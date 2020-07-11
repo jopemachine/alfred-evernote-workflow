@@ -14,5 +14,8 @@ clipboardy.read().then(data => {
     valid: true,
     autocomplete: title,
     subtitle: `Clipboard: "${subtitle}"`,
+    icon: {
+      "path": "./icon/clipIcon.png"
+    }
   }));
 });
