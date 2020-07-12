@@ -30,9 +30,6 @@ async function searchTag(tags) {
       }
       return true;
     });
-  } else {
-    // To prevent error of alfy
-    alfyInput = "";
   }
 
   let result;
@@ -45,7 +42,7 @@ async function searchTag(tags) {
       result = _.map(items, tag => {
         return {
           title: tag.name,
-          arg: tag.name,
+          arg: `tag:"${tag.name}" `,
           valid: true,
           autocomplete: tag.name,
           subtitle,
@@ -62,7 +59,7 @@ async function searchTag(tags) {
 
         return {
           title: tag.name,
-          arg: tag.name,
+          arg: `tag:"${tag.name}" `,
           valid: true,
           autocomplete: tag.name,
           subtitle,
@@ -79,7 +76,7 @@ async function searchTag(tags) {
       
         return {
           title: tag.name,
-          arg: tag.name,
+          arg: `tag:"${tag.name}" `,
           valid: true,
           autocomplete: tag.name,
           subtitle,

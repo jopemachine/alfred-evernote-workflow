@@ -1,9 +1,12 @@
 const alfy = require("alfy");
 const api = require("./api");
 const config = require("./config.json");
-const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
+const { 
+  handleInput,
+  replaceAll
+} = require('./utils');
 
 if (!OAuth) {
   console.log(
@@ -17,43 +20,38 @@ if (!config) {
   return;
 }
 
+let alfyInput = replaceAll(handleInput(alfy.input), "\\", "");
+
 async function searchNotebook(listNotebooks) {
   let items = listNotebooks;
   
-  if (alfy.input) {
+  if (alfyInput) {
     items = _.filter(listNotebooks, notebook => {
       // Need to normalize alfy.input and match the encoding so that users can search normally in Korean
       const notebookName = notebook.name.toLowerCase();
-      const input = alfy.input.normalize().toLowerCase();
+      const input = alfyInput.normalize().toLowerCase();
 
       if (!notebookName.includes(input)) {
         return false;
       }
       return true;
     });
-  } else {
-    // To prevent error of alfy
-    alfy.input = "";
-  }
+  } 
 
   items = _.orderBy(items, ['name'], ['asc']);
 
-  let result;
-
-  result = _.map(listNotebooks, (notebook) => {
+  return _.map(listNotebooks, (notebook) => {
     return {
       title: notebook.name,
-      arg: notebook.name,
+      arg: `notebook:"${notebook.name}" `,
       valid: true,
       autocomplete: notebook.name,
-      subtitle: notebook.serviceCreated,
+      subtitle: `Created time: ${new Date(notebook.serviceCreated).toUTCString()}`,
       icon: {
         "path": "./icon/searchIcon.png"
       }
     };
   });
-
-  return result;
 }
 
 (async function () {

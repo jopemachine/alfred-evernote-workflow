@@ -2,6 +2,10 @@
 
 Evernote workflow for Alfred 4
 
+<p align="center">
+<img src="./imgs/demo.gif" width = "60%" height="60%" />
+</p>
+
 ## Feature
 
 * *View your latest notes*

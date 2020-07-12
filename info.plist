@@ -393,7 +393,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>tagIcon2</string>
+				<string>searchIcon</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -451,7 +451,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>C34566A4-D61B-432A-8B0B-D1BC39A8BAED</string>
+				<string>searchIcon</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -2243,7 +2243,7 @@ evernote.openCollectionWindow({withQueryString: 'tag:' + '"{query}"'});</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node searchNote.js 'tag:"{query}"'</string>
+				<string>./node_modules/.bin/run-node searchNote.js '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -2492,7 +2492,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node searchNote.js 'notebook:"{query}"'</string>
+				<string>./node_modules/.bin/run-node searchNote.js '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -2940,7 +2940,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>245</integer>
 			<key>ypos</key>
-			<integer>1220</integer>
+			<integer>1215</integer>
 		</dict>
 		<key>F73E96C1-4B87-46A0-949A-804CF523E681</key>
 		<dict>
