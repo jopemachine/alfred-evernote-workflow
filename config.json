@@ -18,5 +18,6 @@
   "tag_search_subtitle": "note_count",
   "cliped_note_tag": "Cliper",
   "subtitle_restrictor": 5,
+  "note_count_restrictor": 20,
   "cache_save_count": 10
 }

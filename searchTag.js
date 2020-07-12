@@ -48,7 +48,13 @@ async function searchTag(tags) {
           subtitle,
           icon: {
             "path": "./icon/tagIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Open Evernote window with tagged notes`,
+            }
+          },
         };
       });
       break;
@@ -65,7 +71,13 @@ async function searchTag(tags) {
           subtitle,
           icon: {
             "path": "./icon/tagIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Open Evernote window with tagged notes`,
+            }
+          },
         };
       }));
       break;
@@ -82,7 +94,13 @@ async function searchTag(tags) {
           subtitle,
           icon: {
             "path": "./icon/tagIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Open Evernote window with tagged notes`,
+            }
+          },
         };
       }));
       break;

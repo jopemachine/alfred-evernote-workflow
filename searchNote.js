@@ -3,6 +3,7 @@ const api = require("./api");
 const config = require("./config.json");
 const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
+const fs = require('fs');
 const _ = require("lodash");
 const { 
   decideSearchOrder, 
@@ -22,9 +23,10 @@ if (!config) {
   return;
 }
 
-let [ input, option ] = process.argv.slice(2);
+let [ execPath, input, option ] = process.argv.slice(1);
 
 input = replaceAll(handleInput(input), "\\", "");
+const execDir = execPath.split("searchNote.js")[0];
 
 switch (option) {
   case "--intitle":
@@ -74,7 +76,13 @@ async function searchNote(notesMetadataList) {
           subtitle,
           icon: {
             "path": "./icon/searchIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
+            }
+          },
         };
       });
       break;
@@ -92,7 +100,13 @@ async function searchNote(notesMetadataList) {
           subtitle,
           icon: {
             "path": "./icon/searchIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Created in ${new Date(note.created).toLocaleString()}`,
+            }
+          },
         };
       });
       break;
@@ -110,7 +124,13 @@ async function searchNote(notesMetadataList) {
           subtitle,
           icon: {
             "path": "./icon/searchIcon.png"
-          }
+          },
+          mods: {
+            cmd: {
+              "valid": true,
+              "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
+            }
+          },
         };
       });
       break;
@@ -132,16 +152,32 @@ async function searchNote(notesMetadataList) {
             subtitle,
             icon: {
               "path": "./icon/searchIcon.png"
-            }
+            },
+            mods: {
+              cmd: {
+                "valid": true,
+                "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
+              }
+            },
           };
         })
       );
       break;
-
+``
     case "tags":
       result = await Promise.all(
         _.map(searchedNotes, async (note) => {
           subtitle = await api.getNoteTagNames(searchedNotes.length, note.guid);
+          const content = await api.getNoteContent(searchedNotes.length, note.guid);
+
+          let quicklookurl;
+          if(content) {
+            quicklookurl = `${execDir}search_content/${note.guid}.html`;
+            fs.writeFileSync(`./search_content/${note.guid}.html`, '\ufeff' + content, { encoding: 'utf8' });
+          }
+          else {
+            quicklookurl = `${execDir}search_content/warning.txt`;
+          }
 
           return {
             title: note.title,
@@ -151,7 +187,14 @@ async function searchNote(notesMetadataList) {
             subtitle,
             icon: {
               "path": "./icon/searchIcon.png"
-            }
+            },
+            mods: {
+              cmd: {
+                "valid": true,
+                "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
+              }
+            },
+            quicklookurl: quicklookurl
           };
         })
       );

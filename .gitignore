@@ -3,3 +3,4 @@ OAuth.json
 /log
 .DS_Store
 commandLog.json
+/search_content/*.html

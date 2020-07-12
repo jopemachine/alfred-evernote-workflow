@@ -39,7 +39,11 @@ const catchThriftException = func => async (...args) => {
 };
 
 const handleSubtitleRestrictor = func => async (count, ...args) => {
-  if (count < config.subtitle_restrictor) return await func(...args);
+  if (count <= config.subtitle_restrictor) return await func(...args);
+};
+
+const handleNoteContentRestrictor = func => async (count, ...args) => {
+  if (count <= config.note_count_restrictor) return await func(...args);
 };
 
 const decideSearchOrder = (option) => {
@@ -66,6 +70,7 @@ module.exports = {
   handleInput,
   decideSearchOrder,
   catchThriftException,
+  handleNoteContentRestrictor,
   handleSubtitleRestrictor,
   makeScreenFilterJson,
 }

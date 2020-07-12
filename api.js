@@ -2,7 +2,8 @@ const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const {
   catchThriftException,
-  handleSubtitleRestrictor
+  handleSubtitleRestrictor,
+  handleNoteContentRestrictor
 } = require('./utils');
 
 const authenticatedClient = new Evernote.Client({
@@ -64,6 +65,10 @@ async function listNotebooks({ callback }) {
   return callback(await noteStore.listNotebooks());
 }
 
+async function getNoteContent(noteGuid) {
+  return await noteStore.getNoteContent(noteGuid);
+}
+
 module.exports = {
   getNotebookName:
     catchThriftException(handleSubtitleRestrictor(getNotebookName)),
@@ -73,6 +78,8 @@ module.exports = {
     catchThriftException(handleSubtitleRestrictor(getTag)),
   findNoteCountsWithTag:
     catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
+  getNoteContent:
+    catchThriftException(handleNoteContentRestrictor(getNoteContent)),
   findNotesMetadata:
     catchThriftException(findNotesMetadata),
   listTags:
