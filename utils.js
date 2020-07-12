@@ -15,10 +15,10 @@ const handleInput = (str) => {
   return str;
 }
 
-const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon }) => {
+const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon, text }) => {
   return [
     {
-      uid, type, title, subtitle, arg, autocomplete, icon
+      uid, type, title, subtitle, arg, autocomplete, icon, text
     }
   ]
 }
@@ -29,10 +29,32 @@ const catchThriftException = func => async (...args) => {
   } catch (err) {
     if (err) {
       switch (err.errorCode) {
-        case 2:
-          return makeScreenFilterJson({ title: "Not valid oauth token, please read README.md first" });
-        case 19:
-          return makeScreenFilterJson({ title: "Evernote sdk's ratelimit has reached its limit. Please try again in an hour." });
+        case 2: {
+          const title = "Not valid oauth token, please read README.md first";
+          return makeScreenFilterJson({ 
+            title,
+            text: {
+              "copy": title,
+              "largetype": title
+            },
+            icon: {
+              "path": "./icon/warning.png"
+            },
+          });
+        }
+        case 19: {
+          const title = "Evernote sdk's ratelimit has reached its limit. Please try again in an hour.";
+          return makeScreenFilterJson({ 
+            title,
+            text: {
+              "copy": title,
+              "largetype": title
+            },
+            icon: {
+              "path": "./icon/warning.png"
+            }
+          });
+        }
       }
     }
   }

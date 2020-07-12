@@ -1,6 +1,5 @@
 const fs = require('fs');
 const commandLog = require('./commandLog.json');
-const _ = require('lodash');
 const config = require('./config.json');
 
 function write(command) {

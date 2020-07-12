@@ -32,6 +32,12 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
     case "entodo":
       argument = `\${entodo}`;
       break;
+    case "enc":
+      argument = `\${enc}`;
+      break;
+    case "enct":
+      argument = `\${enct}`;
+      break;
   }
 
   return {
@@ -42,6 +48,10 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
     subtitle: date,
     icon: {
       "path": "./icon/log.png"
+    },
+    text: {
+      "copy": log,
+      "largetype": log
     }
   };
 })), item => item.title);
