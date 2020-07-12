@@ -42,7 +42,7 @@ async function searchTag(tags) {
       result = _.map(items, tag => {
         return {
           title: tag.name,
-          arg: `tag:'${tag.name}' `,
+          arg: `tag:"${tag.name}" `,
           valid: true,
           autocomplete: tag.name,
           subtitle,
@@ -59,7 +59,7 @@ async function searchTag(tags) {
 
         return {
           title: tag.name,
-          arg: `tag:'${tag.name}' `,
+          arg: `tag:"${tag.name}" `,
           valid: true,
           autocomplete: tag.name,
           subtitle,
