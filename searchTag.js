@@ -3,7 +3,10 @@ const api = require("./api");
 const config = require("./config.json");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
-const { handleInput } = require('./utils');
+const { 
+  handleInput,
+  replaceAll 
+} = require('./utils');
 
 if (!OAuth) {
   return;
@@ -14,7 +17,57 @@ if (!config) {
   return;
 }
 
-let alfyInput = handleInput(alfy.input);
+let [ execPath, alfyInput, option ] = process.argv.slice(1);
+
+alfyInput = replaceAll(handleInput(alfyInput), "\\\"", "\"");
+
+let createFlag = false;
+
+switch (option) {
+  case "--create":
+    createFlag = true;
+    break;
+}
+
+const getSubtitle = async (type, tags, selectedTag) => {
+  switch (type) {
+    case "none": {
+      return '';
+    }
+    case "note_count": {
+      return await api.findNoteCountsWithTag(tags.length, selectedTag.guid);
+    }
+    case "parent_tag":{
+      return await api.getTag(tags.length, selectedTag.parentGuid);
+    }
+    default:
+      console.log("config file error, set the proper tag_search_subtitle value");
+      break;
+  }
+}
+
+const getResult = async (tags) =>{
+  return await Promise.all(_.map(tags, async tag => {
+    const subtitle = await getSubtitle(config.tag_search_subtitle, tags, tag);
+
+    return {
+      title: tag.name,
+      arg: createFlag ? `${tag.name}\$content:` : `tag:"${tag.name}" `,
+      valid: true,
+      autocomplete: tag.name,
+      subtitle,
+      icon: {
+        "path": "./icon/tagIcon.png"
+      },
+      mods: {
+        cmd: {
+          "valid": true,
+          "subtitle": `Open Evernote window with tagged notes`,
+        }
+      },
+    };
+  }));
+}
 
 async function searchTag(tags) {
   let items = tags;
@@ -32,63 +85,7 @@ async function searchTag(tags) {
     });
   }
 
-  let result;
-  let subtitle = '';
-
-  items = _.orderBy(items, ['name'], ['asc']);
-
-  switch (config.tag_search_subtitle) {
-    case "none":
-      result = _.map(items, tag => {
-        return {
-          title: tag.name,
-          arg: `tag:"${tag.name}" `,
-          valid: true,
-          autocomplete: tag.name,
-          subtitle,
-          icon: {
-            "path": "./icon/tagIcon.png"
-          }
-        };
-      });
-      break;
-
-    case "parent_tag":
-      result = await Promise.all(_.map(items, async tag => {
-        subtitle = await api.getTag(items.length, tag.parentGuid);
-
-        return {
-          title: tag.name,
-          arg: `tag:"${tag.name}" `,
-          valid: true,
-          autocomplete: tag.name,
-          subtitle,
-          icon: {
-            "path": "./icon/tagIcon.png"
-          }
-        };
-      }));
-      break;
-
-    case "note_count":
-      result = await Promise.all(_.map(items, async tag => {
-        subtitle = await api.findNoteCountsWithTag(items.length, tag.guid);
-      
-        return {
-          title: tag.name,
-          arg: `tag:"${tag.name}" `,
-          valid: true,
-          autocomplete: tag.name,
-          subtitle,
-          icon: {
-            "path": "./icon/tagIcon.png"
-          }
-        };
-      }));
-      break;
-  }
-
-  return result;
+  return getResult(_.orderBy(items, ['name'], ['asc']));
 }
 
 (async function () {

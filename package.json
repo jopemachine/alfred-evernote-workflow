@@ -2,10 +2,10 @@
   "author": {
     "name": "jopemachine",
     "email": "jopemachine@naver.com",
-    "url": "github.com/jopemachine/Alfred-evernote-workflow"
+    "url": "github.com/jopemachine/alfred-evernote-workflow"
   },
   "bugs": {
-    "url": "https://github.com/jopemachine/Alfred-evernote-workflow/issues"
+    "url": "https://github.com/jopemachine/alfred-evernote-workflow/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -35,7 +35,7 @@
     "config.json",
     "commandLog.json"
   ],
-  "homepage": "https://github.com/jopemachine/Alfred-evernote-workflow#readme",
+  "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
     "alfred",
     "workflow",
@@ -45,12 +45,12 @@
   "license": "MIT",
   "name": "alfred-evernote-workflow",
   "repository": {
-    "url": "git://github.com/jopemachine/Alfred-evernote-workflow.git"
+    "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava"
   },
-  "version": "0.1.4"
+  "version": "0.1.5"
 }

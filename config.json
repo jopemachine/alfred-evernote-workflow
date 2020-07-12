@@ -1,5 +1,5 @@
 {
-  "search_max_count": 20,
+  "search_max_count": 10,
   "search_subtitle": "tags",
   "search_order": "relevance",
   "search_include_options": {
@@ -18,5 +18,6 @@
   "tag_search_subtitle": "note_count",
   "cliped_note_tag": "Cliper",
   "subtitle_restrictor": 5,
+  "note_count_restrictor": 10,
   "cache_save_count": 10
 }
