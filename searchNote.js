@@ -4,7 +4,11 @@ const config = require("./config.json");
 const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
-const { decideSearchOrder, handleInput } = require('./utils');
+const { 
+  decideSearchOrder, 
+  handleInput, 
+  replaceAll 
+} = require('./utils');
 
 if (!OAuth) {
   console.log(
@@ -20,7 +24,7 @@ if (!config) {
 
 let [ input, option ] = process.argv.slice(2);
 
-input = handleInput(input);
+input = replaceAll(handleInput(input), "\\", "");
 
 switch (option) {
   case "--intitle":

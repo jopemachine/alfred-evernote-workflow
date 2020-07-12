@@ -1,5 +1,9 @@
 const config = require('./config.json');
 
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
 const handleInput = (str) => {
   const re = /\$\{.*\}/;
   const [first, ...query] = str.split(" ");
@@ -58,6 +62,7 @@ const decideSearchOrder = (option) => {
 }
 
 module.exports = {
+  replaceAll,
   handleInput,
   decideSearchOrder,
   catchThriftException,
