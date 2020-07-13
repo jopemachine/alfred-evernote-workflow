@@ -9,34 +9,20 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
  
   switch (keyword) {
     case "ens":
-      argument = `\${ens} ${query.join(" ")}`;
-      break;
     case "ent":
-      argument = `\${ent} ${query.join(" ")}`;
-      break;
     case "enu":
-      argument = `\${enu} ${query.join(" ")}`;
-      break;
     case "enb":
-      argument = `\${enb} ${query.join(" ")}`;
-      break;
     case "enr":
-      argument = `\${enr} ${query.join(" ")}`;
-      break;
     case "eni":
-      argument = `\${eni} ${query.join(" ")}`;
+      argument = `\${${keyword}} ${query.join(" ")}`;
       break;
     case "ensync":
-      argument = `\${ensync}`;
-      break;
     case "entodo":
-      argument = `\${entodo}`;
-      break;
     case "enc":
-      argument = `\${enc}`;
-      break;
     case "enct":
-      argument = `\${enct}`;
+    case "encl":
+    case "enclo":
+      argument = `\${${keyword}}`;
       break;
   }
 
