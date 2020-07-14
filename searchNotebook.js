@@ -36,7 +36,7 @@ async function searchNotebook(listNotebooks) {
       }
       return true;
     });
-  } 
+  }
 
   items = _.orderBy(items, ['name'], ['asc']);
 
