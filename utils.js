@@ -15,6 +15,19 @@ const handleInput = (str) => {
   return str;
 }
 
+const getPageOffset = (str) => {
+  const re = /\$\{moreSearch_(?<offset>[\d]*)\}/;
+
+  const [first, ...query] = str.split(" ");
+
+  if(re.test(first)) {
+    const groups = str.match(re).groups;
+    return parseInt(groups.offset);
+  }
+
+  return 0;
+}
+
 const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon, text }) => {
   return [
     {
@@ -90,6 +103,7 @@ const decideSearchOrder = (option) => {
 module.exports = {
   replaceAll,
   handleInput,
+  getPageOffset,
   decideSearchOrder,
   catchThriftException,
   handleNoteContentRestrictor,

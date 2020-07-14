@@ -8,7 +8,8 @@ const _ = require("lodash");
 const { 
   decideSearchOrder, 
   handleInput, 
-  replaceAll 
+  getPageOffset,
+  replaceAll,
 } = require('./utils');
 
 if (!OAuth) {
@@ -24,6 +25,8 @@ if (!config) {
 }
 
 let [ execPath, input, option ] = process.argv.slice(1);
+
+const pageOffset = getPageOffset(input);
 
 input = replaceAll(handleInput(input), "\\\"", "\"");
 const execDir = execPath.split("searchNote.js")[0];
@@ -90,7 +93,7 @@ const getSubtitle = async (type, searchedNotes, selectedNote) => {
 }
 
 const getResult = async (searchedNotes) =>{
-  return await Promise.all(
+  const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
 
       const subtitle = await getSubtitle(
@@ -126,6 +129,33 @@ const getResult = async (searchedNotes) =>{
       };
     })
   );
+
+  if(result.length == 0) {
+    result.push({
+      valid: true,
+      title: "No search results found.",
+      arg: '',
+      autocomplete: "No search results found.",
+      subtitle: "There are no notes to display.",
+      icon: {
+        "path": "./icon/warning.png"
+      },
+    })
+  }
+  else {
+    result.push({
+      valid: true,
+      title: "View more note...",
+      arg: `\${moreSearch_${pageOffset + 1}} ${input}`,
+      autocomplete: "More search...",
+      subtitle: "Search for more notes in the same search term.",
+      icon: {
+        "path": "./icon/searchIcon.png"
+      },
+    })
+  }
+
+  return result;
 }
 
 async function searchNote(notesMetadataList) {
@@ -135,6 +165,7 @@ async function searchNote(notesMetadataList) {
 (async function () {
   alfy.output(await api.findNotesMetadata(
     filter,
+    pageOffset * config.search_max_count,
     config.search_max_count,
     spec,
     {
