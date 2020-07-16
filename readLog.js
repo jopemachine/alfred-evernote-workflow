@@ -9,6 +9,7 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
  
   switch (keyword) {
     case "ens":
+    case "ensf":
     case "ent":
     case "enu":
     case "enb":
