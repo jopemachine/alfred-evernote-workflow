@@ -1,2 +1,4 @@
 Too many search results.
 This feature is only available if the search results are less than the note_count_restrictor in config.
+
+Or you may use ensf command.

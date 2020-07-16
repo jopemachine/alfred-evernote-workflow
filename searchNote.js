@@ -31,6 +31,8 @@ const pageOffset = getPageOffset(input);
 input = replaceAll(handleInput(input), "\\\"", "\"");
 const execDir = execPath.split("searchNote.js")[0];
 
+let fullSearchFlag = false;
+
 switch (option) {
   case "--intitle":
     input = `intitle:* "${input}"`;
@@ -46,6 +48,9 @@ switch (option) {
     break;
   case "--todo":
     input = `todo:*`;
+    break;
+  case "--fullSearch":
+    fullSearchFlag = true;
     break;
 }
 
@@ -102,12 +107,17 @@ const getResult = async (searchedNotes) =>{
         note
       );
 
-      const content = await api.getNoteContent(searchedNotes.length, note.guid);
-
       let quicklookurl = `${execDir}search_content/warning.txt`;
-      if(content) {
+
+      if (fullSearchFlag) {
         quicklookurl = `${execDir}search_content/${note.guid}.html`;
-        fs.writeFileSync(`./search_content/${note.guid}.html`, '\ufeff' + content, { encoding: 'utf8' });
+      } else {
+        const content = await api.getNoteContent(searchedNotes.length, note.guid);
+
+        if(content) {
+          quicklookurl = `${execDir}search_content/${note.guid}.html`;
+          fs.writeFileSync(`./search_content/${note.guid}.html`, '\ufeff' + content, { encoding: 'utf8' });
+        }
       }
 
       return {
@@ -142,7 +152,7 @@ const getResult = async (searchedNotes) =>{
       },
     })
   }
-  else {
+  else if(!fullSearchFlag){
     result.push({
       valid: true,
       title: "View more note...",
@@ -166,7 +176,7 @@ async function searchNote(notesMetadataList) {
   alfy.output(await api.findNotesMetadata(
     filter,
     pageOffset * config.search_max_count,
-    config.search_max_count,
+    fullSearchFlag ? 999 : config.search_max_count,
     spec,
     {
       callback: searchNote,
