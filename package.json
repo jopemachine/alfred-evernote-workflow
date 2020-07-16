@@ -29,6 +29,7 @@
   "files": [
     "*.js",
     "*.png",
+    "*.scpt",
     "imgs/*",
     "icon/*",
     "info.plist",
