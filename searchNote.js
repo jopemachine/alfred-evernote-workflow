@@ -107,19 +107,7 @@ const getResult = async (searchedNotes) =>{
         note
       );
 
-      let quicklookurl = `${execDir}search_content/warning.txt`;
-
-      if (fullSearchFlag) {
-        quicklookurl = `${execDir}search_content/${note.guid}.html`;
-      } else {
-        const content = await api.getNoteContent(searchedNotes.length, note.guid);
-
-        if(content) {
-          quicklookurl = `${execDir}search_content/${note.guid}.html`;
-          fs.writeFileSync(`./search_content/${note.guid}.html`, '\ufeff' + content, { encoding: 'utf8' });
-        }
-      }
-
+      const quicklookurl = `${execDir}search_content/${note.guid}.html`;
       return {
         valid: true,
         title: note.title,
