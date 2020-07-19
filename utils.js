@@ -100,9 +100,30 @@ const decideSearchOrder = (option) => {
   }
 }
 
+const getTimeString = (updatedTimestamp) => {
+  const dateObj = new Date(updatedTimestamp);
+
+  const year = dateObj.getFullYear();
+  let month = dateObj.getMonth() + 1;
+  if (month < 10) month = '0' + month;
+  let day = dateObj.getDate();
+  if (day < 10) day = '0' + day;
+
+  let time = dateObj.getHours() * 3600 + dateObj.getMinutes() * 60 + dateObj.getSeconds();
+
+  if((1000 <= time) && time < 10000) time = '0' + time;
+  else if((100 <= time) && time < 1000) time = '00' + time;
+  else if((10 <= time) && time < 100) time = '000' + time;
+  else if(time < 10) time = '0000' + time;
+
+  const weightValue = `${year}${month}${day}${time}`;
+  return parseFloat(weightValue);
+}
+
 module.exports = {
   replaceAll,
   handleInput,
+  getTimeString,
   getPageOffset,
   decideSearchOrder,
   catchThriftException,
