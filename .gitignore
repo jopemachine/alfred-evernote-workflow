@@ -4,3 +4,4 @@ OAuth.json
 .DS_Store
 commandLog.json
 /search_content/*.html
+/search_content/CacheLog.json

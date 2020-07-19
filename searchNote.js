@@ -5,11 +5,14 @@ const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const fs = require('fs');
 const _ = require("lodash");
-const { 
-  decideSearchOrder, 
-  handleInput, 
+const cacheLog = require('./search_content/CacheLog.json');
+
+const {
+  decideSearchOrder,
+  handleInput,
   getPageOffset,
   replaceAll,
+  getTimeString,
 } = require('./utils');
 
 if (!OAuth) {
@@ -97,6 +100,8 @@ const getSubtitle = async (type, searchedNotes, selectedNote) => {
   }
 }
 
+let updateCacheLogFlag = false;
+
 const getResult = async (searchedNotes) =>{
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
@@ -107,17 +112,14 @@ const getResult = async (searchedNotes) =>{
         note
       );
 
-      let quicklookurl = `${execDir}search_content/warning.txt`;
+      const quicklookurl = `${execDir}search_content/${note.guid}.html`;
+      const latestUpdated = getTimeString(note.updated);
 
-      if (fullSearchFlag) {
-        quicklookurl = `${execDir}search_content/${note.guid}.html`;
-      } else {
-        const content = await api.getNoteContent(searchedNotes.length, note.guid);
-
-        if(content) {
-          quicklookurl = `${execDir}search_content/${note.guid}.html`;
-          fs.writeFileSync(`./search_content/${note.guid}.html`, '\ufeff' + content, { encoding: 'utf8' });
-        }
+      if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
+        updateCacheLogFlag = true;
+        cacheLog[note.guid] = latestUpdated;
+        const noteContentHTML = await api.getNoteContent(0, note.guid);
+        fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
       }
 
       return {
@@ -163,6 +165,10 @@ const getResult = async (searchedNotes) =>{
         "path": "./icon/searchIcon.png"
       },
     })
+  }
+
+  if(updateCacheLogFlag) {
+    fs.writeFileSync(`./search_content/CacheLog.json`, '\ufeff' + JSON.stringify(cacheLog, null, 2), { encoding: 'utf8' });
   }
 
   return result;
