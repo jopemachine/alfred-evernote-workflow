@@ -2645,7 +2645,7 @@ evernote.openNoteWindow({ with: notes[0] });</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>osascript htmlSaver.scpt '{query}' &amp;&amp; ./node_modules/.bin/run-node searchNote.js '{query}'</string>
+				<string>osascript htmlSaver.scpt '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

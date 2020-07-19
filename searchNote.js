@@ -5,9 +5,9 @@ const Evernote = require("evernote");
 const OAuth = require("./OAuth.json");
 const fs = require('fs');
 const _ = require("lodash");
-const { 
-  decideSearchOrder, 
-  handleInput, 
+const {
+  decideSearchOrder,
+  handleInput,
   getPageOffset,
   replaceAll,
 } = require('./utils');
