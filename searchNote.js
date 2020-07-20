@@ -135,12 +135,24 @@ const getResult = async (searchedNotes) =>{
           cmd: {
             "valid": true,
             "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
+          },
+          shift: {
+            "valid": true,
+            "subtitle": "Press shift button shortly to preview note",
           }
         },
         quicklookurl
       };
     })
   );
+
+  result.splice(0, 0, {
+    valid: true,
+    title: `${searchedNotes.length} notes were found.`,
+    arg: '',
+    autocomplete: `${searchedNotes.length} notes were found.`,
+    subtitle: ``,
+  });
 
   if(result.length == 0) {
     result.push({
@@ -151,18 +163,6 @@ const getResult = async (searchedNotes) =>{
       subtitle: "There are no notes to display.",
       icon: {
         "path": "./icon/warning.png"
-      },
-    })
-  }
-  else if(!fullSearchFlag){
-    result.push({
-      valid: true,
-      title: "View more note...",
-      arg: `\${moreSearch_${pageOffset + 1}} ${input}`,
-      autocomplete: "More search...",
-      subtitle: "Search for more notes in the same search term.",
-      icon: {
-        "path": "./icon/searchIcon.png"
       },
     })
   }

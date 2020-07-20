@@ -3,7 +3,7 @@
 Evernote workflow for Alfred 4
 
 <p align="center">
-<img src="./imgs/demo.gif" width = "60%" height="60%" />
+<img src="./imgs/demo.gif" width = "75%" height="75%" />
 </p>
 
 ## Feature

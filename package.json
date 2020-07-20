@@ -30,7 +30,7 @@
     "*.js",
     "*.png",
     "*.scpt",
-    "imgs/*",
+    "imgs/*.png",
     "icon/*",
     "info.plist",
     "config.json",
@@ -53,5 +53,5 @@
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava"
   },
-  "version": "0.2.2"
+  "version": "0.2.3"
 }
