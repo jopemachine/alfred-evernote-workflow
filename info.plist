@@ -964,7 +964,7 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Please type en &gt; storecash to store cash initially</string>
+				<string></string>
 				<key>title</key>
 				<string>Auth Complete!</string>
 			</dict>
@@ -1004,7 +1004,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>en &gt; auth</string>
+				<string>en &gt; authtoken</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
@@ -1016,6 +1016,46 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>9C030083-4AC0-4E71-B732-E7F08722D04F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://fk5dbjl4x5.execute-api.us-east-1.amazonaws.com/prod/auth</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>en &gt; gettoken</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Log in by your evernote account</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B40F3691-20C4-4C10-A470-DD3DCAB65C7C</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1107,46 +1147,6 @@
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>A5A27912-A8F8-4A45-BD05-D80A613CC193</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://fk5dbjl4x5.execute-api.us-east-1.amazonaws.com/prod/auth</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>en &gt; login</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Log in by your evernote account</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>B40F3691-20C4-4C10-A470-DD3DCAB65C7C</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3496,7 +3496,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>660</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>295</integer>
 		</dict>
 		<key>31F95E55-1BBC-4572-A6F7-F346D10172A6</key>
 		<dict>
@@ -3524,7 +3524,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>325</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>295</integer>
 		</dict>
 		<key>3C60D401-BEC7-427D-9DC3-FB83704244C4</key>
 		<dict>
@@ -3571,7 +3571,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>59271E4F-27C2-49A0-9869-9F968E3256FE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>675</integer>
+			<integer>665</integer>
 			<key>ypos</key>
 			<integer>35</integer>
 		</dict>
@@ -3727,7 +3727,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>235</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>330</integer>
 		</dict>
 		<key>A79FB981-F0F9-48A3-9404-98ECCE0530BC</key>
 		<dict>
@@ -3767,9 +3767,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>B40F3691-20C4-4C10-A470-DD3DCAB65C7C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>325</integer>
+			<integer>330</integer>
 			<key>ypos</key>
-			<integer>305</integer>
+			<integer>160</integer>
 		</dict>
 		<key>B682AF9E-BBAC-4D9B-9423-E13215621523</key>
 		<dict>
@@ -3846,14 +3846,14 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>500</integer>
 			<key>ypos</key>
-			<integer>170</integer>
+			<integer>295</integer>
 		</dict>
 		<key>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>505</integer>
 			<key>ypos</key>
-			<integer>305</integer>
+			<integer>160</integer>
 		</dict>
 		<key>C8DEAEC4-D829-4C30-9D41-A805FB03D94B</key>
 		<dict>

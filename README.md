@@ -94,13 +94,13 @@ You can use below feature.
 
 Switch to Evernote App.
 
-#### en > auth { Argument }
+#### en > authtoken { Argument }
 
 Argument: `Your api key`
 
 This command is required only for the initial authentication process.
 
-#### en > login
+#### en > gettoken
 
 This command is required only for the initial authentication process.
 

@@ -5,4 +5,4 @@ const oauthConfig = {
   oauthToken: alfy.input
 };
 
-fs.writeFileSync('OAuth.json', '\ufeff' + JSON.stringify(oauthConfig), { encoding: 'utf8' });
+fs.writeFileSync('OAuth.json', '\ufeff' + JSON.stringify(oauthConfig, null, 2), { encoding: 'utf8' });

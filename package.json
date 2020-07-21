@@ -34,6 +34,7 @@
     "icon/*",
     "info.plist",
     "config.json",
+    "OAuth.json",
     "commandLog.json",
     "search_content/CacheLog.json"
   ],
@@ -55,5 +56,5 @@
     "test": "xo && ava",
     "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js"
   },
-  "version": "0.3.0"
+  "version": "0.3.2"
 }
