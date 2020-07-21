@@ -14,18 +14,6 @@ const {
   getTimeString,
 } = require('./utils');
 
-if (!OAuth) {
-  console.log(
-    "oauth file error, please create OAuth.json file referring README.md"
-  );
-  return;
-}
-
-if (!config) {
-  console.log("can't find config file");
-  return;
-}
-
 if (fs.existsSync("./Caching")) {
   fs.readdir('./search_content', (error, files) => { 
     alfy.output([{
@@ -34,10 +22,25 @@ if (fs.existsSync("./Caching")) {
       autocomplete: '',
       subtitle: `Caching note count: ${files.length}`,
     }], { 
-      rerun : 1
+      rerunInterval : 1
     });
   });
 
+  return;
+}
+
+if (OAuth.oauthToken === "-1") {
+  alfy.output([{
+    title : "OAuth not set up",
+    subtitle: 'Please get an API token by reference to readme README.md',
+    autocomplete: '',
+    arg: '',
+  }]);
+  return;
+}
+
+if (!config) {
+  console.log("can't find config file");
   return;
 }
 
