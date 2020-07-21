@@ -34,7 +34,8 @@
     "icon/*",
     "info.plist",
     "config.json",
-    "commandLog.json"
+    "commandLog.json",
+    "search_content/CacheLog.json"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -52,7 +53,7 @@
     "postinstall": "alfy-init && npm run savecache",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava",
-    "savecache": "node printWait.js && osascript saveCache.scpt"
+    "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js"
   },
-  "version": "0.2.4"
+  "version": "0.2.8"
 }
