@@ -8,10 +8,13 @@ const {
   replaceAll
 } = require('./utils');
 
-if (!OAuth) {
-  console.log(
-    "oauth file error, please create OAuth.json file referring README.md"
-  );
+if (OAuth.oauthToken === "-1") {
+  alfy.output([{
+    title : "OAuth not set up",
+    subtitle: 'Please get an API token by reference to readme README.md',
+    autocomplete: '',
+    arg: '',
+  }]);
   return;
 }
 

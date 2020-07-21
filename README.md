@@ -48,6 +48,14 @@ Evernote workflow for Alfred 4
 <img src="./imgs/log.png" width = "60%" height="60%" />
 </p>
 
+## Prerequisite
+
+* Evernote Client on macOS
+
+* Alfred powerpack
+
+* Node JS
+
 ## How to install
 
 1. **Install package**
@@ -56,7 +64,11 @@ Evernote workflow for Alfred 4
 $ npm install --global alfred-evernote-workflow
 ```
 
-*You need to Evernote client, [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/) to use this package*
+If you have problem with installation with above command,
+
+Please refer [follow issue](https://github.com/jopemachine/alfred-evernote-workflow/issues/8).
+
+And let me know if the problem still remains or if there are other issues.
 
 2. **Type `en > login`  to get your API key**
 
@@ -78,27 +90,97 @@ In Alfred, type below query and <kbd>Enter</kbd>
 
 You can use below feature.
 
-|  Keyword  | Argument |   Desc   |
-|:----:|:----:|:----:|
-|  `en`  | No argument |   Switch to Evernote App.   |
-|  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
-|  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
-|  `en > help`  |  No argument  |    Open Github link to view README.md    |
-|  `en > sync`  |   No argument   |    Sync Evernote.    |
-|  `en > savecache`  |   No argument   |    Save html cache from your Evernote client.    |
-|  `en > clearcache`  |   No argument   |    Clear all your html caches.    |
-|  `entodo`  |   No argument   |    Search for notes with check boxes.    |
-|  `encl`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
-|  `enclo`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
-|  `enc`  | { Note content } |    Create note by text    |
-|  `enct`  | { note title to create } | Search tag name and create note by the selected tag and note content if you want |
-|  `enu`  | { url } |    Search Notes by url    |
-|  `ens`  | { content to search } |    Search the Evernote's notes.    |
-|  `ent`  | { tag name } |    Search Evernote's tag. You can filter notes by entering on that tag.    |
-|  `enr`  | { tag name } |    Search notes with reminder    |
-|  `enb`  | { notebook name } |    Search notes by Notebook    |
-|  `enl`  |  No argument  |    Check your command usage log    |
-|  `__ens`  |   { content to search }   |    Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.    |
+#### en
+
+Switch to Evernote App.
+
+#### en > auth { Argument }
+
+Argument: `Your api key`
+
+This command is required only for the initial authentication process.
+
+#### en > login
+
+This command is required only for the initial authentication process.
+
+#### en > help
+
+Open Github link to view README.md
+
+#### en > sync
+
+Sync Evernote Client.
+
+#### en > savecache
+
+Save html cache from your Evernote client. 
+
+#### en > clearcache
+
+Clear all your html caches.
+
+#### entodo
+
+Search for notes with check boxes.
+
+#### encl 
+
+Adds the text from the current clipboard to the Evernote as a new note. 
+
+#### enclo
+
+Adds the text from the current clipboard to the Evernote as a new note and Open the note. 
+
+#### enc
+
+Create note by text
+
+#### enct
+
+Argument: `note title to create`
+
+Search tag name and create note by the selected tag and note content if you want
+
+#### enu { Argument }
+
+Argument: `url to search with`
+
+Search Notes by url
+
+#### ens { Argument }
+
+Argument: `content to search`
+
+Search the Evernote's notes.
+
+#### ent { Argument }
+
+Argument: `tag name`
+
+Search Evernote's tag. You can filter notes by entering on that tag.
+
+#### enr { Argument }
+
+Argument: `content to search`
+
+Search notes with reminder 
+
+#### enb { Argument }
+
+Argument: `notebook name`
+
+Search notes by Notebook
+
+#### enl
+
+Check your command usage log
+
+#### __ens { Argument }
+
+Argument: `content to search`
+
+Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.
 
 ## Options
 
