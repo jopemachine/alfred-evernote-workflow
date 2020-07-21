@@ -10,7 +10,6 @@ const cacheLog = require('./search_content/CacheLog.json');
 const {
   decideSearchOrder,
   handleInput,
-  getPageOffset,
   replaceAll,
   getTimeString,
 } = require('./utils');
@@ -27,9 +26,22 @@ if (!config) {
   return;
 }
 
-let [ execPath, input, option ] = process.argv.slice(1);
+if (fs.existsSync("./Caching")) {
+  fs.readdir('./search_content', (error, files) => { 
+    alfy.output([{
+      title : "Please wait until the caching process is finished...",
+      arg: '',
+      autocomplete: '',
+      subtitle: `Caching note count: ${files.length}`,
+    }], { 
+      rerun : 1
+    });
+  });
 
-const pageOffset = getPageOffset(input);
+  return;
+}
+
+let [ execPath, input, option ] = process.argv.slice(1);
 
 input = replaceAll(handleInput(input), "\\\"", "\"");
 const execDir = execPath.split("searchNote.js")[0];
@@ -181,8 +193,8 @@ async function searchNote(notesMetadataList) {
 (async function () {
   alfy.output(await api.findNotesMetadata(
     filter,
-    pageOffset * config.search_max_count,
-    fullSearchFlag ? 999 : config.search_max_count,
+    0,
+    config.search_max_count,
     spec,
     {
       callback: searchNote,

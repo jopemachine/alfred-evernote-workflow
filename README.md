@@ -56,7 +56,7 @@ Evernote workflow for Alfred 4
 $ npm install --global alfred-evernote-workflow
 ```
 
-*You need to [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/) to use this package*
+*You need to Evernote client, [Node.js](https://nodejs.org) 4+ and the Alfred [Powerpack](https://www.alfredapp.com/powerpack/) to use this package*
 
 2. **Type `en > login`  to get your API key**
 
@@ -84,7 +84,9 @@ You can use below feature.
 |  `en > login`  |  No argument  |    This command is required only for the initial authentication process.    |
 |  `en > auth`  | { your api key } |    This command is required only for the initial authentication process.    |
 |  `en > help`  |  No argument  |    Open Github link to view README.md    |
-|  `ensync`  |   No argument   |    Sync Evernote.    |
+|  `en > sync`  |   No argument   |    Sync Evernote.    |
+|  `en > savecache`  |   No argument   |    Save html cache from your Evernote client.    |
+|  `en > clearcache`  |   No argument   |    Clear all your html caches.    |
 |  `entodo`  |   No argument   |    Search for notes with check boxes.    |
 |  `encl`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note.    |
 |  `enclo`  |   No argument   |    Adds the text from the current clipboard to the Evernote as a new note and Open the note.    |
@@ -96,6 +98,7 @@ You can use below feature.
 |  `enr`  | { tag name } |    Search notes with reminder    |
 |  `enb`  | { notebook name } |    Search notes by Notebook    |
 |  `enl`  |  No argument  |    Check your command usage log    |
+|  `__ens`  |   { content to search }   |    Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.    |
 
 ## Options
 

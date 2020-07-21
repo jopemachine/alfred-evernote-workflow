@@ -11,7 +11,7 @@
   "dependencies": {
     "@jxa/global-type": "^1.3.1",
     "@jxa/run": "^1.3.2",
-    "alfy": "git+https://github.com/jopemachine/alfy.git",
+    "alfy": "git+https://github.com/jopemachine/alfy",
     "clipboardy": "^2.3.0",
     "evernote": "^2.0.5",
     "lodash": "^4.17.15"
@@ -34,7 +34,8 @@
     "icon/*",
     "info.plist",
     "config.json",
-    "commandLog.json"
+    "commandLog.json",
+    "search_content/CacheLog.json"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -49,9 +50,10 @@
     "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
-    "postinstall": "alfy-init",
+    "postinstall": "alfy-init && npm run savecache",
     "preuninstall": "alfy-cleanup",
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js"
   },
-  "version": "0.2.3"
+  "version": "0.2.8"
 }
