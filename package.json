@@ -57,5 +57,5 @@
     "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js",
     "initProcess": "mv OAuthTemplate.json OAuth.json && mv ./search_content/CacheLogTemplate.json ./search_content/CacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.3.7"
+  "version": "0.3.8"
 }
