@@ -90,93 +90,127 @@ In Alfred, type below query and <kbd>Enter</kbd>
 
 You can use below feature.
 
-#### en
+### en
 
 Switch to Evernote App.
 
-#### en > authtoken { Argument }
+### en > authtoken { Argument }
 
 Argument: `Your api key`
 
 This command is required only for the initial authentication process.
 
-#### en > gettoken
+Save the token value obtained from gettoken to a file.
+
+### en > gettoken
 
 This command is required only for the initial authentication process.
 
-#### en > help
+The command opens Chrome to the Evernote site.
+
+When you log in to the site and press the authentication button, `oauthToken` is printed in json format.
+
+Pass the value as a argument in the authoken command.
+
+### en > help
 
 Open Github link to view README.md
 
-#### en > sync
+### en > sync
 
 Sync Evernote Client.
 
-#### en > savecache
+### en > savecache
 
 Save html cache from your Evernote client. 
 
-#### en > clearcache
+The command is executed automatically when the package is first installed.
+
+If the command is running, you will not be able to run note searches with the `ens` command.
+
+In this case, the `ens` command displays the number of notes that are cached.
+
+
+### en > clearcache
 
 Clear all your html caches.
 
-#### entodo
+### entodo
 
 Search for notes with check boxes.
 
-#### encl 
+### encl 
 
 Adds the text from the current clipboard to the Evernote as a new note. 
 
-#### enclo
+### enclo
 
 Adds the text from the current clipboard to the Evernote as a new note and Open the note. 
 
-#### enc
+### enc { Argument }
 
-Create note by text
+Argument: `note content`
 
-#### enct
+Create note by text.
+
+### enct
 
 Argument: `note title to create`
 
 Search tag name and create note by the selected tag and note content if you want
 
-#### enu { Argument }
+### enu { Argument }
 
 Argument: `url to search with`
 
 Search Notes by url
 
-#### ens { Argument }
+### ens { Argument }
 
 Argument: `content to search`
 
 Search the Evernote's notes.
 
-#### ent { Argument }
+To change the search option, see the topic Options.
+
+### ent { Argument }
 
 Argument: `tag name`
 
 Search Evernote's tag. You can filter notes by entering on that tag.
 
-#### enr { Argument }
+If you select the tag, the notes with the tag will be searched.
+
+You can search these notes again.
+
+### enr { Argument }
 
 Argument: `content to search`
 
-Search notes with reminder 
+Search only for notes that have reminder.
 
-#### enb { Argument }
+### enb { Argument }
 
 Argument: `notebook name`
 
-Search notes by Notebook
+Search notes by Notebook.
 
-#### enl
+If you select the notebook, the notes in that notebook  will be searched.
 
-Check your command usage log
+You can search these notes again.
 
-#### __ens { Argument }
+### enl
+
+Check your command usage log.
+
+By selecting the corresponding log, you can execute the command.
+
+The maximum number of logs to be stored can be specified in Options.
+
+And this command displays the same command only once.
+
+
+### __ens { Argument }
 
 Argument: `content to search`
 
