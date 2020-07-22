@@ -34,9 +34,9 @@
     "icon/*",
     "info.plist",
     "config.json",
-    "OAuth.json",
-    "commandLog.json",
-    "search_content/CacheLog.json"
+    "OAuthTemplate.json",
+    "commandLogTemplate.json",
+    "search_content/CacheLogTemplate.json"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -51,10 +51,11 @@
     "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
-    "postinstall": "alfy-init && npm run savecache",
+    "postinstall": "alfy-init && npm run initProcess && npm run savecache",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava",
-    "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js"
+    "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js",
+    "initProcess": "mv OAuthTemplate.json OAuth.json && mv ./search_content/CacheLogTemplate.json ./search_content/CacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.3.4"
+  "version": "0.3.7"
 }
