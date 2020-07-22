@@ -176,7 +176,7 @@ const getResult = async (searchedNotes) =>{
       icon: {
         "path": "./icon/warning.png"
       },
-    })
+    });
   }
 
   if(updateCacheLogFlag) {
