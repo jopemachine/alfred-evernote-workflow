@@ -137,8 +137,9 @@ const getResult = async (searchedNotes) =>{
         fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
       }
 
+      const sourceUrl = note.attributes.sourceURL ? note.attributes.sourceURL : "Source URL not exist";
+
       return {
-        valid: true,
         title: note.title,
         arg: note.title,
         autocomplete: note.title,
@@ -147,13 +148,11 @@ const getResult = async (searchedNotes) =>{
           "path": "./icon/searchIcon.png"
         },
         mods: {
-          cmd: {
-            "valid": true,
-            "subtitle": `Last edited in ${new Date(note.updated).toLocaleString()}`,
-          },
           shift: {
-            "valid": true,
             "subtitle": "Press shift button shortly to preview note",
+          },
+          fn : {
+            "subtitle" : `Source URL: ${sourceUrl}`
           }
         },
         quicklookurl
@@ -162,7 +161,6 @@ const getResult = async (searchedNotes) =>{
   );
 
   result.splice(0, 0, {
-    valid: true,
     title: `${searchedNotes.length} notes were found.`,
     arg: '',
     autocomplete: `${searchedNotes.length} notes were found.`,
@@ -171,7 +169,6 @@ const getResult = async (searchedNotes) =>{
 
   if(result.length == 0) {
     result.push({
-      valid: true,
       title: "No search results found.",
       arg: '',
       autocomplete: "No search results found.",
