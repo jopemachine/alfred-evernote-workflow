@@ -2,6 +2,10 @@
 
 Evernote workflow for Alfred 4
 
+* *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
+* *Preview note using Caching.*
+* *You can change your search details.*
+
 <p align="center">
 <img src="./imgs/demo.gif" width = "75%" height="75%" />
 </p>
@@ -50,6 +54,8 @@ Evernote workflow for Alfred 4
 
 ## Prerequisite
 
+The prerequisites below are required to use that package.
+
 * Evernote Client on macOS
 
 * Alfred powerpack
@@ -97,7 +103,7 @@ Switch to Evernote App.
 
 ### en > authtoken { Argument }
 
-Argument: `Your api key`
+Argument: {`Your api key`}
 
 This command is required only for the initial authentication process.
 
@@ -154,37 +160,41 @@ Adds the text from the clipboard to the Evernote as a new note and Open the note
 
 ### enc { Argument }
 
-Argument: `note content`
+Argument: {`note content`}
 
 Create note by text.
 
 ### enct
 
-Argument: `note title to create`
+Argument: {`note title to create`}
 
 Search tag name and create note by the selected tag and note content if you want
 
 ### enu { Argument }
 
-Argument: `url to search with`
+Argument: {`url to search with`}
 
-Search Notes by url
+If no argument exist, search for all notes with source URL.
+
+Search Notes by url.
 
 ### ens { Argument }
 
-Argument: `content to search`
+Argument: {`content to search`}
 
 Search the Evernote's notes.
 
-To change the search option, see the topic Options.
+If no argument exist, search for the most recent notes (may vary depending on options)
 
-#### Shift key option
+To change the search option, see the topic *Options.*
+
+* #### *Shift key option*
 
 You can invoke the Quicklook by pressing the shift key for the `ens` search results.
 
 Quicklook displays the note in html format.
 
-#### Fn key option
+* #### *Fn key option*
 
 You can view the source URL for that note by pressing the Fn key for the search results in theens.
 
@@ -194,31 +204,35 @@ If the note does not contain a sourceURL, you will receive an error notification
 
 ### ent { Argument }
 
-Argument: `tag name`
+Argument: {`tag name`}
 
 Search Evernote's tag. You can filter notes by entering on that tag.
+
+If no argument exist, search for all tags.
 
 If you select the tag, the notes with the tag will be searched.
 
 You can search these notes just like the `ens` command.
 
-#### Command key option
+* #### *Command key option*
 
 By pressing the command key and pressing the entry, you can open the window for notes with that tag.
 
 ### enr { Argument }
 
-Argument: `content to search`
+Argument: {`content to search`}
 
 Search only for notes that have reminder.
 
 ### enb { Argument }
 
-Argument: `notebook name`
+Argument: {`notebook name`}
 
 Search notes by Notebook.
 
 If you select the notebook, the notes in that notebook  will be searched.
+
+If no argument exist, search for all notebooks.
 
 You can search these notes again.
 
@@ -235,7 +249,7 @@ And this command displays the same command only once.
 
 ### __ens { Argument }
 
-Argument: `content to search`
+Argument: {`content to search`}
 
 Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.
 
