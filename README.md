@@ -139,12 +139,13 @@ When the command is running, you are not able to run note searches with the `ens
 
 In this case, the `ens` command displays the number of notes that are cached to show you progress.
 
+If caching is not done properly for some reason, you can use clearcache and this command to perform initial caching.
 
 ### en > clearcache
 
 Delete all of your html caches.
 
-If you delete all the cache and use the es command, you are likely to be caught in the api call limit.
+If you delete all the cache and use the `ens`, you are likely to be caught in the sdk's api call limit.
 
 ### entodo
 
