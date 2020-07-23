@@ -44,7 +44,7 @@ async function searchNotebook(listNotebooks) {
 
   items = _.orderBy(items, ['name'], ['asc']);
 
-  return _.map(listNotebooks, (notebook) => {
+  return _.map(items, (notebook) => {
     return {
       title: notebook.name,
       arg: `notebook:"${notebook.name}" `,
