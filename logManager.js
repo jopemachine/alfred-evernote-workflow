@@ -1,6 +1,9 @@
 const fs = require('fs');
 const commandLog = require('./commandLog.json');
 const config = require('./config.json');
+const {
+  replaceAll
+} = require('./utils');
 
 function write(command) {
   const keys = Object.keys(commandLog);
@@ -9,7 +12,7 @@ function write(command) {
     delete commandLog[keys[0]]
   }
 
-  commandLog[new Date().toUTCString()] = command;
+  commandLog[new Date().toUTCString()] = replaceAll(command, '\\\"', "\"");
 
   fs.writeFileSync('commandLog.json', '\ufeff' + JSON.stringify(commandLog, null, 2), { encoding: 'utf8' });
 }

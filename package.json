@@ -51,11 +51,12 @@
     "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
-    "postinstall": "alfy-init && npm run initProcess && npm run savecache",
+    "postinstall": "alfy-init && npm run initSettingFile && node printPreInstall.js && npm run saveHtmlCache && node printPostInstall.js",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava",
-    "savecache": "node printPreInstall.js && osascript saveCache.scpt && node printPostInstall.js",
-    "initProcess": "mv OAuthTemplate.json OAuth.json && mv ./search_content/CacheLogTemplate.json ./search_content/CacheLog.json && mv commandLogTemplate.json commandLog.json"
+    "saveHtmlCache": "osascript saveCache.scpt",
+    "clearHtmlCache": "node deleteSearchContent.js",
+    "initSettingFile": "mv OAuthTemplate.json OAuth.json && mv ./search_content/CacheLogTemplate.json ./search_content/CacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.3.8"
+  "version": "0.4.4"
 }

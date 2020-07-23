@@ -7,8 +7,9 @@ const {
   handleInput,
   replaceAll
 } = require('./utils');
+const LogManager = require('./logManager');
 
-if (OAuth.oauthToken === "-1") {
+if (OAuth.oauthToken === -1) {
   alfy.output([{
     title : "OAuth not set up",
     subtitle: 'Please get an API token by reference to readme README.md',
@@ -63,4 +64,6 @@ async function searchNotebook(listNotebooks) {
       callback: searchNotebook,
     }
   ));
+
+  LogManager.write(`enb ${handleInput(alfy.input)}`);
 })();

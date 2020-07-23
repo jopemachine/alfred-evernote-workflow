@@ -1,1 +1,5 @@
-﻿{"oauthToken":"-1"}
+﻿{
+  "oauthToken": -1,
+  "userId": -1,
+  "userShardId": -1
+}
