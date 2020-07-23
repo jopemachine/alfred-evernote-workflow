@@ -3,12 +3,14 @@ const api = require("./api");
 const config = require("./config.json");
 const OAuth = require("./OAuth.json");
 const _ = require("lodash");
+const LogManager = require('./logManager');
+
 const { 
   handleInput,
   replaceAll 
 } = require('./utils');
 
-if (OAuth.oauthToken === "-1") {
+if (OAuth.oauthToken === -1) {
   alfy.output([{
     title : "OAuth not set up",
     subtitle: 'Please get an API token by reference to readme README.md',
@@ -100,4 +102,6 @@ async function searchTag(tags) {
       callback: searchTag,
     }
   ));
+
+  LogManager.write(`ent ${handleInput(alfy.input)}`);
 })();

@@ -6,6 +6,7 @@ const OAuth = require("./OAuth.json");
 const fs = require('fs');
 const _ = require("lodash");
 const cacheLog = require('./search_content/CacheLog.json');
+const LogManager = require('./logManager');
 
 const {
   decideSearchOrder,
@@ -29,7 +30,7 @@ if (fs.existsSync("./Caching")) {
   return;
 }
 
-if (OAuth.oauthToken === "-1") {
+if (OAuth.oauthToken === -1) {
   alfy.output([{
     title : "OAuth not set up",
     subtitle: 'Please get an API token by reference to readme README.md',
@@ -49,26 +50,28 @@ let [ execPath, input, option ] = process.argv.slice(1);
 input = replaceAll(handleInput(input), "\\\"", "\"");
 const execDir = execPath.split("searchNote.js")[0];
 
-let fullSearchFlag = false;
+let command = 'ens';
 
 switch (option) {
   case "--intitle":
     input = `intitle:* "${input}"`;
+    command = 'eni';
     break;
   case "--reminder":
     input = `reminderTime:* -reminderDoneTime:* "${input}"`;
+    command = 'enr';
     break;
   case "--sourceurl":
     input = `sourceurl:* "${input}"`;
+    command = 'enu';
     break;
   case "--notebook":
     input = `notebook: "${input}"`;
+    command = 'enb';
     break;
   case "--todo":
     input = `todo:*`;
-    break;
-  case "--fullSearch":
-    fullSearchFlag = true;
+    command = 'entodo';
     break;
 }
 
@@ -117,9 +120,17 @@ const getSubtitle = async (type, searchedNotes, selectedNote) => {
 
 let updateCacheLogFlag = false;
 
-const getResult = async (searchedNotes) =>{
+const getResult = async (searchedNotes) => {
+  const linkedNotebooks = await api.listLinkedNotebooks();
+  const shardIdMap = new Map;
+  
+  for (const linkedNotebook of linkedNotebooks) {
+    shardIdMap.set(linkedNotebook.guid, linkedNotebook.shardId);
+  }
+  
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
+      const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : OAuth.userShardId;
 
       const subtitle = await getSubtitle(
         option === "--sourceurl" ? "source_url" : config.search_subtitle,
@@ -129,6 +140,8 @@ const getResult = async (searchedNotes) =>{
 
       const quicklookurl = `${execDir}search_content/${note.guid}.html`;
       const latestUpdated = getTimeString(note.updated);
+
+      const notelink = `evernote:///view/${OAuth.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
       if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
         updateCacheLogFlag = true;
@@ -141,7 +154,7 @@ const getResult = async (searchedNotes) =>{
 
       return {
         title: note.title,
-        arg: note.title,
+        arg: notelink,
         autocomplete: note.title,
         subtitle,
         icon: {
@@ -200,4 +213,6 @@ async function searchNote(notesMetadataList) {
       callback: searchNote,
     }
   ));
+
+  LogManager.write(`${command} ${handleInput(alfy.input)}`);
 })();

@@ -6,6 +6,8 @@ const {
   handleNoteContentRestrictor
 } = require('./utils');
 
+if (OAuth.oauthToken === -1) return;
+
 const authenticatedClient = new Evernote.Client({
   token: OAuth.oauthToken,
   sandbox: false,
@@ -13,8 +15,10 @@ const authenticatedClient = new Evernote.Client({
 });
 
 const noteStore = authenticatedClient.getNoteStore();
+const userStore = authenticatedClient.getUserStore();
 
 // ---------------------------------------------------------------------------------
+// Note store API
 
 async function getNotebookName(notebookGuid) {
   const notebook = await noteStore.getNotebook(notebookGuid);
@@ -69,6 +73,19 @@ async function getNoteContent(noteGuid) {
   return await noteStore.getNoteContent(noteGuid);
 }
 
+async function listLinkedNotebooks() {
+  return await noteStore.listLinkedNotebooks();
+}
+
+// ---------------------------------------------------------------------------------
+// User store API
+
+async function getUser() {
+  return await userStore.getUser();
+}
+
+// ---------------------------------------------------------------------------------
+
 module.exports = {
   getNotebookName:
     catchThriftException(handleSubtitleRestrictor(getNotebookName)),
@@ -86,4 +103,8 @@ module.exports = {
     catchThriftException(listTags),
   listNotebooks:
     catchThriftException(listNotebooks),
+  getUser: 
+    getUser,
+  listLinkedNotebooks: 
+    catchThriftException(listLinkedNotebooks),
 };
