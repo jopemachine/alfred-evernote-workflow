@@ -173,13 +173,6 @@ const getResult = async (searchedNotes) => {
     })
   );
 
-  result.splice(0, 0, {
-    title: `${searchedNotes.length} notes were found.`,
-    arg: '',
-    autocomplete: `${searchedNotes.length} notes were found.`,
-    subtitle: ``,
-  });
-
   if(result.length == 0) {
     result.push({
       title: "No search results found.",
@@ -189,6 +182,14 @@ const getResult = async (searchedNotes) => {
       icon: {
         "path": "./icon/warning.png"
       },
+    });
+  }
+  else {
+    result.splice(0, 0, {
+      title: `${searchedNotes.length} notes were found.`,
+      arg: alfy.input,
+      autocomplete: `${searchedNotes.length} notes were found.`,
+      subtitle: `Press to open Evernote with that search term.`,
     });
   }
 
