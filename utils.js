@@ -107,6 +107,21 @@ const getTimeString = (updatedTimestamp) => {
   return parseFloat(weightValue);
 }
 
+const getHtmlMetaData = ({
+  title,
+  updated,
+  created
+}) => {
+  const fontFamily = "font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;'";
+  
+  return `
+  <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
+  <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${new Date(updated).toLocaleString()}</p>
+  <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${new Date(created).toLocaleString()}</p>
+  <hr style='margin-bottom: 15;' /> 
+  `;
+}
+
 module.exports = {
   replaceAll,
   handleInput,
@@ -116,4 +131,5 @@ module.exports = {
   handleNoteContentRestrictor,
   handleSubtitleRestrictor,
   makeScreenFilterJson,
+  getHtmlMetaData
 }

@@ -392,6 +392,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>56847D22-359C-4E21-9CC0-6AEE1B949314</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>searchIcon</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>5BFB1021-14D6-4BDC-976A-3B5C13CA3CAB</key>
 		<array>
 			<dict>
@@ -2643,6 +2656,39 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>Note search</string>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>56847D22-359C-4E21-9CC0-6AEE1B949314</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -4109,6 +4155,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>2090</integer>
 		</dict>
+		<key>56847D22-359C-4E21-9CC0-6AEE1B949314</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>2955</integer>
+		</dict>
 		<key>59271E4F-27C2-49A0-9869-9F968E3256FE</key>
 		<dict>
 			<key>xpos</key>
@@ -4245,7 +4298,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>8BFC0A80-11C1-49CD-8E6F-D3EC0F78CB40</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1085</integer>
+			<integer>1075</integer>
 			<key>ypos</key>
 			<integer>2760</integer>
 		</dict>
