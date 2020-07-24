@@ -35,7 +35,7 @@
     "icon/*",
     "info.plist",
     "searchConfig.json",
-    "OAuthTemplate.json",
+    "authConfigTemplate.json",
     "commandLogTemplate.json",
     "search_content/htmlCacheLogTemplate.json"
   ],
@@ -59,5 +59,5 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.4.9"
+  "version": "0.5.0"
 }
