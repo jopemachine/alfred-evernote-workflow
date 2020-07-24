@@ -1,7 +1,7 @@
 /node_modules
-OAuth.json
+authConfig.json
 /log
 .DS_Store
 commandLog.json
 /search_content/*.html
-/search_content/CacheLog.json
+/search_content/htmlCacheLog.json

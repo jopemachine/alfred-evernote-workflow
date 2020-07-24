@@ -254,9 +254,9 @@ Argument: {`content to search`}
 
 Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.
 
-## Options
+## Search Options
 
-You can change various option, including search options by changing value of `config.json`
+You can change various option, including search options by changing value of `searchConfig.json`
 
 <hr>
 

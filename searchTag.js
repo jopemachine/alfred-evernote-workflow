@@ -1,7 +1,7 @@
 const alfy = require("alfy");
 const api = require("./api");
-const config = require("./config.json");
-const OAuth = require("./OAuth.json");
+const config = require("./searchConfig.json");
+const AuthConfig = require("./authConfig.json");
 const _ = require("lodash");
 const LogManager = require('./logManager');
 
@@ -10,18 +10,18 @@ const {
   replaceAll 
 } = require('./utils');
 
-if (OAuth.oauthToken === -1) {
+if (AuthConfig.oauthToken === -1) {
   alfy.output([{
-    title : "OAuth not set up",
+    title : "Authentication has not progressed.",
     subtitle: 'Please get an API token by reference to readme README.md',
     autocomplete: '',
-    arg: '',
+    arg: 'error',
   }]);
   return;
 }
 
 if (!config) {
-  console.log("can't find config file");
+  console.log("Can't find config file");
   return;
 }
 

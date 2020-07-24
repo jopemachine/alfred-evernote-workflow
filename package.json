@@ -14,7 +14,8 @@
     "alfy": "git+https://github.com/jopemachine/alfy",
     "clipboardy": "^2.3.0",
     "evernote": "^2.0.5",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "os-locale": "^5.0.0"
   },
   "deprecated": false,
   "description": "Evernote workflow for Alfred 4",
@@ -33,11 +34,10 @@
     "imgs/*.png",
     "icon/*",
     "info.plist",
-    "config.json",
-    "OAuthTemplate.json",
+    "searchConfig.json",
+    "authConfigTemplate.json",
     "commandLogTemplate.json",
-    "search_content/CacheLogTemplate.json",
-    "css/htmlCache.css"
+    "search_content/htmlCacheLogTemplate.json"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -57,7 +57,7 @@
     "test": "xo && ava",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
-    "initSettingFile": "mv OAuthTemplate.json OAuth.json && mv ./search_content/CacheLogTemplate.json ./search_content/CacheLog.json && mv commandLogTemplate.json commandLog.json"
+    "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.4.7"
+  "version": "0.5.0"
 }

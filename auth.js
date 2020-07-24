@@ -1,12 +1,13 @@
 const alfy = require('alfy');
 const fs = require('fs');
+const osLocale = require('os-locale');
 
 const oauthConfig = {
   oauthToken: alfy.input
 };
 
 fs.writeFile(
-  "OAuth.json",
+  "authConfig.json",
   "\ufeff" + JSON.stringify(oauthConfig, null, 2),
   { encoding: "utf8" },
   () => {
@@ -15,12 +16,14 @@ fs.writeFile(
 
       const userId = (await api.getUser()).id;
       const userShardId = (await api.getUser()).shardId;
+      const systemLocale = await osLocale();
 
       oauthConfig.userId = userId;
       oauthConfig.userShardId = userShardId;
+      oauthConfig.systemLocale = systemLocale;
 
       fs.writeFileSync(
-        "OAuth.json",
+        "authConfig.json",
         "\ufeff" + JSON.stringify(oauthConfig, null, 2),
         { encoding: "utf8" }
       );

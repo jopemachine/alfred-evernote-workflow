@@ -1,11 +1,11 @@
 const alfy = require("alfy");
 const api = require("./api");
-const config = require("./config.json");
+const config = require("./searchConfig.json");
 const Evernote = require("evernote");
-const OAuth = require("./OAuth.json");
+const AuthConfig = require("./authConfig.json");
 const fs = require('fs');
 const _ = require("lodash");
-const cacheLog = require('./search_content/CacheLog.json');
+const cacheLog = require('./search_content/htmlCacheLog.json');
 const LogManager = require('./logManager');
 
 const {
@@ -20,7 +20,7 @@ if (fs.existsSync("./Caching")) {
   fs.readdir('./search_content', (error, files) => { 
     alfy.output([{
       title : "Please wait until the caching process is finished...",
-      arg: '',
+      arg: 'error',
       autocomplete: '',
       subtitle: `Caching note count: ${files.length}`,
     }], { 
@@ -31,12 +31,12 @@ if (fs.existsSync("./Caching")) {
   return;
 }
 
-if (OAuth.oauthToken === -1) {
+if (AuthConfig.oauthToken === -1) {
   alfy.output([{
-    title : "OAuth not set up",
+    title : "Authentication has not progressed.",
     subtitle: 'Please get an API token by reference to readme README.md',
     autocomplete: '',
-    arg: '',
+    arg: 'error',
   }]);
   return;
 }
@@ -48,8 +48,7 @@ if (!config) {
 
 let [ execPath, input, option ] = process.argv.slice(1);
 
-input = replaceAll(handleInput(input), "\\\"", "\"");
-const execDir = execPath.split("searchNote.js")[0];
+input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
 
@@ -76,13 +75,13 @@ switch (option) {
     break;
 }
 
-let filter = new Evernote.NoteStore.NoteFilter({
+const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
   words: input ? input : ""
 });
 
-var spec = new Evernote.NoteStore.NotesMetadataResultSpec(
+const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
   config.search_include_options
 );
 
@@ -124,14 +123,15 @@ let updateCacheLogFlag = false;
 const getResult = async (searchedNotes) => {
   const linkedNotebooks = await api.listLinkedNotebooks();
   const shardIdMap = new Map;
-  
+  const execDir = execPath.split("searchNote.js")[0];
+
   for (const linkedNotebook of linkedNotebooks) {
     shardIdMap.set(linkedNotebook.guid, linkedNotebook.shardId);
   }
-  
+
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
-      const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : OAuth.userShardId;
+      const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : AuthConfig.userShardId;
 
       const subtitle = await getSubtitle(
         option === "--sourceurl" ? "source_url" : config.search_subtitle,
@@ -142,12 +142,12 @@ const getResult = async (searchedNotes) => {
       const quicklookurl = `${execDir}search_content/${note.guid}.html`;
       const latestUpdated = getTimeString(note.updated);
 
-      const notelink = `evernote:///view/${OAuth.userId}/${shardId}/${note.guid}/${note.guid}/`;
+      const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
       if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
         updateCacheLogFlag = true;
         cacheLog[note.guid] = latestUpdated;
-        const noteContentHTML = getHtmlMetaData(note) + (await api.getNoteContent(0, note.guid));
+        const noteContentHTML = getHtmlMetaData(note) + await api.getNoteContent(0, note.guid);
         fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
       }
 
@@ -174,10 +174,10 @@ const getResult = async (searchedNotes) => {
     })
   );
 
-  if(result.length == 0) {
+  if(result.length === 0) {
     result.push({
       title: "No search results found.",
-      arg: '',
+      arg: 'error',
       autocomplete: "No search results found.",
       subtitle: "There are no notes to display.",
       icon: {
@@ -195,7 +195,7 @@ const getResult = async (searchedNotes) => {
   }
 
   if(updateCacheLogFlag) {
-    fs.writeFileSync(`./search_content/CacheLog.json`, '\ufeff' + JSON.stringify(cacheLog, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(`./search_content/htmlCacheLog.json`, '\ufeff' + JSON.stringify(cacheLog, null, 2), { encoding: 'utf8' });
   }
 
   return result;

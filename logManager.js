@@ -1,6 +1,6 @@
 const fs = require('fs');
 const commandLog = require('./commandLog.json');
-const config = require('./config.json');
+const config = require('./searchConfig.json');
 const {
   replaceAll
 } = require('./utils');

@@ -1,4 +1,5 @@
-const config = require('./config.json');
+const config = require('./searchConfig.json');
+const AuthConfig = require("./authConfig.json");
 
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
@@ -30,9 +31,11 @@ const catchThriftException = func => async (...args) => {
     if (err) {
       switch (err.errorCode) {
         case 2: {
-          const title = "Not valid oauth token, please read README.md first";
+          const title = "Not valid oauth token";
           return makeScreenFilterJson({ 
             title,
+            subtitle: "Please read README.md first",
+            arg: "error",
             text: {
               "copy": title,
               "largetype": title
@@ -43,9 +46,11 @@ const catchThriftException = func => async (...args) => {
           });
         }
         case 19: {
-          const title = "Evernote sdk's ratelimit has reached its limit. Please try again in an hour.";
+          const title = "Evernote sdk's ratelimit has reached its limit.";
           return makeScreenFilterJson({ 
             title,
+            subtitle: "Please try again in an hour.",
+            arg: "error",
             text: {
               "copy": title,
               "largetype": title
@@ -107,19 +112,91 @@ const getTimeString = (updatedTimestamp) => {
   return parseFloat(weightValue);
 }
 
-const getHtmlMetaData = ({
-  title,
-  updated,
-  created
-}) => {
-  const fontFamily = "font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;'";
-  
+const getHtmlMetaData = ({ title, updated, created }) => {
+  const locale = AuthConfig.systemLocale;
+
+  const fontFamily =
+    'font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;\'';
+
   return `
-  <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
-  <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${new Date(updated).toLocaleString()}</p>
-  <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${new Date(created).toLocaleString()}</p>
-  <hr style='margin-bottom: 15;' /> 
+    <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
+    <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${getLocaleString(
+    updated,
+    locale
+  )}</p>
+    <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${getLocaleString(
+    created,
+    locale
+  )}</p>
+    <hr style='margin-bottom: 15;' /> 
   `;
+};
+
+const getLocaleString = (datetime, locale) => {
+  const dateObj = new Date(datetime);
+
+  const year = dateObj.getFullYear();
+  const month = dateObj.getMonth() + 1;
+  const day = dateObj.getDate();
+
+  const hour =
+      // AM 12
+      dateObj.getHours() === 0 ? 12
+      // PM 12
+      : dateObj.getHours() === 12 ? 12
+      // Other times
+      : dateObj.getHours() % 12;
+
+  const minute = dateObj.getMinutes();
+  const seconds = dateObj.getSeconds();
+
+  switch (locale) {
+    case "ko-KR": {
+      const ko_DayOfTheWeek = [
+        "일요일",
+        "월요일",
+        "화요일",
+        "수요일",
+        "목요일",
+        "금요일",
+        "토요일",
+      ];
+      const isPM = dateObj.getHours() >= 12 ? "오후" : "오전";
+      const dayOfTheWeek = ko_DayOfTheWeek[dateObj.getDay() % 7];
+      return `${year}년 ${month}월 ${day}일 ${dayOfTheWeek} ${isPM} ${hour}:${minute}:${seconds}`;
+    }
+
+    default: {
+      const en_DayOfTheWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const en_MonthStr = [
+        "December",
+        "January",
+        "Feburary",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+      ];
+
+      const isPM = dateObj.getHours() >= 12 ? "PM" : "AM";
+      const dayOfTheWeek = en_DayOfTheWeek[dateObj.getDay() % 7];
+      const monthStr = en_MonthStr[month % 12];
+      return `${dayOfTheWeek}, ${monthStr} ${day}, ${year} ${hour}:${minute}:${seconds} ${isPM}`;
+    }
+  }
 }
 
 module.exports = {
