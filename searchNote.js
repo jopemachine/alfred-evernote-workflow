@@ -20,7 +20,7 @@ if (fs.existsSync("./Caching")) {
   fs.readdir('./search_content', (error, files) => { 
     alfy.output([{
       title : "Please wait until the caching process is finished...",
-      arg: '',
+      arg: 'error',
       autocomplete: '',
       subtitle: `Caching note count: ${files.length}`,
     }], { 
@@ -36,7 +36,7 @@ if (OAuth.oauthToken === -1) {
     title : "OAuth not set up",
     subtitle: 'Please get an API token by reference to readme README.md',
     autocomplete: '',
-    arg: '',
+    arg: 'error',
   }]);
   return;
 }
@@ -48,8 +48,7 @@ if (!config) {
 
 let [ execPath, input, option ] = process.argv.slice(1);
 
-input = replaceAll(handleInput(input), "\\\"", "\"");
-const execDir = execPath.split("searchNote.js")[0];
+input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
 
@@ -76,13 +75,13 @@ switch (option) {
     break;
 }
 
-let filter = new Evernote.NoteStore.NoteFilter({
+const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
   words: input ? input : ""
 });
 
-var spec = new Evernote.NoteStore.NotesMetadataResultSpec(
+const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
   config.search_include_options
 );
 
@@ -124,11 +123,12 @@ let updateCacheLogFlag = false;
 const getResult = async (searchedNotes) => {
   const linkedNotebooks = await api.listLinkedNotebooks();
   const shardIdMap = new Map;
-  
+  const execDir = execPath.split("searchNote.js")[0];
+
   for (const linkedNotebook of linkedNotebooks) {
     shardIdMap.set(linkedNotebook.guid, linkedNotebook.shardId);
   }
-  
+
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
       const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : OAuth.userShardId;
@@ -174,10 +174,10 @@ const getResult = async (searchedNotes) => {
     })
   );
 
-  if(result.length == 0) {
+  if(result.length === 0) {
     result.push({
       title: "No search results found.",
-      arg: '',
+      arg: 'error',
       autocomplete: "No search results found.",
       subtitle: "There are no notes to display.",
       icon: {

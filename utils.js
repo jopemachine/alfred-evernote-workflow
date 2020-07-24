@@ -30,9 +30,11 @@ const catchThriftException = func => async (...args) => {
     if (err) {
       switch (err.errorCode) {
         case 2: {
-          const title = "Not valid oauth token, please read README.md first";
+          const title = "Not valid oauth token";
           return makeScreenFilterJson({ 
             title,
+            subtitle: "Please read README.md first",
+            arg: "error",
             text: {
               "copy": title,
               "largetype": title
@@ -43,9 +45,11 @@ const catchThriftException = func => async (...args) => {
           });
         }
         case 19: {
-          const title = "Evernote sdk's ratelimit has reached its limit. Please try again in an hour.";
+          const title = "Evernote sdk's ratelimit has reached its limit.";
           return makeScreenFilterJson({ 
             title,
+            subtitle: "Please try again in an hour.",
+            arg: "error",
             text: {
               "copy": title,
               "largetype": title
@@ -112,13 +116,14 @@ const getHtmlMetaData = ({
   updated,
   created
 }) => {
-  const fontFamily = "font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;'";
-  
+  const fontFamily =
+    'font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;\'';
+
   return `
-  <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
-  <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${new Date(updated).toLocaleString()}</p>
-  <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${new Date(created).toLocaleString()}</p>
-  <hr style='margin-bottom: 15;' /> 
+    <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
+    <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${new Date(updated).toLocaleString()}</p>
+    <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${new Date(created).toLocaleString()}</p>
+    <hr style='margin-bottom: 15;' /> 
   `;
 }
 

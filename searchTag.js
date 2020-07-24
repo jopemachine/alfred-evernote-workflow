@@ -15,7 +15,7 @@ if (OAuth.oauthToken === -1) {
     title : "OAuth not set up",
     subtitle: 'Please get an API token by reference to readme README.md',
     autocomplete: '',
-    arg: '',
+    arg: 'error',
   }]);
   return;
 }
