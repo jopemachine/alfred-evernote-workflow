@@ -152,7 +152,7 @@ const getResult = async (searchedNotes) => {
       if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
         updateCacheLogFlag = true;
         cacheLog[note.guid] = latestUpdated;
-        const noteContentHTML = getHtmlMetaData(note) + await api.getNoteContent(0, note.guid);
+        const noteContentHTML = getHtmlMetaData(note) + await api.getNoteContent(note.guid);
         fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
       }
 
