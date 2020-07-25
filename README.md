@@ -1,6 +1,11 @@
-# Alfred-evernote-workflow
+<h1 align="center">
+  <a href="#">
+		Alfred-evernote-workflow
+  </a>
+</h1>
 
 Evernote workflow for Alfred 4
+
 
 * *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
 * *Preview note using Caching.*
@@ -10,7 +15,7 @@ Evernote workflow for Alfred 4
 <img src="./imgs/demo.gif" width = "75%" height="75%" />
 </p>
 
-## Feature
+## 📋 Features
 
 * *View your latest notes*
 
@@ -52,7 +57,7 @@ Evernote workflow for Alfred 4
 <img src="./imgs/log.png" width = "60%" height="60%" />
 </p>
 
-## Prerequisite
+## 📌 Prerequisite
 
 The prerequisites below are required to use that package.
 
@@ -62,7 +67,7 @@ The prerequisites below are required to use that package.
 
 * Node JS
 
-## How to install
+##  🔨 How to install
 
 1. **Install package**
 
@@ -91,7 +96,7 @@ Alfred-evernote-workflow use your token to authenticate your account.
 
 4. **Done!**
 
-## How to use
+## 📗 How to use
 
 In Alfred, type below query and <kbd>Enter</kbd>
 
@@ -268,7 +273,7 @@ Argument: {`content to search`}
 
 Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.
 
-## Search Options
+## 🔖 Search Options
 
 You can change various option, including search options by changing value of `searchConfig.json`
 
@@ -351,3 +356,4 @@ When you use the `enc`, `enct` command, you can decide if you want to open the n
 ## License
 
 MIT © [jopemachine](https://github.com/jopemachine/Alfred-evernote-workflow)
+
