@@ -37,7 +37,8 @@
     "searchConfig.json",
     "authConfigTemplate.json",
     "commandLogTemplate.json",
-    "search_content/htmlCacheLogTemplate.json"
+    "search_content/htmlCacheLogTemplate.json",
+    "*.md"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -59,5 +60,5 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.5.1"
+  "version": "0.5.2"
 }
