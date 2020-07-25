@@ -189,13 +189,13 @@ If no argument exist, search for the most recent notes (may vary depending on op
 
 To change the search option, see the topic *Options.*
 
-* #### *Shift key option*
+* #### *Shift key* + <kbd>Enter</kbd>
 
 You can invoke the Quicklook by pressing the shift key for the `ens` search results.
 
 Quicklook displays the note in html format.
 
-* #### *Fn key option*
+* #### *Fn key* + <kbd>Enter</kbd>
 
 You can view the source URL for that note by pressing the Fn key for the search results in theens.
 
@@ -215,7 +215,7 @@ If you select the tag, the notes with the tag will be searched.
 
 You can search these notes just like the `ens` command.
 
-* #### *Command key option*
+* #### *Command key* + <kbd>Enter</kbd>
 
 By pressing the command key and pressing the entry, you can open the window for notes with that tag.
 
@@ -236,6 +236,20 @@ If you select the notebook, the notes in that notebook  will be searched.
 If no argument exist, search for all notebooks.
 
 You can search these notes again.
+
+### enf { Argument }
+
+1st Argument: {`file extension`}
+
+2nd Argument: {`content to search`}
+
+Search for notes with attachments of a specific extension.
+
+Example:
+
+```
+enf pdf compiler
+```
 
 ### enl
 
