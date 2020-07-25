@@ -344,6 +344,10 @@ To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api cal
 
 Determine how many logs you want to save and display in `enl` command.
 
+* **create_and_open**
+
+When you use the `enc`, `enct` command, you can decide if you want to open the note after creating it.
+
 ## License
 
 MIT © [jopemachine](https://github.com/jopemachine/Alfred-evernote-workflow)

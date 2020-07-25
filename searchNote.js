@@ -42,7 +42,7 @@ if (AuthConfig.oauthToken === -1) {
 }
 
 if (!config) {
-  console.log("can't find config file");
+  console.log("Can't find config file");
   return;
 }
 
