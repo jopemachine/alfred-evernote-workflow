@@ -69,10 +69,6 @@ const handleSubtitleRestrictor = func => async (count, ...args) => {
   if (count <= config.subtitle_restrictor) return await func(...args);
 };
 
-const handleNoteContentRestrictor = func => async (count, ...args) => {
-  if (count <= config.note_count_restrictor) return await func(...args);
-};
-
 const decideSearchOrder = (option) => {
   // 'CREATED': 1,
   // 'UPDATED': 2,
@@ -147,8 +143,14 @@ const getLocaleString = (datetime, locale) => {
       // Other times
       : dateObj.getHours() % 12;
 
-  const minute = dateObj.getMinutes();
-  const seconds = dateObj.getSeconds();
+  const minute =
+    dateObj.getMinutes() < 10
+      ? `0${dateObj.getMinutes()}`
+      : dateObj.getMinutes();
+  const seconds =
+    dateObj.getSeconds() < 10
+      ? `0${dateObj.getSeconds()}`
+      : dateObj.getSeconds();
 
   switch (locale) {
     case "ko-KR": {
@@ -205,7 +207,6 @@ module.exports = {
   getTimeString,
   decideSearchOrder,
   catchThriftException,
-  handleNoteContentRestrictor,
   handleSubtitleRestrictor,
   makeScreenFilterJson,
   getHtmlMetaData

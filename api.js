@@ -96,7 +96,7 @@ module.exports = {
   findNoteCountsWithTag:
     catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
   getNoteContent:
-    catchThriftException(handleNoteContentRestrictor(getNoteContent)),
+    catchThriftException(getNoteContent),
   findNotesMetadata:
     catchThriftException(findNotesMetadata),
   listTags:

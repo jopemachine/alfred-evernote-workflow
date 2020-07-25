@@ -281,15 +281,15 @@ You can change various option, including search options by changing value of `se
 
 * **search_max_count**
 
-| Possible Value | Desc |
-|:----:|:----:|
-| "search_max_count" | {number} |
+Type: `number`
 
 Determines how many items you want to search for in the `ens` command.
 
 <hr>
 
 * **search_subtitle**
+
+Type: `string (enum)`
 
 | Possible Value | Desc |
 |:----:|:----:|
@@ -305,6 +305,8 @@ In the `ens` search results subtitle, specify which item Alfred show.
 
 * **search_order**
 
+Type: `string (enum)`
+
 | Possible Value | Desc |
 |:----:|:----:|
 | "created" | Search notes in the order in which they were created. |
@@ -314,7 +316,19 @@ In the `ens` search results subtitle, specify which item Alfred show.
 
 <hr>
 
+* **search_include_options**
+
+Type: `object`
+
+Specifies the items to include in the `ens` search results.
+
+if you're sure that some attribute is useless in your search, you can optimize your search by excluding the attribute (by setting the value false).
+
+<hr>
+
 * **tag_search_subtitle**
+
+Type: `string (enum)`
 
 | Possible Value | Desc |
 |:----:|:----:|
@@ -326,15 +340,9 @@ In the `ent` search results subtitle, specify which item Alfred show.
 
 <hr>
 
-* **search_include_options**
-
-Specifies the items to include in the `ens` search results.
-
-if you're sure that some attribute is useless in your search, you can optimize your search by excluding the attribute (by setting the value false).
-
-<hr>
-
 * **cliped_note_tag**
+
+Type: `string`
 
 Tag notes that you clip with the `encl`, `enclo` command with that name.
 
@@ -342,14 +350,23 @@ Tag notes that you clip with the `encl`, `enclo` command with that name.
 
 * **subtitle_restrictor**
 
+Type: `number`
+
 To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api calls are restricted above a certain number.
 
+<hr>
 
 * **cache_save_count**
 
+Type: `number`
+
 Determine how many logs you want to save and display in `enl` command.
 
+<hr>
+
 * **create_and_open**
+
+Type: `boolean`
 
 When you use the `enc`, `enct` command, you can decide if you want to open the note after creating it.
 

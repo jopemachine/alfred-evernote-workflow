@@ -28,24 +28,25 @@
     "node": ">=4"
   },
   "files": [
-    "*.js",
-    "*.png",
-    "*.scpt",
-    "imgs/*.png",
-    "icon/*",
     "info.plist",
+    "*.js",
+    "*.scpt",
+    "*.png",
+    "imgs/*.png",
+    "icon/*.png",
     "searchConfig.json",
     "authConfigTemplate.json",
     "commandLogTemplate.json",
     "search_content/htmlCacheLogTemplate.json",
-    "*.md"
+    "*.md",
+    "license"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
     "alfred",
-    "workflow",
     "alfy",
-    "evernote"
+    "evernote",
+    "workflow"
   ],
   "license": "MIT",
   "name": "alfred-evernote-workflow",
@@ -60,5 +61,5 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.5.2"
+  "version": "0.5.4"
 }
