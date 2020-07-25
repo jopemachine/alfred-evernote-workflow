@@ -55,23 +55,27 @@ let command = 'ens';
 switch (option) {
   case "--intitle":
     input = `intitle:* "${input}"`;
-    command = 'eni';
+    command = "eni";
     break;
   case "--reminder":
     input = `reminderTime:* -reminderDoneTime:* "${input}"`;
-    command = 'enr';
+    command = "enr";
     break;
   case "--sourceurl":
     input = `sourceurl:* "${input}"`;
-    command = 'enu';
+    command = "enu";
     break;
   case "--notebook":
     input = `notebook: "${input}"`;
-    command = 'enb';
+    command = "enb";
+    break;
+  case "--fileExtension":
+    input = `*.${input}`;
+    command = "enf";
     break;
   case "--todo":
     input = `todo:*`;
-    command = 'entodo';
+    command = "entodo";
     break;
 }
 
