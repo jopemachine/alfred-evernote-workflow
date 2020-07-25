@@ -70,7 +70,8 @@ switch (option) {
     command = "enb";
     break;
   case "--fileExtension":
-    input = `*.${input}`;
+    const [ext, ...query] = input.split(" ");
+    input = `*.${ext} ${query.join(" ")}`;
     command = "enf";
     break;
   case "--todo":
