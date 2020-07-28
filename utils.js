@@ -16,6 +16,32 @@ const handleInput = (str) => {
   return str;
 }
 
+function ab2str(buf) {
+  // _.map() not working
+  let result = "";
+  for (let i = 0; i < buf.length; i++) {
+    const newValue = buf[i] < 16 ? `0${buf[i].toString(16)}` : buf[i].toString(16);
+    result += newValue;
+  }
+  return result;
+}
+
+const insertResource = (htmlStr) => {
+  // <en-media hash="{hash}" type="image/png" />
+  const imageCheckingRegexp = /(.*)\<en-media hash=\"(\w*)\" type=\"image\/([\w]*)\"(.*)/g;
+
+  while (imageCheckingRegexp.test(htmlStr)) {
+    // 1: pre string of en-media
+    // 2: resource hash
+    // 3: resource type
+    // 4: post string of en-media
+    htmlStr = htmlStr.replace(imageCheckingRegexp, `$1\<img src=\"_$2.$3\"$4`);
+  }
+
+  return htmlStr;
+}
+
+
 const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon, text }) => {
   return [
     {
@@ -112,19 +138,24 @@ const getHtmlMetaData = ({ title, updated, created }) => {
   const locale = AuthConfig.systemLocale;
 
   const fontFamily =
-    'font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;\'';
+    'font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;';
 
-  return `
-    <p id='title' style='font-size: 20; ${fontFamily}>Title: ${title} </p>
-    <p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${getLocaleString(
+  return `<style>
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+<p id='title' style='font-size: 20; ${fontFamily}'>Title: ${title} </p>
+<p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${getLocaleString(
     updated,
     locale
   )}</p>
-    <p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${getLocaleString(
+<p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${getLocaleString(
     created,
     locale
   )}</p>
-    <hr style='margin-bottom: 15;' /> 
+<hr style='margin-bottom: 15;' /> 
   `;
 };
 
@@ -202,12 +233,14 @@ const getLocaleString = (datetime, locale) => {
 }
 
 module.exports = {
+  ab2str,
   replaceAll,
   handleInput,
   getTimeString,
   decideSearchOrder,
   catchThriftException,
   handleSubtitleRestrictor,
+  insertResource,
   makeScreenFilterJson,
   getHtmlMetaData
 }

@@ -4,11 +4,12 @@
   </a>
 </h1>
 
+[![NPM](https://nodei.co/npm/alfred-evernote-workflow.png)](https://nodei.co/npm/alfred-evernote-workflow/)
+
 Evernote workflow for Alfred 4
 
-
 * *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
-* *Preview note using Caching.*
+* *Preview feature using caching.*
 * *You can change your search details.*
 
 <p align="center">
@@ -57,15 +58,32 @@ Evernote workflow for Alfred 4
 <img src="./imgs/log.png" width = "60%" height="60%" />
 </p>
 
+* *Preview your note in alfred*
+
+<p align="center">
+<img src="./imgs/preview.png" width = "60%" height="60%" />
+</p>
+
+Alfred-evernote-workflow caches note content and resources from the Evernote client and uses them for previews.
+
+In Preview, you can view the contents and images of your notes.
+
+
 ## 📌 Prerequisite
 
 The prerequisites below are required to use that package.
 
-* Evernote Client on macOS
+* Evernote Client on macOS (None App-store version)
 
 * Alfred powerpack
 
 * Node JS
+
+Note that your Evernote Client shouln't be App store version. (downloaded from the App Store)
+
+If you're not sure your Evernote Client version, I'm recommending reinstall Evernote by below version to use this plugin.
+
+[Ever note client Download](!https://evernote.com/intl/en/download)
 
 ##  🔨 How to install
 
@@ -266,12 +284,12 @@ The maximum number of logs to be stored can be specified in Options.
 
 And this command displays the same command only once.
 
-
-### __ens { Argument }
+### enx { Argument }
 
 Argument: {`content to search`}
 
-Search your note with applescript. The command is very slow, but does not use api call in sdk, so it can be used even if api call is restricted. Search option does not apply on this command.
+Export the retrieved notes to Desktop as html.
+
 
 ## 🔖 Search Options
 

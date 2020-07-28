@@ -13,7 +13,13 @@ fs.readdir(directoryPath, function (err, files) {
   }
 
   files.forEach(function (file) {
-    fs.unlinkSync(`${__dirname}/search_content/${file}`);
+    const fileOrDirName = `${__dirname}/search_content/${file}`;
+
+    if (fs.lstatSync(fileOrDirName).isDirectory()) {
+      fs.rmdirSync(fileOrDirName, { recursive: true });
+    }
+
+    else fs.unlinkSync(fileOrDirName);
   });
 
   fs.writeFileSync(

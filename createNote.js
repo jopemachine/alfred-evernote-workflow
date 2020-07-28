@@ -11,7 +11,7 @@ const createNoteByText = (string, createAndOpen) => {
   let callback = (string, createAndOpen) => {
     const Evernote = Application("Evernote");
     const date = new Date().toLocaleString();
-    
+
     const newNote = Evernote.createNote({ title: date, withText: string });
 
     if(createAndOpen === true) {
