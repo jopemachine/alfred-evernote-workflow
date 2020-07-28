@@ -505,6 +505,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>6E78E9FB-F614-4178-84CD-BD94D3532897</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>55A69CC9-584D-4F23-B859-3477D581A30C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>738E32C9-452E-4231-9129-4F399A946B73</key>
 		<array>
 			<dict>
@@ -4531,6 +4544,78 @@ evernote.openCollectionWindow({withQueryString: 'notebook:' + '"{query}"'});</st
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>osascript noteExport.scpt {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>55A69CC9-584D-4F23-B859-3477D581A30C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>enx</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Export selected note...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node searchNote.js '{query}'</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>index.js</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Note export</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6E78E9FB-F614-4178-84CD-BD94D3532897</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Evernote workflow for Alfred 4
@@ -4762,6 +4847,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>2090</integer>
 		</dict>
+		<key>55A69CC9-584D-4F23-B859-3477D581A30C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>575</integer>
+			<key>ypos</key>
+			<integer>6090</integer>
+		</dict>
 		<key>56847D22-359C-4E21-9CC0-6AEE1B949314</key>
 		<dict>
 			<key>xpos</key>
@@ -4831,6 +4923,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>505</integer>
 			<key>ypos</key>
 			<integer>1230</integer>
+		</dict>
+		<key>6E78E9FB-F614-4178-84CD-BD94D3532897</key>
+		<dict>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>6090</integer>
 		</dict>
 		<key>6F6C366B-2ED8-4BE6-80B5-EB592DCB5C65</key>
 		<dict>

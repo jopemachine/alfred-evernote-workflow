@@ -12,14 +12,13 @@ const createNoteByText = (string, createAndOpen, tag) => {
 
   let callback = (string, createAndOpen, tag) => {
     const Evernote = Application('Evernote');
-    Evernote.activate();
 
     const noteContent = string !== '' ? string : ' ';
-    
+
     const date = new Date().toLocaleString();
-    
+
     const newNote = Evernote.createNote({ title: date, withText: noteContent, tags: [tag] });
-    
+
     if(createAndOpen === true) {
       Evernote.openNoteWindow({ with: newNote });
     }

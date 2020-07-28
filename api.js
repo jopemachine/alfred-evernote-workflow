@@ -77,6 +77,10 @@ async function listLinkedNotebooks() {
   return await noteStore.listLinkedNotebooks();
 }
 
+async function getNoteWithResultSpec(noteGuid, resultSpec) {
+  return await noteStore.getNoteWithResultSpec(noteGuid, resultSpec);
+}
+
 // ---------------------------------------------------------------------------------
 // User store API
 
@@ -103,8 +107,10 @@ module.exports = {
     catchThriftException(listTags),
   listNotebooks:
     catchThriftException(listNotebooks),
-  getUser: 
+  getUser:
     getUser,
+  getNoteWithResultSpec:
+    getNoteWithResultSpec,
   listLinkedNotebooks: 
     catchThriftException(listLinkedNotebooks),
 };

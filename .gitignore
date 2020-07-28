@@ -3,5 +3,5 @@ authConfig.json
 /log
 .DS_Store
 commandLog.json
-/search_content/*.html
+/search_content/*
 /search_content/htmlCacheLog.json

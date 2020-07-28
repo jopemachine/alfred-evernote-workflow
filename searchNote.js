@@ -9,11 +9,13 @@ const cacheLog = require('./search_content/htmlCacheLog.json');
 const LogManager = require('./logManager');
 
 const {
+  ab2str,
   decideSearchOrder,
   handleInput,
   replaceAll,
   getTimeString,
-  getHtmlMetaData
+  getHtmlMetaData,
+  insertResource,
 } = require('./utils');
 
 if (fs.existsSync("./Caching")) {
@@ -152,7 +154,31 @@ const getResult = async (searchedNotes) => {
       if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
         updateCacheLogFlag = true;
         cacheLog[note.guid] = latestUpdated;
-        const noteContentHTML = getHtmlMetaData(note) + await api.getNoteContent(note.guid);
+
+        const noteData = await api.getNoteWithResultSpec(note.guid, {
+          includeContent: true,
+          includeResourcesData: true,
+          includeResourcesRecognition: true,
+          includeResourcesAlternateData: true,
+          includeSharedNotes: true,
+          includeNoteAppDataValues: true,
+          includeResourceAppDataValues: true,
+          includeAccountLimits: true,
+        });
+
+        const noteResources = noteData.resources;
+
+        _.map(noteResources, (resource) => {
+          const resourceHash = ab2str(resource.data.bodyHash);
+          // const resourceGuid = resource.guid;
+          const resourceData = resource.data.body;
+          const ext = resource.mime.split("/")[1];
+
+          fs.appendFileSync(`search_content/_${resourceHash}.${ext}`, Buffer.from(resourceData));
+        });
+
+        const noteContentHTML = getHtmlMetaData(note) + insertResource(noteData.content);
+
         fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
       }
 
