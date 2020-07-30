@@ -83,7 +83,9 @@ Note that your Evernote Client shouln't be App store version. (downloaded from t
 
 If you're not sure your Evernote Client version, I'm recommending reinstall Evernote by below version to use this plugin.
 
-[Ever note client Download](!https://evernote.com/intl/en/download)
+[Evernote client Download](https://evernote.com/intl/en/download)
+
+And don't forget to login into Evernote client and sync should be completed
 
 ##  🔨 How to install
 
@@ -212,16 +214,6 @@ If no argument exist, search for the most recent notes (may vary depending on op
 
 To change the search option, see the topic *Options.*
 
-### enn { Argument }
-
-Argument: {`content to search`}
-
-Search the Evernote's notes in your Trash bin.
-
-Note that the enter action for this command is to open the cache of the note in the Chrome browser.
-
-(Not your Evernote client)
-
 * #### *Shift key* + <kbd>Enter</kbd>
 
 You can invoke the Quicklook by pressing the shift key for the `ens` search results.
@@ -235,6 +227,17 @@ You can view the source URL for that note by pressing the Fn key for the search 
 And you can open the source URL by chrome by entering the item.
 
 If the note does not contain a sourceURL, you will receive an error notification.
+
+### enn { Argument }
+
+Argument: {`content to search`}
+
+Search the Evernote's notes in your Trash bin.
+
+Note that the enter action for this command is to open the cache of the note in the Chrome browser.
+
+(Not your Evernote client)
+
 
 ### ent { Argument }
 
