@@ -31,7 +31,7 @@
     "info.plist",
     "*.js",
     "*.scpt",
-    "./*.png",
+    "icon.png",
     "imgs/*.png",
     "icon/*.png",
     "searchConfig.json",
@@ -61,5 +61,5 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.5.7"
+  "version": "0.5.9"
 }
