@@ -15,6 +15,7 @@ const logs = _.uniqBy(_.reverse(_.map(commandLog, (log, date) => {
     case "enb":
     case "enr":
     case "eni":
+    case "enn":
     case "noteopen":
       argument = `\${${keyword}} ${query.join(" ")}`;
       break;

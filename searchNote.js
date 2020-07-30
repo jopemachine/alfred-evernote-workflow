@@ -53,6 +53,7 @@ let [ execPath, input, option ] = process.argv.slice(1);
 input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
+let trashBinFlag = false;
 
 switch (option) {
   case "--intitle":
@@ -80,12 +81,17 @@ switch (option) {
     input = `todo:*`;
     command = "entodo";
     break;
+  case "--trash":
+    trashBinFlag = true;
+    command = "enn";
+    break;
 }
 
 const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
-  words: input ? input : ""
+  words: input ? input : "",
+  inactive: trashBinFlag
 });
 
 const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
@@ -186,7 +192,7 @@ const getResult = async (searchedNotes) => {
 
       return {
         title: note.title,
-        arg: notelink,
+        arg: trashBinFlag ? quicklookurl : notelink,
         autocomplete: note.title,
         subtitle,
         icon: {

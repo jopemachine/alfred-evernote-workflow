@@ -212,6 +212,16 @@ If no argument exist, search for the most recent notes (may vary depending on op
 
 To change the search option, see the topic *Options.*
 
+### enn { Argument }
+
+Argument: {`content to search`}
+
+Search the Evernote's notes in your Trash bin.
+
+Note that the enter action for this command is to open the cache of the note in the Chrome browser.
+
+(Not your Evernote client)
+
 * #### *Shift key* + <kbd>Enter</kbd>
 
 You can invoke the Quicklook by pressing the shift key for the `ens` search results.
