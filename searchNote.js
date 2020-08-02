@@ -157,35 +157,45 @@ const getResult = async (searchedNotes) => {
 
       const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
-      if(!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
-        updateCacheLogFlag = true;
-        cacheLog[note.guid] = latestUpdated;
+      if(config.using_preview) {
+        if (!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
+          updateCacheLogFlag = true;
+          cacheLog[note.guid] = latestUpdated;
 
-        const noteData = await api.getNoteWithResultSpec(note.guid, {
-          includeContent: true,
-          includeResourcesData: true,
-          includeResourcesRecognition: true,
-          includeResourcesAlternateData: true,
-          includeSharedNotes: true,
-          includeNoteAppDataValues: true,
-          includeResourceAppDataValues: true,
-          includeAccountLimits: true,
-        });
+          const noteData = await api.getNoteWithResultSpec(note.guid, {
+            includeContent: true,
+            includeResourcesData: true,
+            includeResourcesRecognition: true,
+            includeResourcesAlternateData: true,
+            includeSharedNotes: true,
+            includeNoteAppDataValues: true,
+            includeResourceAppDataValues: true,
+            includeAccountLimits: true,
+          });
 
-        const noteResources = noteData.resources;
+          const noteResources = noteData.resources;
 
-        _.map(noteResources, (resource) => {
-          const resourceHash = ab2str(resource.data.bodyHash);
-          // const resourceGuid = resource.guid;
-          const resourceData = resource.data.body;
-          const ext = resource.mime.split("/")[1];
+          _.map(noteResources, (resource) => {
+            const resourceHash = ab2str(resource.data.bodyHash);
+            // const resourceGuid = resource.guid;
+            const resourceData = resource.data.body;
+            const ext = resource.mime.split("/")[1];
 
-          fs.appendFileSync(`search_content/_${resourceHash}.${ext}`, Buffer.from(resourceData));
-        });
+            fs.appendFileSync(
+              `search_content/_${resourceHash}.${ext}`,
+              Buffer.from(resourceData)
+            );
+          });
 
-        const noteContentHTML = getHtmlMetaData(note) + insertResource(noteData.content);
+          const noteContentHTML =
+            getHtmlMetaData(note) + insertResource(noteData.content);
 
-        fs.writeFileSync(`search_content/${note.guid}.html`, '\ufeff' + noteContentHTML, { encoding: 'utf8' });
+          fs.writeFileSync(
+            `search_content/${note.guid}.html`,
+            "\ufeff" + noteContentHTML,
+            { encoding: "utf8" }
+          );
+        }
       }
 
       const sourceUrl = note.attributes.sourceURL ? note.attributes.sourceURL : "Source URL not exist";

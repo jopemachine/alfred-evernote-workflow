@@ -19,5 +19,6 @@
   "cliped_note_tag": "Cliper",
   "subtitle_restrictor": 5,
   "cache_save_count": 50,
-  "create_and_open": false
+  "create_and_open": false,
+  "using_preview": true
 }
