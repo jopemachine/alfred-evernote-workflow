@@ -75,9 +75,9 @@ The prerequisites below are required to use that package.
 
 * Evernote Client on macOS (None App-store version)
 
-* [Alfred powerpack](https://www.alfredapp.com/powerpack/)
-
 * Node JS
+
+* [Alfred powerpack](https://www.alfredapp.com/powerpack/)
 
 Note that your Evernote Client shouln't be App store version. (downloaded from the App Store)
 
@@ -85,7 +85,7 @@ If you're not sure your Evernote Client version, I'm recommending reinstall Ever
 
 [Evernote client Download](https://evernote.com/intl/en/download)
 
-And don't forget to login into Evernote client and sync should be completed
+And don't forget to login into Evernote client and sync should be completed.
 
 ##  🔨 How to install
 
@@ -146,7 +146,7 @@ Pass the value as a argument in the authoken command.
 
 ### en > help
 
-Open Github link to view README.md
+Open Github link to view README.md.
 
 ### en > sync
 
@@ -194,7 +194,7 @@ Create note by text.
 
 Argument: {`note title to create`}
 
-Search tag name and create note by the selected tag and note content if you want
+Search tag name and create note by the selected tag and note content if you want.
 
 ### enu { Argument }
 
@@ -284,6 +284,7 @@ Search for notes with attachments of a specific extension.
 Example:
 
 ```
+// Search for pdf files with compiler in file name
 enf pdf compiler
 ```
 
@@ -295,18 +296,18 @@ By selecting the corresponding log, you can execute the command.
 
 The maximum number of logs to be stored can be specified in Options.
 
-And this command displays the same command only once.
+This command displays the same command only once.
 
 ### enx { Argument }
 
 Argument: {`content to search`}
 
-Export the retrieved notes to Desktop as html.
+Export the retrieved note to your Desktop path as html.
 
 
 ## 🔖 Search Options
 
-You can change various option, including search options by changing value of `searchConfig.json`
+You can change various option by changing value of `searchConfig.json`
 
 <hr>
 
@@ -314,7 +315,7 @@ You can change various option, including search options by changing value of `se
 
 Type: `number`
 
-Determines how many items you want to search for in the `ens` command.
+Determines how many items you want to search for with `ens` command.
 
 <hr>
 
@@ -331,6 +332,8 @@ Type: `string (enum)`
 | "notebook" |   In the search results subtitle, specify the notebook name of note |
 
 In the `ens` search results subtitle, specify which item Alfred show.
+
+Note that some items may increase the api call of sdk, resulting in more sdk limit restrictions.
 
 <hr>
 
@@ -369,7 +372,9 @@ Type: `string (enum)`
 
 In the `ent` search results subtitle, specify which item Alfred show.
 
-<hr> 
+Note that some items may increase the api call of sdk, resulting in more sdk limit restrictions.
+
+<hr>
 
 * **cliped_note_tag**
 
@@ -400,6 +405,8 @@ Determine how many logs you want to save and display in `enl` command.
 Type: `boolean`
 
 When you use the `enc`, `enct` command, you can decide if you want to open the note after creating it.
+
+<hr>
 
 * **using_preview**
 
