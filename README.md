@@ -75,7 +75,7 @@ The prerequisites below are required to use that package.
 
 * Evernote Client on macOS (None App-store version)
 
-* Alfred powerpack
+* [Alfred powerpack](https://www.alfredapp.com/powerpack/)
 
 * Node JS
 
@@ -369,7 +369,7 @@ Type: `string (enum)`
 
 In the `ent` search results subtitle, specify which item Alfred show.
 
-<hr>
+<hr> 
 
 * **cliped_note_tag**
 
@@ -401,7 +401,13 @@ Type: `boolean`
 
 When you use the `enc`, `enct` command, you can decide if you want to open the note after creating it.
 
+* **using_preview**
+
+Type: `boolean`
+
+You can turn off caching feature by set this value false.
+
 ## License
 
-MIT © [jopemachine](https://github.com/jopemachine/Alfred-evernote-workflow)
+MIT © [jopemachine](https://github.com/jopemachine/alfred-evernote-workflow)
 
