@@ -35,7 +35,7 @@ if (fs.existsSync("./Caching")) {
   return;
 }
 
-const cacheLog = require('./search_content/htmlCacheLog.json');
+const htmlCacheLog = require('./search_content/htmlCacheLog.json');
 
 if (AuthConfig.oauthToken === -1) {
   alfy.output([{
@@ -165,9 +165,9 @@ const getResult = async (searchedNotes) => {
       const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
       if(config.using_preview && AuthConfig.initialCaching === "true") {
-        if (!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
+        if (!htmlCacheLog[note.guid] || htmlCacheLog[note.guid] < latestUpdated) {
           updateCacheLogFlag = true;
-          cacheLog[note.guid] = latestUpdated;
+          htmlCacheLog[note.guid] = latestUpdated;
 
           const noteData = await api.getNoteWithResultSpec(note.guid, {
             includeContent: true,
@@ -249,7 +249,7 @@ const getResult = async (searchedNotes) => {
   }
 
   if(updateCacheLogFlag) {
-    fs.writeFileSync(`./search_content/htmlCacheLog.json`, '\ufeff' + JSON.stringify(cacheLog, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(`./search_content/htmlCacheLog.json`, '\ufeff' + JSON.stringify(htmlCacheLog, null, 2), { encoding: 'utf8' });
   }
 
   return result;

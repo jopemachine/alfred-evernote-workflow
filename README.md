@@ -89,7 +89,7 @@ And don't forget to login into Evernote client and sync should be completed.
 
 ##  🔨 How to install
 
-1. **Install package**
+1. **Install package by npm**
 
 ```
 $ npm install --global alfred-evernote-workflow
@@ -97,11 +97,11 @@ $ npm install --global alfred-evernote-workflow
 
 If you have problem with installation with above command,
 
-Please refer [follow issue](https://github.com/jopemachine/alfred-evernote-workflow/issues/8).
+Please refer [these installaion issues](https://github.com/jopemachine/alfred-evernote-workflow/issues/8).
 
 And let me know if the problem still remains or if there are other issues.
 
-2. **Type `en > gettoken`  to get your API key**
+2. **`en > gettoken` + <kbd>Enter</kbd>  to get your API key**
 
 Type `en > gettoken` and get your OAuth key.
 
@@ -109,11 +109,11 @@ When you log in to the site and press the authentication button, `oauthToken` is
 
 Pass the value as a argument in the authoken command.
 
-3. **Type `en > authtoken 'your issued API key'`**
+3. **`en > authtoken {your issued API key}` + <kbd>Enter</kbd>**
 
 Alfred-evernote-workflow use your token to authenticate your account.
 
-4. **Type `en > savecache`**
+4. **`en > savecache` + <kbd>Enter</kbd>**
 
 If you want to not use preview feature, you can skip this phase.
 
