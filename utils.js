@@ -41,15 +41,6 @@ const insertResource = (htmlStr) => {
   return htmlStr;
 }
 
-
-const makeScreenFilterJson = ({ uid, type, title, subtitle, arg, autocomplete, icon, text }) => {
-  return [
-    {
-      uid, type, title, subtitle, arg, autocomplete, icon, text
-    }
-  ]
-}
-
 const catchThriftException = func => async (...args) => {
   try {
     return await func(...args);
@@ -58,33 +49,37 @@ const catchThriftException = func => async (...args) => {
       switch (err.errorCode) {
         case 2: {
           const title = "Not valid oauth token";
-          return makeScreenFilterJson({ 
-            title,
-            subtitle: "Please read README.md first",
-            arg: "error",
-            text: {
-              "copy": title,
-              "largetype": title
+          return [
+            {
+              title,
+              subtitle: "Please read README.md first",
+              arg: "error",
+              text: {
+                copy: title,
+                largetype: title,
+              },
+              icon: {
+                path: "./icon/warning.png",
+              },
             },
-            icon: {
-              "path": "./icon/warning.png"
-            },
-          });
+          ];
         }
         case 19: {
           const title = "Evernote sdk's ratelimit has reached its limit.";
-          return makeScreenFilterJson({ 
-            title,
-            subtitle: "Please try again in an hour.",
-            arg: "error",
-            text: {
-              "copy": title,
-              "largetype": title
+          return [
+            {
+              title,
+              subtitle: "Please try again in an hour.",
+              arg: "error",
+              text: {
+                copy: title,
+                largetype: title,
+              },
+              icon: {
+                path: "./icon/warning.png",
+              },
             },
-            icon: {
-              "path": "./icon/warning.png"
-            }
-          });
+          ];
         }
       }
     }
@@ -241,6 +236,5 @@ module.exports = {
   catchThriftException,
   handleSubtitleRestrictor,
   insertResource,
-  makeScreenFilterJson,
   getHtmlMetaData
 }

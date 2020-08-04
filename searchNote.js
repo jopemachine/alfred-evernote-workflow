@@ -5,7 +5,6 @@ const Evernote = require("evernote");
 const AuthConfig = require("./authConfig.json");
 const fs = require('fs');
 const _ = require("lodash");
-const cacheLog = require('./search_content/htmlCacheLog.json');
 const LogManager = require('./logManager');
 
 const {
@@ -19,19 +18,24 @@ const {
 } = require('./utils');
 
 if (fs.existsSync("./Caching")) {
-  fs.readdir('./search_content', (error, files) => { 
-    alfy.output([{
-      title : "Please wait until the caching process is finished...",
-      arg: 'error',
-      autocomplete: '',
-      subtitle: `Caching note count: ${files.length}`,
-    }], { 
-      rerunInterval : 1
-    });
-  });
+  alfy.output(
+    [
+      {
+        title: "Please wait until the caching process is finished...",
+        arg: "error",
+        autocomplete: "",
+        subtitle: `This work could take several minutes.`,
+      },
+    ],
+    {
+      rerunInterval: 1,
+    }
+  );
 
   return;
 }
+
+const cacheLog = require('./search_content/htmlCacheLog.json');
 
 if (AuthConfig.oauthToken === -1) {
   alfy.output([{
@@ -152,12 +156,15 @@ const getResult = async (searchedNotes) => {
         note
       );
 
-      const quicklookurl = `${execDir}search_content/${note.guid}.html`;
+      const quicklookurl = AuthConfig.initialCaching === "true"
+        ? `${execDir}search_content/${note.guid}.html`
+        : `${execDir}initialCachingDescription.html`;
+
       const latestUpdated = getTimeString(note.updated);
 
       const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
-      if(config.using_preview) {
+      if(config.using_preview && AuthConfig.initialCaching === "true") {
         if (!cacheLog[note.guid] || cacheLog[note.guid] < latestUpdated) {
           updateCacheLogFlag = true;
           cacheLog[note.guid] = latestUpdated;

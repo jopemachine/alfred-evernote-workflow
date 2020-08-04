@@ -34,6 +34,7 @@
     "icon.png",
     "imgs/*.png",
     "icon/*.png",
+    "initialCachingDescription.html",
     "searchConfig.json",
     "authConfigTemplate.json",
     "commandLogTemplate.json",
@@ -54,12 +55,12 @@
     "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
-    "postinstall": "alfy-init && npm run initSettingFile && node printPreInstall.js && npm run saveHtmlCache && node printPostInstall.js",
+    "postinstall": "alfy-init && npm run initSettingFile && node printPostInstall.js",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.6.3"
+  "version": "0.6.4"
 }

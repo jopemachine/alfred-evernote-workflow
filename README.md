@@ -113,8 +113,11 @@ Pass the value as a argument in the authoken command.
 
 Alfred-evernote-workflow use your token to authenticate your account.
 
+4. **Type `en > savecache`**
 
-4. **Done!**
+If you want to not use preview feature, you can skip this phase.
+
+5. **Done!**
 
 ## 📗 How to use
 
