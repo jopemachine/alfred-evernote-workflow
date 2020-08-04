@@ -1,6 +1,5 @@
 const alfy = require('alfy');
 const clipboardy = require('clipboardy');
-const { makeScreenFilterJson } = require('./utils');
 
 clipboardy.read().then(data => {
   const title = alfy.input === "{clip}" ? "Clip" : "Clip and Open";
@@ -8,7 +7,7 @@ clipboardy.read().then(data => {
 
   const subtitle = strs.length > 1 ? `${strs[0]} ...` : data;
 
-  alfy.output(makeScreenFilterJson({
+  alfy.output([{
     title,
     arg: title,
     valid: true,
@@ -17,5 +16,5 @@ clipboardy.read().then(data => {
     icon: {
       "path": "./icon/clipIcon.png"
     }
-  }));
+  }]);
 });

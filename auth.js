@@ -14,13 +14,14 @@ fs.writeFile(
     (async function () {
       const api = require('./api');
 
-      const userId = (await api.getUser()).id;
-      const userShardId = (await api.getUser()).shardId;
+      const userId = (await api.getUser()).id.toString();
+      const userShardId = (await api.getUser()).shardId.toString();
       const systemLocale = await osLocale();
 
       oauthConfig.userId = userId;
       oauthConfig.userShardId = userShardId;
       oauthConfig.systemLocale = systemLocale;
+      oauthConfig.initialCaching = "false";
 
       fs.writeFileSync(
         "authConfig.json",

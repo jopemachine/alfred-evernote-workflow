@@ -455,16 +455,6 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>F0DB54BD-069F-4B23-913C-44485D3A0EE2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
 		</array>
 		<key>63426557-98EE-48CE-97E4-AB6A5CF59DB5</key>
 		<array>
@@ -1655,7 +1645,7 @@
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
-				<true/>
+				<false/>
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
@@ -1717,68 +1707,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>osascript showLogProgress.scpt</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string>index.js</string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>F0DB54BD-069F-4B23-913C-44485D3A0EE2</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>en &gt; help</string>
+				<string>__en &gt; savecache</string>
 				<key>subtext</key>
-				<string>Please Read readme.md first</string>
+				<string>You'll get a notification when the caching is complete.</string>
 				<key>text</key>
-				<string>en &gt; help</string>
+				<string>This work could take several minutes.</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>A8E57FB8-8252-4D29-95FF-1A81FDB33C76</string>
+			<string>F6A8CB79-F9C6-4721-B8B7-940CB12E7050</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1798,6 +1741,27 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>en &gt; help</string>
+				<key>subtext</key>
+				<string>Please Read readme.md first</string>
+				<key>text</key>
+				<string>en &gt; help</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A8E57FB8-8252-4D29-95FF-1A81FDB33C76</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3905,27 +3869,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>Note not contained url</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3945,6 +3888,27 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<string>1A79CCD1-482A-4066-A995-97625D560697</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Note not contained url</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -5032,9 +4996,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>5BFB1021-14D6-4BDC-976A-3B5C13CA3CAB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>320</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>625</integer>
+			<integer>575</integer>
 		</dict>
 		<key>604E1132-154B-4D27-B618-C471051CA889</key>
 		<dict>
@@ -5265,7 +5229,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>500</integer>
 			<key>ypos</key>
-			<integer>570</integer>
+			<integer>575</integer>
 		</dict>
 		<key>A8E57FB8-8252-4D29-95FF-1A81FDB33C76</key>
 		<dict>
@@ -5540,19 +5504,19 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>3590</integer>
 		</dict>
-		<key>F0DB54BD-069F-4B23-913C-44485D3A0EE2</key>
-		<dict>
-			<key>xpos</key>
-			<integer>500</integer>
-			<key>ypos</key>
-			<integer>700</integer>
-		</dict>
 		<key>F62B6B39-814F-41A5-8D35-F2AACEAA14AD</key>
 		<dict>
 			<key>xpos</key>
 			<integer>235</integer>
 			<key>ypos</key>
 			<integer>1775</integer>
+		</dict>
+		<key>F6A8CB79-F9C6-4721-B8B7-940CB12E7050</key>
+		<dict>
+			<key>xpos</key>
+			<integer>325</integer>
+			<key>ypos</key>
+			<integer>700</integer>
 		</dict>
 		<key>F7CB6A3D-6A81-4DB3-AA38-9ECDB4DC320D</key>
 		<dict>
@@ -5573,7 +5537,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>665</integer>
 			<key>ypos</key>
-			<integer>570</integer>
+			<integer>575</integer>
 		</dict>
 		<key>clipAndOpenIcon</key>
 		<dict>
