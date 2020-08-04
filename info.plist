@@ -333,16 +333,6 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>8D925E5B-8727-4660-8B69-48EB582224BB</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
 				<string>E6A28303-2977-440B-9DF2-EE875FC04CFE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -653,21 +643,6 @@
 		</array>
 		<key>867E5F80-600E-48E0-AAEE-E7E69348B95F</key>
 		<array/>
-		<key>8D925E5B-8727-4660-8B69-48EB582224BB</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>C36E1329-30D5-4DCE-8815-48269A0F3203</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>8E68357B-B152-4E92-ABEC-3BDEFF212731</key>
 		<array>
 			<dict>
@@ -1029,29 +1004,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>C72B382E-53FE-42C5-9548-564D242C1024</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>C36E1329-30D5-4DCE-8815-48269A0F3203</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>05B196FD-8679-4CE7-801A-D1395CAD81C6</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>604E1132-154B-4D27-B618-C471051CA889</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -3205,136 +3157,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>__ens</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string>Searching Note (slow)...</string>
-				<key>script</key>
-				<string>osascript slowNoteSearch.scpt '{query}'</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string>index.js</string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>Search Note (slow)</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>inboundconfig</key>
-			<dict>
-				<key>inputmode</key>
-				<integer>1</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>C36E1329-30D5-4DCE-8815-48269A0F3203</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>\$\{ensf\}.*</string>
-						<key>outputlabel</key>
-						<string></string>
-						<key>uid</key>
-						<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>8D925E5B-8727-4660-8B69-48EB582224BB</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript openNoteWithTitle.scpt '{query}'</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>05B196FD-8679-4CE7-801A-D1395CAD81C6</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node writeLog.js "noteopen {query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>604E1132-154B-4D27-B618-C471051CA889</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4734,13 +4556,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>3245</integer>
 		</dict>
-		<key>05B196FD-8679-4CE7-801A-D1395CAD81C6</key>
-		<dict>
-			<key>xpos</key>
-			<integer>935</integer>
-			<key>ypos</key>
-			<integer>3415</integer>
-		</dict>
 		<key>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</key>
 		<dict>
 			<key>xpos</key>
@@ -5000,13 +4815,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>575</integer>
 		</dict>
-		<key>604E1132-154B-4D27-B618-C471051CA889</key>
-		<dict>
-			<key>xpos</key>
-			<integer>935</integer>
-			<key>ypos</key>
-			<integer>3545</integer>
-		</dict>
 		<key>63426557-98EE-48CE-97E4-AB6A5CF59DB5</key>
 		<dict>
 			<key>xpos</key>
@@ -5153,13 +4961,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>980</integer>
 			<key>ypos</key>
 			<integer>2740</integer>
-		</dict>
-		<key>8D925E5B-8727-4660-8B69-48EB582224BB</key>
-		<dict>
-			<key>xpos</key>
-			<integer>245</integer>
-			<key>ypos</key>
-			<integer>3410</integer>
 		</dict>
 		<key>8E68357B-B152-4E92-ABEC-3BDEFF212731</key>
 		<dict>
@@ -5356,13 +5157,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>395</integer>
 			<key>ypos</key>
 			<integer>5365</integer>
-		</dict>
-		<key>C36E1329-30D5-4DCE-8815-48269A0F3203</key>
-		<dict>
-			<key>xpos</key>
-			<integer>340</integer>
-			<key>ypos</key>
-			<integer>3405</integer>
 		</dict>
 		<key>C409FEA6-5115-48B3-9882-E5EB8FBA0C89</key>
 		<dict>
