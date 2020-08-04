@@ -6,7 +6,7 @@ const run = require('@jxa/run').run;
 
 const createNoteByText = (clipStr, tag) => {
 
-  let callback = (clipStr, tag) => {
+  const callback = (clipStr, tag) => {
     const Evernote = Application("Evernote");
     const date = new Date().toLocaleString();
 

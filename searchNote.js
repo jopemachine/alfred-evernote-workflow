@@ -18,19 +18,14 @@ const {
 } = require('./utils');
 
 if (fs.existsSync("./Caching")) {
-  alfy.output(
-    [
-      {
-        title: "Please wait until the caching process is finished...",
-        arg: "error",
-        autocomplete: "",
-        subtitle: `This work could take several minutes.`,
-      },
-    ],
+  alfy.output([
     {
-      rerunInterval: 1,
-    }
-  );
+      title: "Please wait until the caching process is finished...",
+      arg: "error",
+      autocomplete: "",
+      subtitle: `This work could take several minutes.`,
+    },
+  ]);
 
   return;
 }
@@ -148,7 +143,9 @@ const getResult = async (searchedNotes) => {
 
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
-      const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : AuthConfig.userShardId;
+      const shardId = shardIdMap.get(note.notebookGuid)
+        ? shardIdMap.get(note.notebookGuid)
+        : AuthConfig.userShardId;
 
       const subtitle = await getSubtitle(
         option === "--sourceurl" ? "source_url" : config.search_subtitle,
@@ -205,7 +202,9 @@ const getResult = async (searchedNotes) => {
         }
       }
 
-      const sourceUrl = note.attributes.sourceURL ? note.attributes.sourceURL : "Source URL not exist";
+      const sourceUrl = note.attributes.sourceURL
+        ? note.attributes.sourceURL
+        : "Source URL not exist";
 
       return {
         title: note.title,
@@ -249,7 +248,11 @@ const getResult = async (searchedNotes) => {
   }
 
   if(updateCacheLogFlag) {
-    fs.writeFileSync(`./search_content/htmlCacheLog.json`, '\ufeff' + JSON.stringify(htmlCacheLog, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(
+      `./search_content/htmlCacheLog.json`,
+      "\ufeff" + JSON.stringify(htmlCacheLog, null, 2),
+      { encoding: "utf8" }
+    );
   }
 
   return result;

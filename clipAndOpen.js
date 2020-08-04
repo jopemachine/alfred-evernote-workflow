@@ -6,7 +6,7 @@ const run = require('@jxa/run').run;
 
 const createNoteByTextAndOpen = (clipStr, tag) => {
 
-  let callback = (clipStr, tag) => {
+  const callback = (clipStr, tag) => {
     const Evernote = Application("Evernote");
     Evernote.activate();
 
