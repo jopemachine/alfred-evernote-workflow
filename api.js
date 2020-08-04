@@ -3,7 +3,6 @@ const AuthConfig = require("./authConfig.json");
 const {
   catchThriftException,
   handleSubtitleRestrictor,
-  handleNoteContentRestrictor
 } = require('./utils');
 
 if (AuthConfig.oauthToken === -1) return;
