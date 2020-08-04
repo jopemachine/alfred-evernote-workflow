@@ -161,13 +161,13 @@ Alfred-evernote-workflow use html cache to enable note preview feature.
 
 This command save html caches of all of notes from your Evernote client. 
 
-The command is executed automatically when the package is first installed.
-
 When the command is running, you are not able to run note searches with the `ens` command.
 
 In this case, the `ens` command displays the number of notes that are cached to show you progress.
 
-If caching is not done properly for some reason, you can use clearcache and this command to perform initial caching.
+If caching is not done properly for some reason, you can use `en > clearcache` and this command to perform initial caching.
+
+After initial caching, the cache will be updated automatically.
 
 ### en > clearcache
 

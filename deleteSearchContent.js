@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const AuthConfig = require('./authConfig.json');
 
 const directoryPath = path.join(__dirname, 'search_content');
 
@@ -28,3 +29,11 @@ fs.readdir(directoryPath, function (err, files) {
     { encoding: "utf8" }
   );
 });
+
+AuthConfig.initialCaching = "false";
+
+fs.writeFileSync(
+  `${__dirname}/authConfig.json`,
+  "\ufeff" + JSON.stringify(AuthConfig, null, 2),
+  { encoding: "utf8" }
+);
