@@ -196,6 +196,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>2A558C07-C990-4AA3-A138-8D5EE38454B5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4C1AC7A8-DD5A-40B2-AF17-64ED250E5842</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>31F95E55-1BBC-4572-A6F7-F346D10172A6</key>
 		<array>
 			<dict>
@@ -672,6 +685,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9557120F-00B6-4681-9C8B-308114F3DBCD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>508C7C2E-164E-471D-859E-BD1C95E4847E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>9C030083-4AC0-4E71-B732-E7F08722D04F</key>
 		<array>
 			<dict>
@@ -1072,7 +1098,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>4C1AC7A8-DD5A-40B2-AF17-64ED250E5842</string>
+				<string>2A558C07-C990-4AA3-A138-8D5EE38454B5</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1190,21 +1216,11 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>E0EF98AE-DF2A-4A52-BE5A-C5D4A43C03CD</string>
+				<string>9557120F-00B6-4681-9C8B-308114F3DBCD</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>8388608</integer>
 				<key>modifiersubtext</key>
 				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>42E05535-027E-4DED-AECC-BD275077C1EF</string>
-				<key>modifiers</key>
-				<integer>1048576</integer>
-				<key>modifiersubtext</key>
-				<string>Open the evernote window with todo notes</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -2176,11 +2192,11 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openNoteWithNotelink.scpt {query}</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -2189,58 +2205,30 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>5BB9E239-98B5-4C4C-BE9C-C9DD966525DF</string>
+			<string>9557120F-00B6-4681-9C8B-308114F3DBCD</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>entodo</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
+				<key>onlyshowifquerypopulated</key>
 				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string>Searching...</string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node searchNote.js '{query}' --todo</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string>index.js</string>
-				<key>subtext</key>
-				<string>Search for notes with check boxes.</string>
-				<key>title</key>
-				<string>entodo</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
+				<key>removeextension</key>
 				<false/>
+				<key>text</key>
+				<string>Source URL Error</string>
+				<key>title</key>
+				<string>Note not contained url!</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>F7CB6A3D-6A81-4DB3-AA38-9ECDB4DC320D</string>
+			<string>508C7C2E-164E-471D-859E-BD1C95E4847E</string>
 			<key>version</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2275,12 +2263,61 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>entodo</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node searchNote.js '{query}' --todo</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>index.js</string>
+				<key>subtext</key>
+				<string>Search for notes with check boxes.</string>
+				<key>title</key>
+				<string>entodo</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F7CB6A3D-6A81-4DB3-AA38-9ECDB4DC320D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>68</integer>
+				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node writeLog.js "entodo"</string>
+				<string>osascript openNoteWithNotelink.scpt {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -2291,7 +2328,7 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>E0EF98AE-DF2A-4A52-BE5A-C5D4A43C03CD</string>
+			<string>5BB9E239-98B5-4C4C-BE9C-C9DD966525DF</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -2303,20 +2340,18 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>var evernote = Application('Evernote');
-evernote.activate();
-evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
+				<string>./node_modules/.bin/run-node writeLog.js "noteopen {query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>7</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>42E05535-027E-4DED-AECC-BD275077C1EF</string>
+			<string>C9E68D80-E497-491B-92BD-D912BC1B3E8B</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -2356,29 +2391,6 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node writeLog.js "entodo"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>C9E68D80-E497-491B-92BD-D912BC1B3E8B</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
 				<string>osascript openCollectionWindow.scpt {query}</string>
@@ -2395,6 +2407,36 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 			<string>4C1AC7A8-DD5A-40B2-AF17-64ED250E5842</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>error</string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>39A5679C-99FF-4ABB-92B3-DDA3CB4DD043</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>2A558C07-C990-4AA3-A138-8D5EE38454B5</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2716,9 +2758,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openWebBrowser.scpt '{query}'</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3119,9 +3161,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openWebBrowser.scpt '{query}'</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3265,9 +3307,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>osascript openNoteWithNotelink.scpt {query}</string>
+				<string>osascript openNoteWithNotelink.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3422,9 +3464,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openWebBrowser.scpt '{query}'</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3445,9 +3487,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>osascript openNoteWithNotelink.scpt {query}</string>
+				<string>osascript openNoteWithNotelink.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3543,7 +3585,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
-						<integer>0</integer>
+						<integer>4</integer>
 						<key>matchstring</key>
 						<string>evernote:///view/.*</string>
 						<key>outputlabel</key>
@@ -3600,7 +3642,7 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node writeLog.js "noteopen {query}"</string>
+				<string>osascript openCollectionWindow.scpt {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -3674,9 +3716,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openWebBrowser.scpt '{query}'</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -3746,9 +3788,9 @@ evernote.openCollectionWindow({withQueryString: 'todo:*'});</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>osascript openNoteWithNotelink.scpt {query}</string>
+				<string>osascript openNoteWithNotelink.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -4234,9 +4276,9 @@ evernote.openCollectionWindow({withQueryString: 'notebook:' + '"{query}"'});</st
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript openWebBrowser.scpt '{query}'</string>
+				<string>osascript openWebBrowser.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -4306,9 +4348,9 @@ evernote.openCollectionWindow({withQueryString: 'notebook:' + '"{query}"'});</st
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>osascript openNoteWithNotelink.scpt {query}</string>
+				<string>osascript openNoteWithNotelink.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -4435,9 +4477,9 @@ evernote.openCollectionWindow({withQueryString: 'notebook:' + '"{query}"'});</st
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>osascript noteExport.scpt {query}</string>
+				<string>osascript noteExport.scpt $1</string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
@@ -4509,9 +4551,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>03C65267-303E-4045-96E7-DDAB6AE1D7A4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>550</integer>
+			<integer>520</integer>
 			<key>ypos</key>
-			<integer>3245</integer>
+			<integer>3250</integer>
 		</dict>
 		<key>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</key>
 		<dict>
@@ -4639,6 +4681,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>5225</integer>
 		</dict>
+		<key>2A558C07-C990-4AA3-A138-8D5EE38454B5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>590</integer>
+			<key>ypos</key>
+			<integer>2000</integer>
+		</dict>
 		<key>2B9E9280-0403-4638-9738-C1E094DD1F6F</key>
 		<dict>
 			<key>xpos</key>
@@ -4695,13 +4744,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>5765</integer>
 		</dict>
-		<key>42E05535-027E-4DED-AECC-BD275077C1EF</key>
-		<dict>
-			<key>xpos</key>
-			<integer>675</integer>
-			<key>ypos</key>
-			<integer>1840</integer>
-		</dict>
 		<key>465EC33A-EF75-415E-86EC-6DB351DABCCC</key>
 		<dict>
 			<key>xpos</key>
@@ -4712,9 +4754,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>49ABF91A-7267-4FE8-89B3-5D84E9C24DC2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>570</integer>
+			<integer>575</integer>
 			<key>ypos</key>
-			<integer>4300</integer>
+			<integer>4305</integer>
 		</dict>
 		<key>4A633FCA-0B14-4563-929B-FDB3AA4533D4</key>
 		<dict>
@@ -4733,9 +4775,16 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>4C1AC7A8-DD5A-40B2-AF17-64ED250E5842</key>
 		<dict>
 			<key>xpos</key>
-			<integer>675</integer>
+			<integer>670</integer>
 			<key>ypos</key>
-			<integer>2090</integer>
+			<integer>1995</integer>
+		</dict>
+		<key>508C7C2E-164E-471D-859E-BD1C95E4847E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>825</integer>
+			<key>ypos</key>
+			<integer>1730</integer>
 		</dict>
 		<key>55A69CC9-584D-4F23-B859-3477D581A30C</key>
 		<dict>
@@ -4763,7 +4812,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>1720</integer>
+			<integer>1860</integer>
 		</dict>
 		<key>5BFB1021-14D6-4BDC-976A-3B5C13CA3CAB</key>
 		<dict>
@@ -4803,7 +4852,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>67F40522-9F0F-4FAF-8A76-15A743EAE9FA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>625</integer>
+			<integer>620</integer>
 			<key>ypos</key>
 			<integer>3865</integer>
 		</dict>
@@ -4933,6 +4982,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>2740</integer>
 		</dict>
+		<key>9557120F-00B6-4681-9C8B-308114F3DBCD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>1730</integer>
+		</dict>
 		<key>9C030083-4AC0-4E71-B732-E7F08722D04F</key>
 		<dict>
 			<key>xpos</key>
@@ -5055,16 +5111,16 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>B9D7C0E0-4828-456E-8A7A-3F85B4EF2FDC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>495</integer>
+			<integer>500</integer>
 			<key>ypos</key>
 			<integer>4205</integer>
 		</dict>
 		<key>BC75117F-3D82-45BD-B690-DB6A2C8D6AC9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>345</integer>
+			<integer>355</integer>
 			<key>ypos</key>
-			<integer>3245</integer>
+			<integer>3250</integer>
 		</dict>
 		<key>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</key>
 		<dict>
@@ -5146,7 +5202,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>C8DEAEC4-D829-4C30-9D41-A805FB03D94B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>570</integer>
+			<integer>575</integer>
 			<key>ypos</key>
 			<integer>4185</integer>
 		</dict>
@@ -5160,16 +5216,16 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>C9E68D80-E497-491B-92BD-D912BC1B3E8B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>675</integer>
+			<integer>825</integer>
 			<key>ypos</key>
-			<integer>1965</integer>
+			<integer>1860</integer>
 		</dict>
 		<key>D1DFD547-48AB-407E-9A50-8AF3AA118EA1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<integer>515</integer>
 			<key>ypos</key>
-			<integer>1900</integer>
+			<integer>1950</integer>
 		</dict>
 		<key>D26E6118-944F-4344-A6A0-CEAD85E4E200</key>
 		<dict>
@@ -5191,13 +5247,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>510</integer>
 			<key>ypos</key>
 			<integer>1480</integer>
-		</dict>
-		<key>E0EF98AE-DF2A-4A52-BE5A-C5D4A43C03CD</key>
-		<dict>
-			<key>xpos</key>
-			<integer>820</integer>
-			<key>ypos</key>
-			<integer>1835</integer>
 		</dict>
 		<key>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</key>
 		<dict>
@@ -5265,9 +5314,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>F7CB6A3D-6A81-4DB3-AA38-9ECDB4DC320D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>340</integer>
+			<integer>335</integer>
 			<key>ypos</key>
-			<integer>1750</integer>
+			<integer>1800</integer>
 		</dict>
 		<key>F8957507-07DC-43F8-B72C-1AEABACEE02E</key>
 		<dict>

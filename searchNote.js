@@ -53,7 +53,8 @@ input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
 let trashBinFlag = false,
-  tagSearchFlag = false;
+  tagSearchFlag = false,
+  reminderFlag = false;
 
 switch (option) {
   case "--intitle":
@@ -62,7 +63,8 @@ switch (option) {
     break;
 
   case "--reminder":
-    input = `reminderTime:* -reminderDoneTime:* "${input}"`;
+    input = `reminderTime:* -reminderDoneTime:*"${input}"`;
+    reminderFlag = true;
     command = "enr";
     break;
 
@@ -83,7 +85,7 @@ switch (option) {
     break;
 
   case "--todo":
-    input = `todo:*`;
+    input = `todo:*"${input}"`;
     command = "entodo";
     break;
 
@@ -97,7 +99,7 @@ const isTagSearching = /tag:\"(?<tagName>.*)\"/;
 
 let tagGuids = [];
 
-if(isTagSearching.test(input)) {
+if (isTagSearching.test(input)) {
   tagSearchFlag = true;
 
   const tagName = input.match(isTagSearching).groups.tagName;
@@ -169,11 +171,19 @@ const getResult = async (searchedNotes) => {
         ? shardIdMap.get(note.notebookGuid)
         : AuthConfig.userShardId;
 
-      const subtitle = await getSubtitle(
-        option === "--sourceurl" ? "source_url" : config.search_subtitle,
-        searchedNotes,
-        note
-      );
+      let subtitle;
+
+      if (reminderFlag) {
+        subtitle = `Reminder Date: ${new Date(
+          note.attributes.reminderTime
+        ).toLocaleString()}`;
+      } else {
+        subtitle = await getSubtitle(
+          option === "--sourceurl" ? "source_url" : config.search_subtitle,
+          searchedNotes,
+          note
+        );
+      }
 
       const quicklookurl = AuthConfig.initialCaching === "true"
         ? `${execDir}search_content/${note.guid}.html`
