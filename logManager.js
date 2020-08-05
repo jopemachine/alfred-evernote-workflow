@@ -5,16 +5,23 @@ const {
   replaceAll
 } = require('./utils');
 
-function write(command) {
+function write(command, options = undefined) {
   const keys = Object.keys(commandLog);
-  if(config.cache_save_count <= keys.length) {
+  if (config.cache_save_count <= keys.length) {
     // delete oldest log
-    delete commandLog[keys[0]]
+    delete commandLog[keys[0]];
   }
 
-  commandLog[new Date().toUTCString()] = replaceAll(command, '\\\"', "\"");
+  commandLog[new Date().toUTCString()] = {
+    log: replaceAll(command, '\\"', '"'),
+    options,
+  };
 
-  fs.writeFileSync('commandLog.json', '\ufeff' + JSON.stringify(commandLog, null, 2), { encoding: 'utf8' });
+  fs.writeFileSync(
+    "commandLog.json",
+    "\ufeff" + JSON.stringify(commandLog, null, 2),
+    { encoding: "utf8" }
+  );
 }
 
 module.exports = {

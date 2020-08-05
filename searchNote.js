@@ -230,21 +230,21 @@ const getResult = async (searchedNotes) => {
 
       return {
         title: note.title,
-        arg: trashBinFlag ? quicklookurl : notelink,
+        arg: trashBinFlag ? quicklookurl : notelink + " " + note.title,
         autocomplete: note.title,
         subtitle,
         icon: {
-          "path": "./icon/searchIcon.png"
+          path: "./icon/searchIcon.png",
         },
         mods: {
           shift: {
-            "subtitle": "Press shift button shortly to preview note",
+            subtitle: "Press shift button shortly to preview note",
           },
-          fn : {
-            "subtitle" : `Source URL: ${sourceUrl}`
-          }
+          fn: {
+            subtitle: `Source URL: ${sourceUrl}`,
+          },
         },
-        quicklookurl
+        quicklookurl,
       };
     })
   );
@@ -252,11 +252,11 @@ const getResult = async (searchedNotes) => {
   if(result.length === 0) {
     result.push({
       title: "No search results found.",
-      arg: 'error',
+      arg: "error",
       autocomplete: "No search results found.",
       subtitle: "There are no notes to display.",
       icon: {
-        "path": "./icon/warning.png"
+        path: "./icon/warning.png",
       },
     });
   }
