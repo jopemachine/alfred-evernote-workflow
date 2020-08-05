@@ -10,6 +10,7 @@ const LogManager = require('./logManager');
 const {
   ab2str,
   decideSearchOrder,
+  fetchTagGuid,
   handleInput,
   replaceAll,
   getTimeString,
@@ -48,49 +49,70 @@ if (!config) {
 }
 
 let [ execPath, input, option ] = process.argv.slice(1);
-
 input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
-let trashBinFlag = false;
+let trashBinFlag = false,
+  tagSearchFlag = false;
 
 switch (option) {
   case "--intitle":
     input = `intitle:* "${input}"`;
     command = "eni";
     break;
+
   case "--reminder":
     input = `reminderTime:* -reminderDoneTime:* "${input}"`;
     command = "enr";
     break;
+
   case "--sourceurl":
     input = `sourceurl:* "${input}"`;
     command = "enu";
     break;
+
   case "--notebook":
     input = `notebook: "${input}"`;
     command = "enb";
     break;
+
   case "--fileExtension":
     const [ext, ...query] = input.split(" ");
     input = `*.${ext} ${query.join(" ")}`;
     command = "enf";
     break;
+
   case "--todo":
     input = `todo:*`;
     command = "entodo";
     break;
+
   case "--trash":
     trashBinFlag = true;
     command = "enn";
     break;
 }
 
+const isTagSearching = /tag:\"(?<tagName>.*)\"/;
+
+let tagGuids = [];
+
+if(isTagSearching.test(input)) {
+  tagSearchFlag = true;
+
+  const tagName = input.match(isTagSearching).groups.tagName;
+
+  tagGuids = await api.listTags({
+    callback: _.partial(fetchTagGuid, tagName)
+  });
+}
+
 const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
-  words: input ? input : "",
-  inactive: trashBinFlag
+  words: !input || tagSearchFlag ? "" : input,
+  inactive: trashBinFlag,
+  tagGuids,
 });
 
 const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
