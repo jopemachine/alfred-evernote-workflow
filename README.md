@@ -1,10 +1,9 @@
 <h1 align="center">
-  <a href="#">
-		Alfred-evernote-workflow
+  <a href="https://img.shields.io/npm/dw/alfred-evernote-workflow">
+		Alfred-evernote-workflow<br>
+	  <img src="https://img.shields.io/npm/dw/alfred-evernote-workflow" alt="GitHub Release">
   </a>
 </h1>
-
-![NPM Downloads](https://img.shields.io/npm/dw/alfred-evernote-workflow)
 
 [![NPM](https://nodei.co/npm/alfred-evernote-workflow.png)](https://nodei.co/npm/alfred-evernote-workflow/)
 
