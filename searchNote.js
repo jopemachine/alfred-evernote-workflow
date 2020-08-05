@@ -10,6 +10,7 @@ const LogManager = require('./logManager');
 const {
   ab2str,
   decideSearchOrder,
+  fetchTagGuid,
   handleInput,
   replaceAll,
   getTimeString,
@@ -18,19 +19,14 @@ const {
 } = require('./utils');
 
 if (fs.existsSync("./Caching")) {
-  alfy.output(
-    [
-      {
-        title: "Please wait until the caching process is finished...",
-        arg: "error",
-        autocomplete: "",
-        subtitle: `This work could take several minutes.`,
-      },
-    ],
+  alfy.output([
     {
-      rerunInterval: 1,
-    }
-  );
+      title: "Please wait until the caching process is finished...",
+      arg: "error",
+      autocomplete: "",
+      subtitle: `This work could take several minutes.`,
+    },
+  ]);
 
   return;
 }
@@ -53,49 +49,70 @@ if (!config) {
 }
 
 let [ execPath, input, option ] = process.argv.slice(1);
-
 input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
-let trashBinFlag = false;
+let trashBinFlag = false,
+  tagSearchFlag = false;
 
 switch (option) {
   case "--intitle":
     input = `intitle:* "${input}"`;
     command = "eni";
     break;
+
   case "--reminder":
     input = `reminderTime:* -reminderDoneTime:* "${input}"`;
     command = "enr";
     break;
+
   case "--sourceurl":
     input = `sourceurl:* "${input}"`;
     command = "enu";
     break;
+
   case "--notebook":
     input = `notebook: "${input}"`;
     command = "enb";
     break;
+
   case "--fileExtension":
     const [ext, ...query] = input.split(" ");
     input = `*.${ext} ${query.join(" ")}`;
     command = "enf";
     break;
+
   case "--todo":
     input = `todo:*`;
     command = "entodo";
     break;
+
   case "--trash":
     trashBinFlag = true;
     command = "enn";
     break;
 }
 
+const isTagSearching = /tag:\"(?<tagName>.*)\"/;
+
+let tagGuids = [];
+
+if(isTagSearching.test(input)) {
+  tagSearchFlag = true;
+
+  const tagName = input.match(isTagSearching).groups.tagName;
+
+  tagGuids = await api.listTags({
+    callback: _.partial(fetchTagGuid, tagName)
+  });
+}
+
 const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
-  words: input ? input : "",
-  inactive: trashBinFlag
+  words: !input || tagSearchFlag ? "" : input,
+  inactive: trashBinFlag,
+  tagGuids,
 });
 
 const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
@@ -148,7 +165,9 @@ const getResult = async (searchedNotes) => {
 
   const result = await Promise.all(
     _.map(searchedNotes, async (note) => {
-      const shardId = shardIdMap.get(note.notebookGuid) ? shardIdMap.get(note.notebookGuid) : AuthConfig.userShardId;
+      const shardId = shardIdMap.get(note.notebookGuid)
+        ? shardIdMap.get(note.notebookGuid)
+        : AuthConfig.userShardId;
 
       const subtitle = await getSubtitle(
         option === "--sourceurl" ? "source_url" : config.search_subtitle,
@@ -205,7 +224,9 @@ const getResult = async (searchedNotes) => {
         }
       }
 
-      const sourceUrl = note.attributes.sourceURL ? note.attributes.sourceURL : "Source URL not exist";
+      const sourceUrl = note.attributes.sourceURL
+        ? note.attributes.sourceURL
+        : "Source URL not exist";
 
       return {
         title: note.title,
@@ -249,7 +270,11 @@ const getResult = async (searchedNotes) => {
   }
 
   if(updateCacheLogFlag) {
-    fs.writeFileSync(`./search_content/htmlCacheLog.json`, '\ufeff' + JSON.stringify(htmlCacheLog, null, 2), { encoding: 'utf8' });
+    fs.writeFileSync(
+      `./search_content/htmlCacheLog.json`,
+      "\ufeff" + JSON.stringify(htmlCacheLog, null, 2),
+      { encoding: "utf8" }
+    );
   }
 
   return result;

@@ -1,5 +1,6 @@
 const config = require('./searchConfig.json');
 const AuthConfig = require("./authConfig.json");
+const _ = require("lodash");
 
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
@@ -14,6 +15,18 @@ const handleInput = (str) => {
   }
 
   return str;
+}
+
+async function fetchTagGuid(targetName, tags) {
+  let result = -1;
+  _.transform(tags, (tags, tag) => {
+    if (tag.name === targetName) {
+      result = tag.guid;
+      return false;
+    }
+    return true;
+  });
+  return result === -1 ? [] : [result];
 }
 
 function ab2str(buf) {
@@ -229,6 +242,7 @@ const getLocaleString = (datetime, locale) => {
 
 module.exports = {
   ab2str,
+  fetchTagGuid,
   replaceAll,
   handleInput,
   getTimeString,

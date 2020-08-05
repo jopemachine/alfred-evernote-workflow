@@ -1,15 +1,15 @@
 const config = require('./searchConfig.json');
+const clipboardy = require('clipboardy');
 
 require('@jxa/global-type');
 const run = require('@jxa/run').run;
 
-let [ input, option ] = process.argv.slice(2);
-
+const input = process.argv.slice(2).join(" ");
 const [tag, queryList] = input.split("$content:");
 
 const createNoteByText = (string, createAndOpen, tag) => {
 
-  let callback = (string, createAndOpen, tag) => {
+  const callback = (string, createAndOpen, tag) => {
     const Evernote = Application('Evernote');
 
     const noteContent = string !== '' ? string : ' ';
@@ -27,3 +27,5 @@ const createNoteByText = (string, createAndOpen, tag) => {
 }
 
 createNoteByText(queryList, config.create_and_open, tag);
+
+clipboardy.write(input);
