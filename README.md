@@ -4,6 +4,8 @@
   </a>
 </h1>
 
+![NPM Downloads](https://img.shields.io/npm/dw/alfred-evernote-workflow)
+
 [![NPM](https://nodei.co/npm/alfred-evernote-workflow.png)](https://nodei.co/npm/alfred-evernote-workflow/)
 
 Evernote workflow for Alfred 4
@@ -175,6 +177,10 @@ Delete all of your html caches.
 
 If you delete all the cache and use the `ens`, you are likely to be caught in the sdk's api call limit.
 
+### en > clearlog
+
+Clean all command logs
+
 ### entodo
 
 Search only for notes that have check boxes.
@@ -300,6 +306,8 @@ By selecting the corresponding log, you can execute the command.
 The maximum number of logs to be stored can be specified in Options.
 
 This command displays the same command only once.
+
+enl supported commands : `ens`, `ent`, `enf`, `enr`, `enb`, `enu`, `noteopen`, `en > sync`, `entodo`
 
 ### enx { Argument }
 
