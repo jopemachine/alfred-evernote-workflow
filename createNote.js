@@ -4,7 +4,7 @@ const clipboardy = require('clipboardy');
 require('@jxa/global-type');
 const run = require('@jxa/run').run;
 
-const input = process.argv.slice(2).join(" ");
+const input = process.argv.slice(2).join(" ").normalize();
 
 const createNoteByText = (string, createAndOpen) => {
 
