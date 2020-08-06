@@ -52,8 +52,12 @@ async function searchNotebook(listNotebooks) {
       autocomplete: notebook.name,
       subtitle: `Created time: ${new Date(notebook.serviceCreated).toUTCString()}`,
       icon: {
-        "path": "./icon/searchIcon.png"
-      }
+        path: "./icon/searchIcon.png",
+      },
+      text: {
+        copy: notebook.name,
+        largetype: notebook.name,
+      },
     };
   });
 }

@@ -70,8 +70,12 @@ const getResult = async (tags) =>{
       mods: {
         cmd: {
           "valid": true,
-          "subtitle": `Open Evernote window with tagged notes`,
+          "subtitle": `Open Evernote window with "${tag.name}" as tag`,
         }
+      },
+      text: {
+        copy: tag.name,
+        largetype: tag.name,
       },
     };
   }));

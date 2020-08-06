@@ -1,6 +1,6 @@
 {
   "search_max_count": 100,
-  "search_subtitle": "tags",
+  "search_subtitle": "last_edited_time",
   "search_order": "relevance",
   "search_include_options": {
     "includeTitle": true,
@@ -15,7 +15,7 @@
     "includeLargestResourceMime": false,
     "includeLargestResourceSize": false
   },
-  "tag_search_subtitle": "note_count",
+  "tag_search_subtitle": "none",
   "cliped_note_tag": "Cliper",
   "subtitle_restrictor": 5,
   "cache_save_count": 50,

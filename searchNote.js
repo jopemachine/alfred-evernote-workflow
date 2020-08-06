@@ -255,6 +255,10 @@ const getResult = async (searchedNotes) => {
           },
         },
         quicklookurl,
+        text: {
+          copy: note.title,
+          largetype: note.title,
+        },
       };
     })
   );
@@ -268,6 +272,10 @@ const getResult = async (searchedNotes) => {
       icon: {
         path: "./icon/warning.png",
       },
+      text: {
+        copy: "No search results found.",
+        largetype: "No search results found.",
+      },
     });
   }
   else {
@@ -275,7 +283,11 @@ const getResult = async (searchedNotes) => {
       title: `${searchedNotes.length} notes were found.`,
       arg: alfy.input,
       autocomplete: `${searchedNotes.length} notes were found.`,
-      subtitle: `Press to open Evernote with that search term.`,
+      subtitle: `Press Enter on this item to open Evernote with "${alfy.input}"`,
+      text: {
+        copy: `${searchedNotes.length} notes were found.`,
+        largetype: `${searchedNotes.length} notes were found.`,
+      },
     });
   }
 

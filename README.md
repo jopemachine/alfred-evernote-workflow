@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://img.shields.io/npm/dw/alfred-evernote-workflow">
 		Alfred-evernote-workflow<br>
-	  <img src="https://img.shields.io/npm/dw/alfred-evernote-workflow" alt="GitHub Release">
+	  <img src="https://img.shields.io/npm/dw/alfred-evernote-workflow" alt="NPM Release">
   </a>
 </h1>
 
@@ -275,7 +275,7 @@ Argument: {`notebook name`}
 
 Search notes by Notebook.
 
-If you select the notebook, the notes in that notebook  will be searched.
+If you select the notebook, the notes in that notebook will be searched.
 
 If no argument exist, search for all notebooks.
 
@@ -400,6 +400,10 @@ Type: `number`
 
 To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api calls are restricted above a certain number.
 
+`tags`,`notebook` are affected by this value.
+
+(Other values always displays subtitle)
+
 <hr>
 
 * **cache_save_count**
@@ -407,6 +411,8 @@ To refrain from frequent occurrence of Evernote sdk's api rate, subtitle api cal
 Type: `number`
 
 Determine how many logs you want to save and display in `enl` command.
+
+Duplicate commands are displayed only once.
 
 <hr>
 
@@ -423,6 +429,12 @@ When you use the `enc`, `enct` command, you can decide if you want to open the n
 Type: `boolean`
 
 You can turn off caching feature by set this value false.
+
+If this value is false, the html cache is not downloaded or updated.
+
+The html cache is stored in search_content path.
+
+Use the `en > clearcache` command to remove the cache already downloaded.
 
 ## License
 
