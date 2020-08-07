@@ -8,36 +8,6 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>9E53E6C4-0BB7-4D56-A552-5AE714561D73</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>1046D2A3-6626-4518-935D-049ECB081CBD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>13280E8F-C7F8-468D-91D5-2F41BC0D0F20</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>13280E8F-C7F8-468D-91D5-2F41BC0D0F20</key>
 		<array>
 			<dict>
@@ -259,26 +229,6 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>1046D2A3-6626-4518-935D-049ECB081CBD</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
 				<string>A79FB981-F0F9-48A3-9404-98ECCE0530BC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -290,26 +240,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>F62B6B39-814F-41A5-8D35-F2AACEAA14AD</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>86086166-9FDB-45BA-A0BB-E3700E04CFF4</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>7433E0C8-0E9A-4AF1-9BE0-98CC58091E5A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -462,6 +392,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>6011D24A-D980-40D3-A16F-A53B656FDA43</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>63CD0801-9288-4804-B5F0-24A361B3C6B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>63426557-98EE-48CE-97E4-AB6A5CF59DB5</key>
 		<array>
 			<dict>
@@ -477,6 +420,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>B9D7C0E0-4828-456E-8A7A-3F85B4EF2FDC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>63CD0801-9288-4804-B5F0-24A361B3C6B5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>62CC648C-A7EC-44CB-AD8F-B45D1AE545A9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -576,21 +532,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>7433E0C8-0E9A-4AF1-9BE0-98CC58091E5A</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>4A633FCA-0B14-4563-929B-FDB3AA4533D4</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>7D1AF65C-288C-45CE-B66A-A96FB0787660</key>
 		<array>
 			<dict>
@@ -632,21 +573,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>BE1F8075-75F3-4CF4-9A0F-F732B1B90292</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>86086166-9FDB-45BA-A0BB-E3700E04CFF4</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>81A525BC-4CA2-4F28-AC00-1F46159D86A6</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1618,29 +1544,6 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node deleteSearchContent.js</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>0F562910-388B-4744-B050-AE03B559419F</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
 				<string>./node_modules/.bin/run-node deleteCommandLog.js</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -1653,6 +1556,29 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>C1E6CDE9-7F52-42C1-9DCC-13D1838BF324</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node deleteSearchContent.js</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0F562910-388B-4744-B050-AE03B559419F</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1897,36 +1823,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>\$\{enct\}</string>
-						<key>outputlabel</key>
-						<string></string>
-						<key>uid</key>
-						<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>1046D2A3-6626-4518-935D-049ECB081CBD</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -2037,36 +1933,6 @@
 			<string>68D45F64-7BFC-464D-BF4B-9E706B836DDA</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>\$\{enc\}</string>
-						<key>outputlabel</key>
-						<string></string>
-						<key>uid</key>
-						<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2567,36 +2433,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>\$\{encl\}</string>
-						<key>outputlabel</key>
-						<string></string>
-						<key>uid</key>
-						<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>86086166-9FDB-45BA-A0BB-E3700E04CFF4</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -2702,32 +2538,107 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>\$\{enclo\}</string>
-						<key>outputlabel</key>
-						<string></string>
-						<key>uid</key>
-						<string>2D4BDC06-3BDD-4492-89CB-3AE0F3192654</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>osascript clipNoteWithFiles.scpt</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>7433E0C8-0E9A-4AF1-9BE0-98CC58091E5A</string>
+			<string>62CC648C-A7EC-44CB-AD8F-B45D1AE545A9</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>Clip with files</string>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>6011D24A-D980-40D3-A16F-A53B656FDA43</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>enclf</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node clipCheck.js {"fclip"}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>index.js</string>
+				<key>subtext</key>
+				<string>Create a note with copied files</string>
+				<key>title</key>
+				<string>enclf</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>63CD0801-9288-4804-B5F0-24A361B3C6B5</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4555,13 +4466,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>3250</integer>
 		</dict>
-		<key>076B56A4-3F4F-4B1E-AF9D-2C890D3131A8</key>
-		<dict>
-			<key>xpos</key>
-			<integer>240</integer>
-			<key>ypos</key>
-			<integer>1265</integer>
-		</dict>
 		<key>09930200-1A2F-4E88-B564-F8FEA8F31B35</key>
 		<dict>
 			<key>xpos</key>
@@ -4575,13 +4479,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>505</integer>
 			<key>ypos</key>
 			<integer>435</integer>
-		</dict>
-		<key>1046D2A3-6626-4518-935D-049ECB081CBD</key>
-		<dict>
-			<key>xpos</key>
-			<integer>235</integer>
-			<key>ypos</key>
-			<integer>995</integer>
 		</dict>
 		<key>13280E8F-C7F8-468D-91D5-2F41BC0D0F20</key>
 		<dict>
@@ -4705,9 +4602,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>31F95E55-1BBC-4572-A6F7-F346D10172A6</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<integer>2235</integer>
+			<integer>2125</integer>
 		</dict>
 		<key>3389732A-48A5-4423-926F-8936986E6D4E</key>
 		<dict>
@@ -4761,9 +4658,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>4A633FCA-0B14-4563-929B-FDB3AA4533D4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>505</integer>
 			<key>ypos</key>
-			<integer>2475</integer>
+			<integer>2260</integer>
 		</dict>
 		<key>4A86EF5B-2D84-4460-A61A-D9D00D005D71</key>
 		<dict>
@@ -4828,12 +4725,33 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>435</integer>
 		</dict>
+		<key>6011D24A-D980-40D3-A16F-A53B656FDA43</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>2395</integer>
+		</dict>
+		<key>62CC648C-A7EC-44CB-AD8F-B45D1AE545A9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>505</integer>
+			<key>ypos</key>
+			<integer>2395</integer>
+		</dict>
 		<key>63426557-98EE-48CE-97E4-AB6A5CF59DB5</key>
 		<dict>
 			<key>xpos</key>
 			<integer>350</integer>
 			<key>ypos</key>
 			<integer>4185</integer>
+		</dict>
+		<key>63CD0801-9288-4804-B5F0-24A361B3C6B5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>330</integer>
+			<key>ypos</key>
+			<integer>2395</integer>
 		</dict>
 		<key>666AA49F-5C81-4FD9-8CA0-9EB8D29EDC07</key>
 		<dict>
@@ -4876,13 +4794,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>500</integer>
 			<key>ypos</key>
 			<integer>5915</integer>
-		</dict>
-		<key>7433E0C8-0E9A-4AF1-9BE0-98CC58091E5A</key>
-		<dict>
-			<key>xpos</key>
-			<integer>240</integer>
-			<key>ypos</key>
-			<integer>2490</integer>
 		</dict>
 		<key>745E3149-57CB-4300-B683-202D0BA433F2</key>
 		<dict>
@@ -4936,9 +4847,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>81A525BC-4CA2-4F28-AC00-1F46159D86A6</key>
 		<dict>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>505</integer>
 			<key>ypos</key>
-			<integer>2235</integer>
+			<integer>2125</integer>
 		</dict>
 		<key>83A437BB-9FC5-4E2A-8866-D226D0CA5792</key>
 		<dict>
@@ -4946,13 +4857,6 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>250</integer>
 			<key>ypos</key>
 			<integer>2820</integer>
-		</dict>
-		<key>86086166-9FDB-45BA-A0BB-E3700E04CFF4</key>
-		<dict>
-			<key>xpos</key>
-			<integer>235</integer>
-			<key>ypos</key>
-			<integer>2255</integer>
 		</dict>
 		<key>867E5F80-600E-48E0-AAEE-E7E69348B95F</key>
 		<dict>
@@ -4971,9 +4875,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>8E68357B-B152-4E92-ABEC-3BDEFF212731</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<integer>40</integer>
 			<key>ypos</key>
-			<integer>2470</integer>
+			<integer>2255</integer>
 		</dict>
 		<key>8EBF4A91-8F37-45F0-ADD5-341ADD27A3A7</key>
 		<dict>
@@ -5132,9 +5036,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>BF58CB99-FBC2-4A56-9E28-EE4DD49755BC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>680</integer>
+			<integer>675</integer>
 			<key>ypos</key>
-			<integer>2235</integer>
+			<integer>2125</integer>
 		</dict>
 		<key>C00D3922-BAFF-49EE-9E86-C829BA00F6AA</key>
 		<dict>
@@ -5335,16 +5239,16 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>clipAndOpenIcon</key>
 		<dict>
 			<key>xpos</key>
-			<integer>335</integer>
+			<integer>330</integer>
 			<key>ypos</key>
-			<integer>2475</integer>
+			<integer>2260</integer>
 		</dict>
 		<key>clipIcon</key>
 		<dict>
 			<key>xpos</key>
-			<integer>330</integer>
+			<integer>325</integer>
 			<key>ypos</key>
-			<integer>2235</integer>
+			<integer>2125</integer>
 		</dict>
 		<key>searchIcon</key>
 		<dict>

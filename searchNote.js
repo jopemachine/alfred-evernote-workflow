@@ -95,7 +95,7 @@ switch (option) {
     break;
 }
 
-const isTagSearching = /tag:\"(?<tagName>.*)\"/;
+const isTagSearching = /tag:\"(?<tagName>.*)\" (?<query>.*)/;
 
 let tagGuids = [];
 
@@ -103,6 +103,7 @@ if (isTagSearching.test(input)) {
   tagSearchFlag = true;
 
   const tagName = input.match(isTagSearching).groups.tagName;
+  input = input.match(isTagSearching).groups.query;
 
   tagGuids = await api.listTags({
     callback: _.partial(fetchTagGuid, tagName)
@@ -112,7 +113,7 @@ if (isTagSearching.test(input)) {
 const filter = new Evernote.NoteStore.NoteFilter({
   order: decideSearchOrder(config.search_order),
   ascending: false,
-  words: !input || tagSearchFlag ? "" : input,
+  words: !input ? "" : input,
   inactive: trashBinFlag,
   tagGuids,
 });
