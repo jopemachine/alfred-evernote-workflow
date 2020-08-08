@@ -192,6 +192,10 @@ Adds the text from the clipboard to the Evernote as a new note.
 
 Adds the text from the clipboard to the Evernote as a new note and Open the note. 
 
+### enclf
+
+Adds copied files to the Evernote to a new note and Open the note. 
+
 ### enc { Argument }
 
 Argument: {`note content`}
