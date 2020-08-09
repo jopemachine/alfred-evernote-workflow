@@ -1,7 +1,8 @@
 <h1 align="center">
   <a href="https://img.shields.io/npm/dw/alfred-evernote-workflow">
 		Alfred-evernote-workflow<br>
-	  <img src="https://img.shields.io/npm/dw/alfred-evernote-workflow" alt="NPM Release">
+	  <img src="https://img.shields.io/npm/dt/alfred-evernote-workflow" alt="NPM Release">
+	  <img src="https://img.shields.io/github/license/jopemachine/alfred-evernote-workflow.svg" alt="License">
   </a>
 </h1>
 
@@ -101,6 +102,8 @@ If you have problem with installation with above command,
 Please refer [these installaion issues](https://github.com/jopemachine/alfred-evernote-workflow/issues/8).
 
 And let me know if the problem still remains or if there are other issues.
+
+If you want to install this package by not through NPM, you can download workflow file in [Packal](https://www.packal.org/workflow/alfred-evernote-workflow).
 
 2. **`en > gettoken` + <kbd>Enter</kbd>  to get your API key**
 
