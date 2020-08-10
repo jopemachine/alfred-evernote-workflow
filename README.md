@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://img.shields.io/npm/dw/alfred-evernote-workflow">
+  <a href="https://www.npmjs.com/package/alfred-evernote-workflow">
 		Alfred-evernote-workflow<br>
 	  <img src="https://img.shields.io/npm/dt/alfred-evernote-workflow" alt="NPM Release">
 	  <img src="https://img.shields.io/github/license/jopemachine/alfred-evernote-workflow.svg" alt="License">
@@ -113,9 +113,25 @@ When you log in to the site and press the authentication button, `oauthToken` is
 
 Pass the value as a argument in the authoken command.
 
+If your token value is `S=s198:U=161532d:E=17b2ea2ba85:C=173d6f18bc8:P=185:A=jopemachine:V=2:H=2d4cbb615bb4caa3de0159c5ededeab2`, below page appears. 
+
+(Note that this is  just for giving a example. This is unvalid token and you should issue your own token.)
+
+<p align="center">
+<img src="./imgs/gettoken.png" width = "60%" height="60%" />
+</p>
+
+
 3. **`en > authtoken {your issued API key}` + <kbd>Enter</kbd>**
 
 Alfred-evernote-workflow use your token to authenticate your account.
+
+Please pass the token value as a factor without quotation marks as shown below.
+
+<p align="center">
+<img src="./imgs/authtoken.png" width = "60%" height="60%" />
+</p>
+
 
 4. **`en > savecache` + <kbd>Enter</kbd>**
 

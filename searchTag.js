@@ -13,7 +13,7 @@ const {
 if (AuthConfig.oauthToken === -1) {
   alfy.output([{
     title : "Authentication has not progressed.",
-    subtitle: 'Please get an API token by reference to readme README.md',
+    subtitle: 'Please get an API token by reference to README.md',
     autocomplete: '',
     arg: 'error',
   }]);
