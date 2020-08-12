@@ -1,6 +1,19 @@
-const commandLog = require("./commandLog.json");
 const _ = require("lodash");
 const alfy = require("alfy");
+
+const commandLog = alfy.input
+  ? _.pickBy(require("./commandLog.json"), (logObj, date) => {
+      const input = alfy.input.normalize().toLowerCase();
+      const logStr = logObj.log.normalize().toLowerCase();
+      const logTitle = logObj.options ? logObj.options.title.normalize().toLowerCase() : "";
+      const dateStr = date.normalize().toLowerCase();
+
+      if (!logStr.includes(input) && !logTitle.includes(input) && !dateStr.includes(input)) {
+        return false;
+      }
+      return true;
+    })
+  : require("./commandLog.json");
 
 const logs = _.uniqBy(_.reverse(_.map(commandLog, (logObj, date) => {
   const log = logObj.log;

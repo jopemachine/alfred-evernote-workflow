@@ -65,13 +65,13 @@ const getResult = async (tags) =>{
       autocomplete: tag.name,
       subtitle,
       icon: {
-        "path": "./icon/tagIcon.png"
+        path: "./icon/tagIcon.png",
       },
       mods: {
         cmd: {
-          "valid": true,
-          "subtitle": `Open Evernote window with "${tag.name}" as tag`,
-        }
+          valid: true,
+          subtitle: `Open Evernote window with "${tag.name}" as tag`,
+        },
       },
       text: {
         copy: tag.name,
