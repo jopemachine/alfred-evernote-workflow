@@ -58,6 +58,9 @@ async function searchNotebook(listNotebooks) {
         copy: notebook.name,
         largetype: notebook.name,
       },
+      variables: {
+        notebookGuid: notebook.guid,
+      }
     };
   });
 }
