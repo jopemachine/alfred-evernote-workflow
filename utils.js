@@ -29,6 +29,18 @@ async function fetchTagGuid(targetName, tags) {
   return result === -1 ? [] : [result];
 }
 
+async function fetchNotebookGuid(targetName, notebooks) {
+  let result = -1;
+  _.transform(notebooks, (notebooks, notebook) => {
+    if (notebook.name === targetName) {
+      result = notebook.guid;
+      return false;
+    }
+    return true;
+  });
+  return result === -1 ? undefined : result;
+}
+
 function ab2str(buf) {
   // _.map() not working
   let result = "";
@@ -243,6 +255,7 @@ const getLocaleString = (datetime, locale) => {
 module.exports = {
   ab2str,
   fetchTagGuid,
+  fetchNotebookGuid,
   replaceAll,
   handleInput,
   getTimeString,

@@ -11,6 +11,7 @@ const {
   ab2str,
   decideSearchOrder,
   fetchTagGuid,
+  fetchNotebookGuid,
   handleInput,
   replaceAll,
   getTimeString,
@@ -53,8 +54,8 @@ input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
 
 let command = 'ens';
 let trashBinFlag = false,
-  tagSearchFlag = false,
-  reminderFlag = false;
+  reminderFlag = false,
+  appendNoteFlag = false;
 
 switch (option) {
   case "--intitle":
@@ -93,20 +94,34 @@ switch (option) {
     trashBinFlag = true;
     command = "enn";
     break;
+
+  case "--append":
+    appendNoteFlag = true;
+    break;
 }
 
-const isTagSearching = /tag:\"(?<tagName>.*)\" (?<query>.*)/;
+const isTagSearching = /tag:\"(?<tagName>.*)\"( )?(?<query>.*)/;
+
+const isNotebookSearching = /notebook:\"(?<notebookName>.*)\"( )?(?<query>.*)/;
 
 let tagGuids = [];
+let notebookGuid;
 
 if (isTagSearching.test(input)) {
-  tagSearchFlag = true;
-
   const tagName = input.match(isTagSearching).groups.tagName;
-  input = input.match(isTagSearching).groups.query;
+  input = input.match(isTagSearching).groups.query || "";
 
   tagGuids = await api.listTags({
     callback: _.partial(fetchTagGuid, tagName)
+  });
+}
+
+else if (isNotebookSearching.test(input)) {
+  const notebookName = input.match(isNotebookSearching).groups.notebookName;
+  input = input.match(isNotebookSearching).groups.query || "";
+
+  notebookGuid = await api.listNotebooks({
+    callback: _.partial(fetchNotebookGuid, notebookName)
   });
 }
 
@@ -116,6 +131,7 @@ const filter = new Evernote.NoteStore.NoteFilter({
   words: !input ? "" : input,
   inactive: trashBinFlag,
   tagGuids,
+  notebookGuid,
 });
 
 const spec = new Evernote.NoteStore.NotesMetadataResultSpec(
@@ -239,9 +255,13 @@ const getResult = async (searchedNotes) => {
         ? note.attributes.sourceURL
         : "Source URL not exist";
 
+      let arg = notelink;
+
+      if (trashBinFlag) arg = quicklookurl;
+
       return {
         title: note.title,
-        arg: trashBinFlag ? quicklookurl : notelink + " " + note.title,
+        arg,
         autocomplete: note.title,
         subtitle,
         icon: {
@@ -249,7 +269,7 @@ const getResult = async (searchedNotes) => {
         },
         mods: {
           shift: {
-            subtitle: "Press shift button shortly to preview note",
+            subtitle: "Press shift button short to preview note",
           },
           fn: {
             subtitle: `Source URL: ${sourceUrl}`,
@@ -260,6 +280,11 @@ const getResult = async (searchedNotes) => {
           copy: note.title,
           largetype: note.title,
         },
+        variables: {
+          notelink,
+          noteTitle: note.title,
+          noteUrl: sourceUrl,
+        }
       };
     })
   );
@@ -282,9 +307,9 @@ const getResult = async (searchedNotes) => {
   else {
     result.splice(0, 0, {
       title: `${searchedNotes.length} notes were found.`,
-      arg: alfy.input,
+      arg: input,
       autocomplete: `${searchedNotes.length} notes were found.`,
-      subtitle: `Press Enter on this item to open Evernote with "${alfy.input}"`,
+      subtitle: `Press Enter on this item to open Evernote with "${input}"`,
       text: {
         copy: `${searchedNotes.length} notes were found.`,
         largetype: `${searchedNotes.length} notes were found.`,

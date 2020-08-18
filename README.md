@@ -276,7 +276,7 @@ Argument: {`tag name`}
 
 Search Evernote's tag. You can filter notes by entering on that tag.
 
-If no argument exist, search for all tags.
+If argument not exist, search for all tags.
 
 If you select the tag, the notes with the tag will be searched.
 
@@ -309,7 +309,7 @@ You can search these notes again.
 1st Argument: {`file extension`}
 
 2nd Argument: {`content to search`}
-
+ㅅ
 Search for notes with attachments of a specific extension.
 
 Example:
@@ -330,6 +330,14 @@ The maximum number of logs to be stored can be specified in Options.
 This command displays the same command only once.
 
 enl supported commands : `ens`, `ent`, `enf`, `enr`, `enb`, `enu`, `noteopen`, `en > sync`, `entodo`
+
+### enap { Argument }
+
+Argument: {`content to search`}
+
+Append string to your selected note.
+
+And enter an argument again (Content to append to selected note).
 
 ### enx { Argument }
 
