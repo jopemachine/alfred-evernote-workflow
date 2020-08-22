@@ -210,10 +210,14 @@ const getResult = async (searchedNotes) => {
 
       const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
-      if(config.using_preview && AuthConfig.initialCaching === "true") {
-        if (!htmlCacheLog[note.guid] || htmlCacheLog[note.guid] < latestUpdated) {
+      if (config.using_preview && AuthConfig.initialCaching === "true") {
+        if (
+          !htmlCacheLog[note.guid] ||
+          htmlCacheLog[note.guid]["lastUpdated"] < latestUpdated
+        ) {
+
           updateCacheLogFlag = true;
-          htmlCacheLog[note.guid] = latestUpdated;
+          htmlCacheLog[note.guid]["lastUpdated"] = latestUpdated;
 
           const noteData = await api.getNoteWithResultSpec(note.guid, {
             includeContent: true,
@@ -233,11 +237,19 @@ const getResult = async (searchedNotes) => {
             // const resourceGuid = resource.guid;
             const resourceData = resource.data.body;
             const ext = resource.mime.split("/")[1];
+            const resourcePath = `search_content/_${resourceHash}.${ext}`;
 
-            fs.appendFileSync(
-              `search_content/_${resourceHash}.${ext}`,
-              Buffer.from(resourceData)
-            );
+            if (!htmlCacheLog[note.guid]["thumbNailImage"]) {
+              switch (ext) {
+                case "jpeg":
+                case "jpg":
+                case "png":
+                  htmlCacheLog[note.guid]["thumbNailImage"] = resourcePath;
+                  break;
+              }
+            }
+
+            fs.appendFileSync(resourcePath, Buffer.from(resourceData));
           });
 
           const noteContentHTML =
@@ -265,7 +277,9 @@ const getResult = async (searchedNotes) => {
         autocomplete: note.title,
         subtitle,
         icon: {
-          path: "./icon/searchIcon.png",
+          path: htmlCacheLog[note.guid]["thumbNailImage"]
+            ? htmlCacheLog[note.guid]["thumbNailImage"]
+            : "./icon/searchIcon.png",
         },
         mods: {
           shift: {
@@ -284,7 +298,7 @@ const getResult = async (searchedNotes) => {
           notelink,
           noteTitle: note.title,
           noteUrl: sourceUrl,
-        }
+        },
       };
     })
   );
