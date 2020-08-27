@@ -12,6 +12,7 @@ Evernote workflow for Alfred 4
 
 * *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
 * *Preview feature using caching.*
+* *Supports thumbnail feature for notes with pictures.*
 * *You can change your search details.*
 
 <p align="center">

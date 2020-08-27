@@ -1550,7 +1550,7 @@
 	<key>description</key>
 	<string>Alfred evernote workflow</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>alfred-evernote-workflow</string>
 	<key>objects</key>

@@ -33,6 +33,7 @@ if (fs.existsSync("./Caching")) {
 }
 
 const htmlCacheLog = require('./search_content/htmlCacheLog.json');
+const thumbNailImageFilePathes = require('./search_content/thumbNailPath.json');
 
 if (AuthConfig.oauthToken === -1) {
   alfy.output([{
@@ -213,11 +214,11 @@ const getResult = async (searchedNotes) => {
       if (config.using_preview && AuthConfig.initialCaching === "true") {
         if (
           !htmlCacheLog[note.guid] ||
-          htmlCacheLog[note.guid]["lastUpdated"] < latestUpdated
+          htmlCacheLog[note.guid] < latestUpdated
         ) {
 
           updateCacheLogFlag = true;
-          htmlCacheLog[note.guid]["lastUpdated"] = latestUpdated;
+          htmlCacheLog[note.guid] = latestUpdated;
 
           const noteData = await api.getNoteWithResultSpec(note.guid, {
             includeContent: true,
@@ -239,14 +240,12 @@ const getResult = async (searchedNotes) => {
             const ext = resource.mime.split("/")[1];
             const resourcePath = `search_content/_${resourceHash}.${ext}`;
 
-            if (!htmlCacheLog[note.guid]["thumbNailImage"]) {
-              switch (ext) {
-                case "jpeg":
-                case "jpg":
-                case "png":
-                  htmlCacheLog[note.guid]["thumbNailImage"] = resourcePath;
-                  break;
-              }
+            switch (ext) {
+              case "jpeg":
+              case "jpg":
+              case "png":
+                thumbNailImageFilePathes[note.guid] = resourcePath;
+                break;
             }
 
             fs.appendFileSync(resourcePath, Buffer.from(resourceData));
@@ -277,8 +276,8 @@ const getResult = async (searchedNotes) => {
         autocomplete: note.title,
         subtitle,
         icon: {
-          path: htmlCacheLog[note.guid]["thumbNailImage"]
-            ? htmlCacheLog[note.guid]["thumbNailImage"]
+          path: thumbNailImageFilePathes[note.guid]
+            ? (thumbNailImageFilePathes[note.guid])
             : "./icon/searchIcon.png",
         },
         mods: {
@@ -318,6 +317,7 @@ const getResult = async (searchedNotes) => {
       },
     });
   }
+  
   else {
     result.splice(0, 0, {
       title: `${searchedNotes.length} notes were found.`,
@@ -335,6 +335,12 @@ const getResult = async (searchedNotes) => {
     fs.writeFileSync(
       `./search_content/htmlCacheLog.json`,
       "\ufeff" + JSON.stringify(htmlCacheLog, null, 2),
+      { encoding: "utf8" }
+    );
+
+    fs.writeFileSync(
+      `./search_content/thumbNailPath.json`,
+      "\ufeff" + JSON.stringify(thumbNailImageFilePathes, null, 2),
       { encoding: "utf8" }
     );
   }

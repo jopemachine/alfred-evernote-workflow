@@ -39,6 +39,7 @@
     "authConfigTemplate.json",
     "commandLogTemplate.json",
     "search_content/htmlCacheLogTemplate.json",
+    "search_content/thumbNailPathTemplate.json",
     "*.md",
     "license"
   ],
@@ -60,7 +61,7 @@
     "test": "xo && ava",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
-    "initSettingFile": "mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
+    "initSettingFile": "mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.7.6"
+  "version": "0.7.7"
 }
