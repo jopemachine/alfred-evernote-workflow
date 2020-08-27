@@ -5,27 +5,49 @@ require('@jxa/global-type');
 const run = require('@jxa/run').run;
 
 const input = process.argv.slice(2).join(" ").normalize();
-const [tag, queryList] = input.split("$content:");
 
-const createNoteByText = (string, createAndOpen, tag) => {
+const [tag, queryList] = input.split("\\$content:");
 
-  const callback = (string, createAndOpen, tag) => {
+const createNoteByText = (noteTitle, noteContent, createAndOpen, tag) => {
+
+  const callback = (noteTitle, noteContent, createAndOpen, tag) => {
     const Evernote = Application('Evernote');
 
-    const noteContent = string !== '' ? string : ' ';
+    const localNoteContent = noteContent !== '' ? noteContent : ' ';
 
-    const date = new Date().toLocaleString();
+    let newNote;
 
-    const newNote = Evernote.createNote({ title: date, withText: noteContent, tags: [tag] });
+    if (!noteTitle || noteTitle === "") {
+      newNote = Evernote.createNote({
+        title: new Date().toLocaleString(),
+        withText: localNoteContent,
+        tags: [tag],
+      });
+    } else {
+      newNote = Evernote.createNote({
+        title: noteTitle,
+        withText: localNoteContent,
+        tags: [tag],
+      });
+    }
 
     if(createAndOpen === true) {
       Evernote.openNoteWindow({ with: newNote });
     }
   }
 
-  return run(callback, string, createAndOpen, tag);
+  return run(callback, noteTitle, noteContent, createAndOpen, tag);
 }
 
-createNoteByText(queryList, config.create_and_open, tag);
+let noteTitle = '';
+let noteContent = queryList;
 
-clipboardy.write(input);
+const inputArgs = queryList.split(" >> ");
+if (inputArgs.length >= 2) {
+  noteTitle = inputArgs[0];
+  noteContent = inputArgs.slice(1, inputArgs.length).join(" >> ");
+}
+
+createNoteByText(noteTitle, noteContent, config.create_and_open, tag);
+
+clipboardy.write(noteContent);

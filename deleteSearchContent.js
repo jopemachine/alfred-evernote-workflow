@@ -4,7 +4,7 @@ const AuthConfig = require('./authConfig.json');
 
 const directoryPath = path.join(__dirname, 'search_content');
 
-const htmlCacheLogTemplate = {
+const jsonTemplate = {
   "-1": -1
 };
 
@@ -18,14 +18,23 @@ fs.readdir(directoryPath, function (err, files) {
 
     if (fs.lstatSync(fileOrDirName).isDirectory()) {
       fs.rmdirSync(fileOrDirName, { recursive: true });
-    }
-
-    else fs.unlinkSync(fileOrDirName);
+    } else if (
+      file === "htmlCacheLogTemplate.json" ||
+      file === "thumbNailPathTemplate.json"
+    ) {
+      // continue
+    } else fs.unlinkSync(fileOrDirName);
   });
 
   fs.writeFileSync(
     `${directoryPath}/htmlCacheLog.json`,
-    "\ufeff" + JSON.stringify(htmlCacheLogTemplate, null, 2),
+    "\ufeff" + JSON.stringify(jsonTemplate, null, 2),
+    { encoding: "utf8" }
+  );
+
+  fs.writeFileSync(
+    `${directoryPath}/thumbNailPath.json`,
+    "\ufeff" + JSON.stringify(jsonTemplate, null, 2),
     { encoding: "utf8" }
   );
 });
@@ -37,3 +46,5 @@ fs.writeFileSync(
   "\ufeff" + JSON.stringify(AuthConfig, null, 2),
   { encoding: "utf8" }
 );
+
+if(fs.existsSync(`${__dirname}/Caching`)) fs.rmdirSync(`${__dirname}/Caching`);

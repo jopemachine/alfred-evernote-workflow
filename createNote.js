@@ -6,22 +6,42 @@ const run = require('@jxa/run').run;
 
 const input = process.argv.slice(2).join(" ").normalize();
 
-const createNoteByText = (string, createAndOpen) => {
+const createNoteByText = (noteTitle, noteContent, createAndOpen) => {
 
-  const callback = (string, createAndOpen) => {
+  const callback = (noteTitle, noteContent, createAndOpen) => {
     const Evernote = Application("Evernote");
-    const date = new Date().toLocaleString();
 
-    const newNote = Evernote.createNote({ title: date, withText: string });
+    let newNote;
+    if (!noteTitle || noteTitle === "") {
+      newNote = Evernote.createNote({
+        title: new Date().toLocaleString(),
+        withText: noteContent,
+      });
+    } else {
+      newNote = Evernote.createNote({
+        title: noteTitle,
+        withText: noteContent,
+      });
+    }
 
     if(createAndOpen === true) {
       Evernote.openNoteWindow({ with: newNote });
     }
   }
 
-  return run(callback, string, createAndOpen);
+  return run(callback, noteTitle, noteContent, createAndOpen);
 }
 
-createNoteByText(input, config.create_and_open);
+let noteTitle = '';
+let noteContent = input;
 
-clipboardy.write(input);
+const inputArgs = input.split(" >> ");
+
+if (inputArgs.length >= 2) {
+  noteTitle = inputArgs[0];
+  noteContent = inputArgs.slice(1, inputArgs.length).join(" >> ");
+}
+
+createNoteByText(noteTitle, noteContent, config.create_and_open);
+
+clipboardy.write(noteContent);

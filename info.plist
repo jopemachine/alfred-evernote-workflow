@@ -1550,7 +1550,7 @@
 	<key>description</key>
 	<string>Alfred evernote workflow</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>alfred-evernote-workflow</string>
 	<key>objects</key>
@@ -2000,25 +2000,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://github.com/jopemachine/alfred-evernote-workflow</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -2034,6 +2015,25 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>A8E57FB8-8252-4D29-95FF-1A81FDB33C76</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/jopemachine/alfred-evernote-workflow</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>1BE89DF7-62AA-40FA-8F57-42CB64EE38C4</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -2115,7 +2115,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node createNoteWithTag.js {query}</string>
+				<string>./node_modules/.bin/run-node createNoteWithTag.js '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -2248,7 +2248,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node createNote.js {query}</string>
+				<string>./node_modules/.bin/run-node createNote.js '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -4125,6 +4125,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Source URL Error</string>
+				<key>title</key>
+				<string>Note not contained url</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4144,27 +4165,6 @@
 			<string>1A79CCD1-482A-4066-A995-97625D560697</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Source URL Error</string>
-				<key>title</key>
-				<string>Note not contained url</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4608,6 +4608,55 @@
 			<string>2B7F347F-8080-4CAF-AC6B-AF5894D49118</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>test</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node test.js</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>test</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>76918C95-9C3B-41FF-82C8-69CC8BAF60E6</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -5618,6 +5667,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>385</integer>
 			<key>ypos</key>
 			<integer>6905</integer>
+		</dict>
+		<key>76918C95-9C3B-41FF-82C8-69CC8BAF60E6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>895</integer>
+			<key>ypos</key>
+			<integer>5750</integer>
 		</dict>
 		<key>78698DC6-11EC-4A73-BF19-1F77B13A548D</key>
 		<dict>

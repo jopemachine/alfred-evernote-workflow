@@ -12,6 +12,7 @@ Evernote workflow for Alfred 4
 
 * *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
 * *Preview feature using caching.*
+* *Supports thumbnail feature for notes with pictures.*
 * *You can change your search details.*
 
 <p align="center">
@@ -205,27 +206,37 @@ Search only for notes that have check boxes.
 
 ### encl 
 
-Adds the text from the clipboard to the Evernote as a new note. 
+Create a note from the text of clipboard.
 
 ### enclo
 
-Adds the text from the clipboard to the Evernote as a new note and Open the note. 
+Create a note from the text of clipboard and Open the note.
 
 ### enclf
 
-Adds copied files to the Evernote to a new note and Open the note. 
+Create a note from the copied files and Open the note.
+
 
 ### enc { Argument }
 
-Argument: {`note content`}
+Argument: {`note title >> note content`} or {`note content`}
 
 Create note by text.
 
+If your form of input is `enc note title >> note content`, your note to create's title will be `note title`, and content will be `note content`,
+
+And your form of input is `enc note content`, your note content's content will be `note content`, and title will be present date's localeString.
+
 ### enct
 
-Argument: {`note title to create`}
+Argument: {`note title >> note content`} or {`note content`}
 
 Search tag name and create note by the selected tag and note content if you want.
+
+If your form of input is `enc note title >> note content`, your note to create's title will be `note title`, and content will be `note content`,
+
+And your form of input is `enc note content`, your note content's content will be `note content`, and title will be present date's localeString.
+
 
 ### enu { Argument }
 
@@ -243,7 +254,7 @@ Search the Evernote's notes.
 
 If no argument exist, search for the most recent notes (may vary depending on options)
 
-To change the search option, see the topic *Options.*
+To change the search option, see the topic *Options*.
 
 * #### *Shift key* + <kbd>Enter</kbd>
 
@@ -263,9 +274,9 @@ If the note does not contain a sourceURL, you will receive an error notification
 
 Argument: {`content to search`}
 
-Search the Evernote's notes in your Trash bin.
+Search the Evernote's notes in your *Trash bin*.
 
-Note that the enter action for this command is to open the cache of the note in the Chrome browser.
+The enter action for this command is to open the cache of the note in the Chrome browser.
 
 (Not your Evernote client)
 
@@ -280,7 +291,7 @@ If argument not exist, search for all tags.
 
 If you select the tag, the notes with the tag will be searched.
 
-You can search these notes just like the `ens` command.
+Then, you can search notes only having selected tag.
 
 * #### *Command key* + <kbd>Enter</kbd>
 
@@ -309,7 +320,7 @@ You can search these notes again.
 1st Argument: {`file extension`}
 
 2nd Argument: {`content to search`}
-ㅅ
+
 Search for notes with attachments of a specific extension.
 
 Example:
