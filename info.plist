@@ -5126,7 +5126,7 @@ evernote.openCollectionWindow({withQueryString: 'notebook:' + '"{query}"'});</st
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript appendNotes.scpt {query}</string>
+				<string>./node_modules/.bin/run-node appendNote.js '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -5568,7 +5568,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>5694743E-2923-4366-AD32-275644581BCF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>860</integer>
+			<integer>855</integer>
 			<key>ypos</key>
 			<integer>6905</integer>
 		</dict>
@@ -5673,7 +5673,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>6C6051C4-12B1-4EFC-AA08-A43319DDBB9C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>535</integer>
+			<integer>540</integer>
 			<key>ypos</key>
 			<integer>6935</integer>
 		</dict>
