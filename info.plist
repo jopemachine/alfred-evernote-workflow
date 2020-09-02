@@ -204,6 +204,31 @@
 				<false/>
 			</dict>
 		</array>
+		<key>29D21E75-93BA-4DA0-A245-993D9ABAE5AE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B31BF229-ECFE-40B7-A35C-23C502408E8D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2CF4A94F-6AA9-4907-8370-95C103009A08</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2A558C07-C990-4AA3-A138-8D5EE38454B5</key>
 		<array>
 			<dict>
@@ -885,7 +910,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</string>
+				<string>29D21E75-93BA-4DA0-A245-993D9ABAE5AE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1934,14 +1959,14 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Note search is now available.</string>
+				<string>After en &gt; clearcache, carry out en &gt; savecache. If the error is not gone, pls check the issue.</string>
 				<key>title</key>
-				<string>Cache downloading complete!</string>
+				<string>Json format error</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</string>
+			<string>B31BF229-ECFE-40B7-A35C-23C502408E8D</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1986,6 +2011,57 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>5BFB1021-14D6-4BDC-976A-3B5C13CA3CAB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>.*1763.*</string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>2CF4A94F-6AA9-4907-8370-95C103009A08</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>29D21E75-93BA-4DA0-A245-993D9ABAE5AE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Note search is now available.</string>
+				<key>title</key>
+				<string>Cache downloading complete!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -5425,6 +5501,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>6590</integer>
 		</dict>
+		<key>29D21E75-93BA-4DA0-A245-993D9ABAE5AE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>645</integer>
+			<key>ypos</key>
+			<integer>595</integer>
+		</dict>
 		<key>2A558C07-C990-4AA3-A138-8D5EE38454B5</key>
 		<dict>
 			<key>xpos</key>
@@ -5929,6 +6012,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<key>ypos</key>
 			<integer>3625</integer>
 		</dict>
+		<key>B31BF229-ECFE-40B7-A35C-23C502408E8D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>745</integer>
+			<key>ypos</key>
+			<integer>570</integer>
+		</dict>
 		<key>B3BB2181-052A-4293-B1C9-607A0F039224</key>
 		<dict>
 			<key>xpos</key>
@@ -6205,9 +6295,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>665</integer>
+			<integer>740</integer>
 			<key>ypos</key>
-			<integer>575</integer>
+			<integer>690</integer>
 		</dict>
 		<key>FDBCFA89-1EDC-4AEB-97AB-10AB05EB23FB</key>
 		<dict>
