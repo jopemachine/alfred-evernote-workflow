@@ -214,11 +214,11 @@ const getResult = async (searchedNotes) => {
       if (config.using_preview && AuthConfig.initialCaching === "true") {
         if (
           !htmlCacheLog[note.guid] ||
-          htmlCacheLog[note.guid] < latestUpdated
+          htmlCacheLog[note.guid] < latestUpdated.toString()
         ) {
 
           updateCacheLogFlag = true;
-          htmlCacheLog[note.guid] = latestUpdated;
+          htmlCacheLog[note.guid] = latestUpdated.toString();
 
           const noteData = await api.getNoteWithResultSpec(note.guid, {
             includeContent: true,
