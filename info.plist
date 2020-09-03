@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>0F562910-388B-4744-B050-AE03B559419F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E4FC3755-C8E4-46C0-8EF5-B3DCDDECB27A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>1293A4E8-1542-4384-9957-362DE95B39AC</key>
 		<array>
 			<dict>
@@ -1862,6 +1875,27 @@
 			<string>0F562910-388B-4744-B050-AE03B559419F</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Cache cleared</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E4FC3755-C8E4-46C0-8EF5-B3DCDDECB27A</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -5476,7 +5510,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>26AAFD6E-6876-4737-8066-3EAEA1ACD857</key>
 		<dict>
 			<key>xpos</key>
-			<integer>670</integer>
+			<integer>820</integer>
 			<key>ypos</key>
 			<integer>435</integer>
 		</dict>
@@ -5679,7 +5713,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>5C65C9B8-1800-4384-91DA-41F6A1DC4FA9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1015</integer>
+			<integer>1165</integer>
 			<key>ypos</key>
 			<integer>435</integer>
 		</dict>
@@ -6106,7 +6140,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>C1E6CDE9-7F52-42C1-9DCC-13D1838BF324</key>
 		<dict>
 			<key>xpos</key>
-			<integer>845</integer>
+			<integer>995</integer>
 			<key>ypos</key>
 			<integer>435</integer>
 		</dict>
@@ -6207,6 +6241,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>685</integer>
 			<key>ypos</key>
 			<integer>55</integer>
+		</dict>
+		<key>E4FC3755-C8E4-46C0-8EF5-B3DCDDECB27A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>665</integer>
+			<key>ypos</key>
+			<integer>435</integer>
 		</dict>
 		<key>E5EFB917-9511-4C8C-BC25-5A2F6669E5C3</key>
 		<dict>
