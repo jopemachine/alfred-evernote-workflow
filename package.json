@@ -63,5 +63,5 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.8.2"
+  "version": "0.8.3"
 }
