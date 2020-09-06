@@ -60,7 +60,7 @@ let trashBinFlag = false,
 
 switch (option) {
   case "--intitle":
-    input = `intitle:* "${input}"`;
+    input = `intitle:"${input}"`;
     command = "eni";
     break;
 
