@@ -5524,9 +5524,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>297F444C-234A-4AEC-A173-645A2402FA20</key>
 		<dict>
 			<key>xpos</key>
-			<integer>810</integer>
+			<integer>820</integer>
 			<key>ypos</key>
-			<integer>25</integer>
+			<integer>20</integer>
 		</dict>
 		<key>29CC17D0-FE44-449A-87B4-25A1CBF51213</key>
 		<dict>
@@ -5692,9 +5692,9 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>59271E4F-27C2-49A0-9869-9F968E3256FE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>810</integer>
+			<integer>820</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>150</integer>
 		</dict>
 		<key>5BB9E239-98B5-4C4C-BE9C-C9DD966525DF</key>
 		<dict>

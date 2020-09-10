@@ -20,8 +20,10 @@
   "deprecated": false,
   "description": "Evernote workflow for Alfred 4",
   "devDependencies": {
-    "alfy-test": "^0.3.0",
-    "ava": "^0.18.2",
+    "alfy-test": "git+https://github.com/jopemachine/alfy-test",
+    "ava": "^3.12.1",
+    "esm": "^3.2.25",
+    "husky": "^4.3.0",
     "xo": "^0.17.1"
   },
   "engines": {
@@ -58,10 +60,24 @@
   "scripts": {
     "postinstall": "alfy-init && npm run initSettingFile && node printPostInstall.js",
     "preuninstall": "alfy-cleanup",
-    "test": "xo && ava",
+    "test": "xo && ava --verbose",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.8.3"
+  "version": "0.8.3",
+  "ava": {
+    "files": [
+      "e2e/**/*.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
+    }
+  }
 }
