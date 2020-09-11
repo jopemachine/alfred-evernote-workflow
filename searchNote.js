@@ -5,7 +5,11 @@ const Evernote = require("evernote");
 const fs = require('fs');
 const _ = require("lodash");
 const LogManager = require('./logManager');
-require("env2")('./authConfig.json');
+try {
+  require("env2")('./authConfig.json');
+} catch(e) {
+
+}
 
 const {
   ab2str,

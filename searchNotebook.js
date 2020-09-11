@@ -7,7 +7,11 @@ const {
   replaceAll
 } = require('./utils');
 const LogManager = require('./logManager');
-require("env2")('./authConfig.json');
+try {
+  require("env2")('./authConfig.json');
+} catch(e) {
+
+}
 
 if (process.env.oauthToken === -1) {
   alfy.output([{

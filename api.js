@@ -3,7 +3,11 @@ const {
   catchThriftException,
   handleSubtitleRestrictor,
 } = require('./utils');
-require("env2")('./authConfig.json');
+try {
+  require("env2")('./authConfig.json');
+} catch(e) {
+
+}
 
 if (process.env.oauthToken === -1) return;
 

@@ -1,7 +1,11 @@
 const config = require('./searchConfig.json');
 const _ = require("lodash");
 const createHtmlElement = require('create-html-element');
-require("env2")('./authConfig.json');
+try {
+  require("env2")('./authConfig.json');
+} catch(e) {
+
+}
 
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);

@@ -3,7 +3,11 @@ const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
 const LogManager = require('./logManager');
-require("env2")('./authConfig.json');
+try {
+  require("env2")('./authConfig.json');
+} catch(e) {
+
+}
 
 const { 
   handleInput,
