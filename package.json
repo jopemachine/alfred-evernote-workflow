@@ -15,6 +15,7 @@
     "boxen": "^4.2.0",
     "clipboardy": "^2.3.0",
     "create-html-element": "^3.0.0",
+    "env2": "^2.2.2",
     "evernote": "^2.0.5",
     "lodash": "^4.17.15",
     "os-locale": "^5.0.0"

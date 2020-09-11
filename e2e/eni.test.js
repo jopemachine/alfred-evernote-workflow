@@ -10,6 +10,11 @@ test('"eni" result should contains input keyword', async (t) => {
 
   let first = true;
 
+  if (!result[0].valid) {
+    t.fail("Auth failed!");
+    return;
+  }
+
   console.log("Query count: " + result.length);
 
   for (let item of result) {

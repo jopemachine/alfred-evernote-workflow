@@ -2,10 +2,10 @@ const alfy = require("alfy");
 const api = require("./api");
 const config = require("./searchConfig.json");
 const Evernote = require("evernote");
-const AuthConfig = require("./authConfig.json");
 const fs = require('fs');
 const _ = require("lodash");
 const LogManager = require('./logManager');
+require("env2")("./authConfig.json");
 
 const {
   ab2str,
@@ -35,8 +35,9 @@ if (fs.existsSync("./Caching")) {
 const htmlCacheLog = require('./search_content/htmlCacheLog.json');
 const thumbNailImageFilePathes = require('./search_content/thumbNailPath.json');
 
-if (AuthConfig.oauthToken === -1) {
+if (process.env.oauthToken === -1) {
   alfy.output([{
+    valid: false,
     title : "Authentication has not progressed.",
     subtitle: 'Please get an API token by reference to README.md',
     autocomplete: '',
@@ -187,7 +188,7 @@ const getResult = async (searchedNotes) => {
     _.map(searchedNotes, async (note) => {
       const shardId = shardIdMap.get(note.notebookGuid)
         ? shardIdMap.get(note.notebookGuid)
-        : AuthConfig.userShardId;
+        : process.env.userShardId;
 
       let subtitle;
 
@@ -203,15 +204,15 @@ const getResult = async (searchedNotes) => {
         );
       }
 
-      const quicklookurl = AuthConfig.initialCaching === "true"
+      const quicklookurl = process.env.initialCaching === "true"
         ? `${execDir}search_content/${note.guid}.html`
         : `${execDir}initialCachingDescription.html`;
 
       const latestUpdated = getTimeString(note.updated);
 
-      const notelink = `evernote:///view/${AuthConfig.userId}/${shardId}/${note.guid}/${note.guid}/`;
+      const notelink = `evernote:///view/${process.env.userId}/${shardId}/${note.guid}/${note.guid}/`;
 
-      if (config.using_preview && AuthConfig.initialCaching === "true") {
+      if (config.using_preview && process.env.initialCaching === "true") {
         if (
           !htmlCacheLog[note.guid] ||
           htmlCacheLog[note.guid] < latestUpdated.toString()
@@ -304,6 +305,7 @@ const getResult = async (searchedNotes) => {
 
   if(result.length === 0) {
     result.push({
+      valid: true,
       title: "No search results found.",
       arg: "error",
       autocomplete: "No search results found.",
@@ -320,6 +322,7 @@ const getResult = async (searchedNotes) => {
   
   else {
     result.splice(0, 0, {
+      valid: true,
       title: `${searchedNotes.length} notes were found.`,
       arg: input,
       autocomplete: `${searchedNotes.length} notes were found.`,

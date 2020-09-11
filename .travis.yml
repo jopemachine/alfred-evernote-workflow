@@ -1,5 +1,5 @@
 language: node_js
-node_js:  
+node_js:
   - "node"
 sudo: true
 os:
@@ -8,3 +8,6 @@ install:
   - npm install
 script:
   - npm run test
+env:
+  global:
+    secure: SV1nNTYBi4s2p7/CKuJ53+FEjPtq+1JLn0PZ1BPv5E+JKwlHhB/BFelOWDjxnawf+ScpxZZt2P0nh0Vmk/6rSGhn3VAjQCWecMDToSN7NOTblXw6erWSXzM1NGOzmYxXOvmsl2YFCwVuAn95r1sWnqrYZawkUlIWcXfnowcFIyRaqhEqvmNvKVPfVpgA+NUwvzvrSFtnGmufAe+Zwyu+mItViQWBMpdBrFYf1pKdKtXzgyTwoLN9juoB9H08/FsMOg1UNfWxdUsybv/nlNH9dVnV8X1+aK9SC2uFLJHuWf2gS+PZX94hTe/csRoGwcPzEjeP+sQVOKGLkeHvZZJ9PcmlQy6eQGXgJ+wrT6M0D+8hMwMISGzTfksuFiOFG/IRCxLHWMgY1RhgwHUk7B1A7iYzm55cTnVrCuXxhbQTMSVnPuqw5qVmlqjkwaQMEKxxVw8IldsqHp+s1bCGKXlZ0JA7sY5wKqd5kT/0weuGXhzln+BF7hrfN/3GN9j8RohyRhLncwBV1kv2WiMP4f9DWPQbvj3VoYBYiIgLW6mpIebztAJMEleexyC3Ebp90UaEfPkEXnDDI2V1BaHRem7ZFbn2B8h5DDxT6KPOh8d3OkHg97vs5MchZOypveND6JPJpIZban7EKzAt/AHccqmXFAE7H3wbgNx1HR48idcMd9Q=
