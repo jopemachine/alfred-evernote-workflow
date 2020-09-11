@@ -2,13 +2,12 @@ const alfy = require("alfy");
 const api = require("./api");
 const config = require("./searchConfig.json");
 const Evernote = require("evernote");
-const fs = require('fs');
+const LogManager = require("./logManager");
+const fs = require("fs");
 const _ = require("lodash");
-const LogManager = require('./logManager');
-try {
-  require("env2")('./authConfig.json');
-} catch(e) {
 
+if (fs.existsSync("./authConfig.json")) {
+  require("env2")("./authConfig.json");
 }
 
 const {

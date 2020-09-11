@@ -1,10 +1,9 @@
 const config = require('./searchConfig.json');
 const _ = require("lodash");
+const fs = require('fs');
 const createHtmlElement = require('create-html-element');
-try {
-  require("env2")('./authConfig.json');
-} catch(e) {
-
+if (fs.existsSync("./authConfig.json")) {
+  require("env2")("./authConfig.json");
 }
 
 function replaceAll(string, search, replace) {

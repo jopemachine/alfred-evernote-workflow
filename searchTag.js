@@ -3,10 +3,9 @@ const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
 const LogManager = require('./logManager');
-try {
-  require("env2")('./authConfig.json');
-} catch(e) {
-
+const fs = require('fs');
+if (fs.existsSync("./authConfig.json")) {
+  require("env2")("./authConfig.json");
 }
 
 const { 

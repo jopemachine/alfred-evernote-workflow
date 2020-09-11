@@ -2,15 +2,15 @@ const alfy = require("alfy");
 const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
-const { 
+const fs = require('fs');
+const {
   handleInput,
   replaceAll
 } = require('./utils');
 const LogManager = require('./logManager');
-try {
-  require("env2")('./authConfig.json');
-} catch(e) {
 
+if (fs.existsSync("./authConfig.json")) {
+  require("env2")("./authConfig.json");
 }
 
 if (process.env.oauthToken === -1) {
