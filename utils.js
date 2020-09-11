@@ -1,6 +1,7 @@
 const config = require('./searchConfig.json');
 const AuthConfig = require("./authConfig.json");
 const _ = require("lodash");
+const createHtmlElement = require('create-html-element');
 
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
@@ -157,26 +158,55 @@ const getTimeString = (updatedTimestamp) => {
 const getHtmlMetaData = ({ title, updated, created }) => {
   const locale = AuthConfig.systemLocale;
 
+  const fontSize = `font-size: 20;`;
+
   const fontFamily =
     'font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;';
 
-  return `<style>
+  const marginBottom = `margin-bottom: 15;`;
+
+  const htmlStyle = `
 img {
   max-width: 100%;
   height: auto;
-}
-</style>
-<p id='title' style='font-size: 20; ${fontFamily}'>Title: ${title} </p>
-<p id='editedDate' style='font-size: 20; ${fontFamily}'>Last Edited In: ${getLocaleString(
-    updated,
-    locale
-  )}</p>
-<p id='creationDate' style='font-size: 20; ${fontFamily}'>Created In: ${getLocaleString(
-    created,
-    locale
-  )}</p>
-<hr style='margin-bottom: 15;' /> 
-  `;
+}`;
+
+  return (
+    createHtmlElement({
+      name: "style",
+      html: htmlStyle,
+    }) +
+    createHtmlElement({
+      name: "p",
+      attributes: {
+        id: "title",
+        style: `${fontSize} ${fontFamily}`,
+      },
+      html: `Title: ${title}`,
+    }) +
+    createHtmlElement({
+      name: "p",
+      attributes: {
+        id: "editedDate",
+        style: `${fontSize} ${fontFamily}`,
+      },
+      html: `Last Edited In: ${getLocaleString(updated, locale)}`,
+    }) +
+    createHtmlElement({
+      name: "p",
+      attributes: {
+        id: "creationDate",
+        style: `${fontSize} ${fontFamily}`,
+      },
+      html: `Created In: ${getLocaleString(created, locale)}`,
+    }) +
+    createHtmlElement({
+      name: "hr",
+      attributes: {
+        style: `${marginBottom}`,
+      },
+    })
+  );
 };
 
 const getLocaleString = (datetime, locale) => {
