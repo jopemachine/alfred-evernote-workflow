@@ -3,8 +3,9 @@ const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
 const LogManager = require('./logManager');
-const fs = require('fs');
-if (fs.existsSync("./authConfig.json")) {
+const isTravis = require('is-travis');
+
+if (!isTravis) {
   require("env2")("./authConfig.json");
 }
 

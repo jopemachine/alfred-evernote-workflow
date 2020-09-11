@@ -2,14 +2,14 @@ const alfy = require("alfy");
 const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
-const fs = require('fs');
 const {
   handleInput,
   replaceAll
 } = require('./utils');
 const LogManager = require('./logManager');
+const isTravis = require('is-travis');
 
-if (fs.existsSync("./authConfig.json")) {
+if (!isTravis) {
   require("env2")("./authConfig.json");
 }
 

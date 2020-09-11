@@ -5,8 +5,9 @@ const Evernote = require("evernote");
 const LogManager = require("./logManager");
 const fs = require("fs");
 const _ = require("lodash");
+const isTravis = require('is-travis');
 
-if (fs.existsSync("./authConfig.json")) {
+if (!isTravis) {
   require("env2")("./authConfig.json");
 }
 

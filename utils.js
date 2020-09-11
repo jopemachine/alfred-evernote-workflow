@@ -1,8 +1,9 @@
 const config = require('./searchConfig.json');
 const _ = require("lodash");
-const fs = require('fs');
 const createHtmlElement = require('create-html-element');
-if (fs.existsSync("./authConfig.json")) {
+const isTravis = require('is-travis');
+
+if (!isTravis) {
   require("env2")("./authConfig.json");
 }
 
@@ -80,6 +81,7 @@ const catchThriftException = func => async (...args) => {
           const title = "Not valid oauth token";
           return [
             {
+              valid: false,
               title,
               subtitle: "Please read README.md first",
               arg: "error",
@@ -97,6 +99,7 @@ const catchThriftException = func => async (...args) => {
           const title = "Evernote sdk's ratelimit has reached its limit.";
           return [
             {
+              valid: true,
               title,
               subtitle: "Please try again in an hour.",
               arg: "error",

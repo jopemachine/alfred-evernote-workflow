@@ -1,11 +1,12 @@
 const Evernote = require("evernote");
-const fs = require('fs');
+const isTravis = require('is-travis');
 const {
   catchThriftException,
   handleSubtitleRestrictor,
 } = require('./utils');
-if (fs.existsSync("./authConfig.json")) {
-  require("env2")('./authConfig.json');
+
+if (!isTravis) {
+  require("env2")("./authConfig.json");
 }
 
 if (process.env.oauthToken === -1) return;
