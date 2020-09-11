@@ -7,3 +7,4 @@ commandLog.json
 !/search_content/htmlCacheLogTemplate.json
 !/search_content/thumbNailPathTemplate.json
 /search_content/htmlCacheLog.json
+env.json

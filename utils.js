@@ -1,7 +1,7 @@
 const config = require('./searchConfig.json');
-const AuthConfig = require("./authConfig.json");
 const _ = require("lodash");
 const createHtmlElement = require('create-html-element');
+require("env2")('./authConfig.json');
 
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
@@ -156,7 +156,7 @@ const getTimeString = (updatedTimestamp) => {
 }
 
 const getHtmlMetaData = ({ title, updated, created }) => {
-  const locale = AuthConfig.systemLocale;
+  const locale = process.env.systemLocale;
 
   const fontSize = `font-size: 20;`;
 

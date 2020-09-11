@@ -1,14 +1,14 @@
 const Evernote = require("evernote");
-const AuthConfig = require("./authConfig.json");
 const {
   catchThriftException,
   handleSubtitleRestrictor,
 } = require('./utils');
+require("env2")('./authConfig.json');
 
-if (AuthConfig.oauthToken === -1) return;
+if (process.env.oauthToken === -1) return;
 
 const authenticatedClient = new Evernote.Client({
-  token: AuthConfig.oauthToken,
+  token: process.env.oauthToken,
   sandbox: false,
   china: false,
 });

@@ -5,7 +5,7 @@ const Evernote = require("evernote");
 const fs = require('fs');
 const _ = require("lodash");
 const LogManager = require('./logManager');
-require("env2")("./authConfig.json");
+require("env2")('./authConfig.json');
 
 const {
   ab2str,
