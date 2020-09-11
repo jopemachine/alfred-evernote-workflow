@@ -1,15 +1,19 @@
 const alfy = require("alfy");
 const api = require("./api");
 const config = require("./searchConfig.json");
-const AuthConfig = require("./authConfig.json");
 const _ = require("lodash");
-const { 
+const {
   handleInput,
   replaceAll
 } = require('./utils');
 const LogManager = require('./logManager');
+const isTravis = require('is-travis');
 
-if (AuthConfig.oauthToken === -1) {
+if (!isTravis) {
+  require("env2")("./authConfig.json");
+}
+
+if (process.env.oauthToken === -1) {
   alfy.output([{
     title : "Authentication has not progressed.",
     subtitle: 'Please get an API token by reference to README.md',
