@@ -46,6 +46,18 @@ async function getTag(parentTagGuid) {
   return result;
 }
 
+async function findNoteCountsWithNotebookGuid(notebookGuid) {
+  const filter = new Evernote.NoteStore.NoteFilter({
+    notebookGuid: notebookGuid,
+    ascending: false,
+  });
+
+  const notesCnt = (await noteStore.findNoteCounts(filter, false))
+    .notebookCounts[notebookGuid];
+
+  return notesCnt;
+}
+
 async function findNoteCountsWithTag(tagGuid) {
   const tagFilter = new Evernote.NoteStore.NoteFilter({
     tagGuids: [tagGuid],
@@ -102,6 +114,8 @@ module.exports = {
     catchThriftException(handleSubtitleRestrictor(getTag)),
   findNoteCountsWithTag:
     catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
+  findNoteCountsWithNotebookGuid:
+    catchThriftException(findNoteCountsWithNotebookGuid),
   getNoteContent:
     catchThriftException(getNoteContent),
   findNotesMetadata:

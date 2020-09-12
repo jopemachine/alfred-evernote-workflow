@@ -15,6 +15,7 @@ if (!isTravis) {
 
 if (process.env.oauthToken === -1) {
   alfy.output([{
+    valid: false,
     title : "Authentication has not progressed.",
     subtitle: 'Please get an API token by reference to README.md',
     autocomplete: '',
