@@ -6,7 +6,7 @@ test('"eni" result should contains input keyword', async (t) => {
 
   const query = "alfred";
 
-  const result = await testTarget(`searchNote.js '${query}' --intitle`);
+  const result = await testTarget(`searchNote.js ${query} --intitle`);
 
   let first = true;
 

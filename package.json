@@ -62,6 +62,8 @@
     "url": "git://github.com/jopemachine/alfred-evernote-workflow.git"
   },
   "scripts": {
+    "run-node": "ESM_OPTIONS='{\"await\":true}' node --require esm \"${npm_config_target}\" \"${npm_config_query}\"",
+    "run-ens": "npm run run-node --target=./searchNote.js --query='${npm_config_query}'",
     "postinstall": "alfy-init && npm run initSettingFile && node printPostInstall.js",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava --verbose",

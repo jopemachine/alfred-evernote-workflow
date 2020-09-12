@@ -26,6 +26,7 @@ const {
 if (fs.existsSync("./Caching")) {
   alfy.output([
     {
+      valid: true,
       title: "Please wait until the caching process is finished...",
       arg: "error",
       autocomplete: "",
@@ -55,8 +56,10 @@ if (!config) {
   return;
 }
 
+
 let [ execPath, input, option ] = process.argv.slice(1);
 input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
+
 
 let command = 'ens';
 let trashBinFlag = false,
@@ -282,7 +285,7 @@ const getResult = async (searchedNotes) => {
         subtitle,
         icon: {
           path: thumbNailImageFilePathes[note.guid]
-            ? (thumbNailImageFilePathes[note.guid])
+            ? thumbNailImageFilePathes[note.guid]
             : "./icon/searchIcon.png",
         },
         mods: {
