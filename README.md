@@ -3,7 +3,7 @@
 		Alfred-evernote-workflow<br>
 	  <img src="https://img.shields.io/npm/dt/alfred-evernote-workflow" alt="NPM Release">
 	  <img src="https://img.shields.io/github/license/jopemachine/alfred-evernote-workflow.svg" alt="License">
-	  <img src="https://travis-ci.com/jopemachine/alfred-evernote-workflow.svg?branch=master" alt="TravisStatus">
+	  <img src="https://api.travis-ci.com/jopemachine/alfred-evernote-workflow.svg" alt="BuildStatus">
   </a>
 </h1>
 
