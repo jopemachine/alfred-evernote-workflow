@@ -4,10 +4,7 @@ const createHtmlElement = require('create-html-element');
 const isTravis = require('is-travis');
 const fs = require('fs');
 const alfy = require('alfy');
-
-if (!isTravis) {
-  require('dotenv').config()
-}
+!isTravis && require('dotenv').config()
 
 function authenticationNotProgressed() {
   alfy.output([
