@@ -83,7 +83,7 @@ The prerequisites below are required to use that package.
 
 * [Alfred powerpack](https://www.alfredapp.com/powerpack/)
 
-Note that your Evernote Client shouln't be App store version. (downloaded from the App Store)
+Note that your Evernote Client shouldn't be App store version. (downloaded from the App Store)
 
 If you're not sure your Evernote Client version, I'm recommending reinstall Evernote by below version to use this plugin.
 
@@ -113,11 +113,11 @@ Type `en > gettoken` and get your OAuth key.
 
 When you log in to the site and press the authentication button, `oauthToken` is printed in json format.
 
-Pass the value as a argument in the authoken command.
+Pass the value as an argument in the authtoken command.
 
 If your token value is `S=s198:U=161532d:E=17b2ea2ba85:C=173d6f18bc8:P=185:A=jopemachine:V=2:H=2d4cbb615bb4caa3de0159c5ededeab2`, below page appears. 
 
-(Note that this is  just for giving a example. This is unvalid token and you should issue your own token.)
+(Note that this is just for giving an example. This is invalid token and you should issue your own token.)
 
 <p align="center">
 <img src="./imgs/gettoken.png" width = "60%" height="60%" />
@@ -126,7 +126,7 @@ If your token value is `S=s198:U=161532d:E=17b2ea2ba85:C=173d6f18bc8:P=185:A=jop
 
 3. **`en > authtoken {your issued API key}` + <kbd>Enter</kbd>**
 
-Alfred-evernote-workflow use your token to authenticate your account.
+Alfred-evernote-workflow uses your token to authenticate your account.
 
 Please pass the token value as a factor without quotation marks as shown below.
 
@@ -137,7 +137,7 @@ Please pass the token value as a factor without quotation marks as shown below.
 
 4. **`en > savecache` + <kbd>Enter</kbd>**
 
-If you want to not use preview feature, you can skip this phase.
+If you want to not use the preview feature, you can skip this phase.
 
 5. **Done!**
 
@@ -145,7 +145,7 @@ If you want to not use preview feature, you can skip this phase.
 
 In Alfred, type below query and <kbd>Enter</kbd>
 
-You can use below feature.
+You can use the below feature.
 
 ### en
 
@@ -482,4 +482,3 @@ Use the `en > clearcache` command to remove the cache already downloaded.
 ## License
 
 MIT © [jopemachine](https://github.com/jopemachine/alfred-evernote-workflow)
-
