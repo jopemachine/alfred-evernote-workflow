@@ -6,11 +6,7 @@ const fs = require("fs");
 const _ = require("lodash");
 const isTravis = require('is-travis');
 require('./checkApiKey');
-
-if (!isTravis) {
-  require('dotenv').config()
-}
-
+!isTravis && require('dotenv').config()
 const api = require("./api")(process.env.oauthToken);
 
 const {
@@ -25,19 +21,7 @@ const {
   insertResource,
 } = require('./utils');
 
-if (fs.existsSync("./Caching")) {
-  alfy.output([
-    {
-      valid: true,
-      title: "Please wait until the caching process is finished...",
-      arg: "error",
-      autocomplete: "",
-      subtitle: `This work could take several minutes.`,
-    },
-  ]);
-
-  return;
-}
+require('./checkIsCaching');
 
 const htmlCacheLog = require('./search_content/htmlCacheLog.json');
 const thumbNailImageFilePathes = require('./search_content/thumbNailPath.json');

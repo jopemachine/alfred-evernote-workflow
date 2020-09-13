@@ -7,12 +7,9 @@ const {
 const LogManager = require('./logManager');
 const isTravis = require('is-travis');
 require('./checkApiKey');
-
-if (!isTravis) {
-  require('dotenv').config()
-}
-
+!isTravis && require('dotenv').config()
 const api = require("./api")(process.env.oauthToken);
+require('./checkIsCaching');
 
 let alfyInput = replaceAll(handleInput(alfy.input), "\\", "");
 

@@ -1,6 +1,5 @@
 const clipboardy = require('clipboardy');
 const config = require('./searchConfig.json');
-
 require('@jxa/global-type');
 const run = require('@jxa/run').run;
 
