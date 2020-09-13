@@ -75,7 +75,8 @@
   "version": "0.9.2",
   "ava": {
     "files": [
-      "e2e/**/*.js"
+      "e2e/**/*.test.js",
+      "test/*.test.js"
     ],
     "require": [
       "esm"
@@ -83,8 +84,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && npx ava ./test/*.js",
-      "pre-push": "npm run test && npx ava ./test/*.js"
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
     }
   }
 }
