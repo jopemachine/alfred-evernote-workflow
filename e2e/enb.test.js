@@ -11,8 +11,6 @@ test('"enb"\'s note count should be same with actual note count', async (t) => {
   const query = `'notebook:"${targetNotebook}" '`;
   const result = await testTarget(`searchNote.js ${query}`);
 
-  console.log(`searchNote.js ${query}`);
-
   if (!result[0].valid) {
     t.fail("Auth failed!");
     return;
@@ -20,11 +18,11 @@ test('"enb"\'s note count should be same with actual note count', async (t) => {
 
   console.log("Query count: " + result.length);
 
-  const targetNotebookGuid = await api.listNotebooks({
+  const targetNotebookGuid = await api().listNotebooks({
     callback: _.partial(fetchNotebookGuid, targetNotebook)
   });
 
-  const actualNotesCount = await api.findNoteCountsWithNotebookGuid(
+  const actualNotesCount = await api().findNoteCountsWithNotebookGuid(
     targetNotebookGuid
   );
 

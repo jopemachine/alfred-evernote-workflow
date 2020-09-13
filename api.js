@@ -1,133 +1,145 @@
 const Evernote = require("evernote");
-const isTravis = require('is-travis');
-const {
-  catchThriftException,
-  handleSubtitleRestrictor,
-} = require('./utils');
+const isTravis = require("is-travis");
+const { catchThriftException, handleSubtitleRestrictor } = require("./utils");
 
-if (!isTravis) {
-  require("env2")("./authConfig.json");
-}
+module.exports = (options) => {
+  const api = (tokenValue) => {
+    if (!isTravis) {
+      require("dotenv").config();
+    }
 
-if (process.env.oauthToken === -1) return;
+    const authenticatedClient = new Evernote.Client({
+      token: tokenValue,
+      sandbox: false,
+      china: false,
+    });
 
-const authenticatedClient = new Evernote.Client({
-  token: process.env.oauthToken,
-  sandbox: false,
-  china: false,
-});
+    const noteStore = authenticatedClient.getNoteStore();
+    const userStore = authenticatedClient.getUserStore();
 
-const noteStore = authenticatedClient.getNoteStore();
-const userStore = authenticatedClient.getUserStore();
+    // ---------------------------------------------------------------------------------
+    // Note store API
 
-// ---------------------------------------------------------------------------------
-// Note store API
+    async function getNotebookName(notebookGuid) {
+      const notebook = await noteStore.getNotebook(notebookGuid);
+      return `Notebook: ${notebook.name}`;
+    }
 
-async function getNotebookName(notebookGuid) {
-  const notebook = await noteStore.getNotebook(notebookGuid);
-  return `Notebook: ${notebook.name}`;
-}
+    async function getNoteTagNames(noteGuid) {
+      const tagNameList = await noteStore.getNoteTagNames(noteGuid);
+      const tagNameStr = tagNameList.join(", ");
 
-async function getNoteTagNames(noteGuid) {
-  const tagNameList = await noteStore.getNoteTagNames(noteGuid);
-  const tagNameStr = tagNameList.join(", ");
+      return tagNameStr === "" ? "None" : `Tags: ${tagNameStr}`;
+    }
 
-  return tagNameStr === "" ? "None" : `Tags: ${tagNameStr}`;
-}
+    async function getTag(parentTagGuid) {
+      let result;
+      if (parentTagGuid) {
+        const parentTag = await noteStore.getTag(parentTagGuid);
+        result = `Parent Tag: ${parentTag.name}`;
+      } else {
+        result = "none";
+      }
+      return result;
+    }
 
-async function getTag(parentTagGuid) {
-  let result;
-  if (parentTagGuid) {
-    const parentTag = await noteStore.getTag(parentTagGuid);
-    result = `Parent Tag: ${parentTag.name}`;
-  } else {
-    result = "none";
-  }
-  return result;
-}
+    async function findNoteCountsWithNotebookGuid(notebookGuid) {
+      const filter = new Evernote.NoteStore.NoteFilter({
+        notebookGuid: notebookGuid,
+        ascending: false,
+      });
 
-async function findNoteCountsWithNotebookGuid(notebookGuid) {
-  const filter = new Evernote.NoteStore.NoteFilter({
-    notebookGuid: notebookGuid,
-    ascending: false,
-  });
+      const notesCnt = (await noteStore.findNoteCounts(filter, false))
+        .notebookCounts[notebookGuid];
 
-  const notesCnt = (await noteStore.findNoteCounts(filter, false))
-    .notebookCounts[notebookGuid];
+      return notesCnt;
+    }
 
-  return notesCnt;
-}
+    async function findNoteCountsWithTag(tagGuid) {
+      const tagFilter = new Evernote.NoteStore.NoteFilter({
+        tagGuids: [tagGuid],
+        ascending: false,
+      });
 
-async function findNoteCountsWithTag(tagGuid) {
-  const tagFilter = new Evernote.NoteStore.NoteFilter({
-    tagGuids: [tagGuid],
-    ascending: false,
-  });
+      const taggedNotesCnt = (await noteStore.findNoteCounts(tagFilter, false))
+        .tagCounts[tagGuid];
 
-  const taggedNotesCnt = (await noteStore.findNoteCounts(tagFilter, false))
-    .tagCounts[tagGuid];
+      return taggedNotesCnt
+        ? `Note counts: ${taggedNotesCnt}`
+        : `Note counts: 0`;
+    }
 
-  return taggedNotesCnt ? `Note counts: ${taggedNotesCnt}` : `Note counts: 0`;
-}
+    async function findNotesMetadata(
+      filter,
+      offset,
+      search_max_count,
+      spec,
+      { callback }
+    ) {
+      return callback(
+        await noteStore.findNotesMetadata(
+          filter,
+          offset,
+          search_max_count,
+          spec
+        )
+      );
+    }
 
-async function findNotesMetadata(filter, offset, search_max_count, spec, { callback }) {
-  return callback(
-    await noteStore.findNotesMetadata(filter, offset, search_max_count, spec)
-  );
-}
+    async function listTags({ callback }) {
+      return callback(await noteStore.listTags());
+    }
 
-async function listTags({ callback }) {
-  return callback(await noteStore.listTags());
-}
+    async function listNotebooks({ callback }) {
+      return callback(await noteStore.listNotebooks());
+    }
 
-async function listNotebooks({ callback }) {
-  return callback(await noteStore.listNotebooks());
-}
+    async function getNoteContent(noteGuid) {
+      return await noteStore.getNoteContent(noteGuid);
+    }
 
-async function getNoteContent(noteGuid) {
-  return await noteStore.getNoteContent(noteGuid);
-}
+    async function listLinkedNotebooks() {
+      return await noteStore.listLinkedNotebooks();
+    }
 
-async function listLinkedNotebooks() {
-  return await noteStore.listLinkedNotebooks();
-}
+    async function getNoteWithResultSpec(noteGuid, resultSpec) {
+      return await noteStore.getNoteWithResultSpec(noteGuid, resultSpec);
+    }
 
-async function getNoteWithResultSpec(noteGuid, resultSpec) {
-  return await noteStore.getNoteWithResultSpec(noteGuid, resultSpec);
-}
+    // ---------------------------------------------------------------------------------
+    // User store API
 
-// ---------------------------------------------------------------------------------
-// User store API
+    async function getUser() {
+      return await userStore.getUser();
+    }
 
-async function getUser() {
-  return await userStore.getUser();
-}
+    // ---------------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------------
+    const functions = {
+      getNotebookName: catchThriftException(
+        handleSubtitleRestrictor(getNotebookName)
+      ),
+      getNoteTagNames: catchThriftException(
+        handleSubtitleRestrictor(getNoteTagNames)
+      ),
+      getTag: catchThriftException(handleSubtitleRestrictor(getTag)),
+      findNoteCountsWithTag: catchThriftException(
+        handleSubtitleRestrictor(findNoteCountsWithTag)
+      ),
+      findNoteCountsWithNotebookGuid: catchThriftException(
+        findNoteCountsWithNotebookGuid
+      ),
+      getNoteContent: catchThriftException(getNoteContent),
+      findNotesMetadata: catchThriftException(findNotesMetadata),
+      listTags: catchThriftException(listTags),
+      listNotebooks: catchThriftException(listNotebooks),
+      getUser: getUser,
+      getNoteWithResultSpec: getNoteWithResultSpec,
+      listLinkedNotebooks: catchThriftException(listLinkedNotebooks),
+    };
 
-module.exports = {
-  getNotebookName:
-    catchThriftException(handleSubtitleRestrictor(getNotebookName)),
-  getNoteTagNames:
-    catchThriftException(handleSubtitleRestrictor(getNoteTagNames)),
-  getTag:
-    catchThriftException(handleSubtitleRestrictor(getTag)),
-  findNoteCountsWithTag:
-    catchThriftException(handleSubtitleRestrictor(findNoteCountsWithTag)),
-  findNoteCountsWithNotebookGuid:
-    catchThriftException(findNoteCountsWithNotebookGuid),
-  getNoteContent:
-    catchThriftException(getNoteContent),
-  findNotesMetadata:
-    catchThriftException(findNotesMetadata),
-  listTags:
-    catchThriftException(listTags),
-  listNotebooks:
-    catchThriftException(listNotebooks),
-  getUser:
-    getUser,
-  getNoteWithResultSpec:
-    getNoteWithResultSpec,
-  listLinkedNotebooks: 
-    catchThriftException(listLinkedNotebooks),
+    return functions;
+  };
+
+  return options ? api(options) : api(process.env.oauthToken);
 };

@@ -1,10 +1,8 @@
 /node_modules
-authConfig.json
-/log
 .DS_Store
 commandLog.json
 /search_content/*
 !/search_content/htmlCacheLogTemplate.json
 !/search_content/thumbNailPathTemplate.json
 /search_content/htmlCacheLog.json
-env.json
+.env

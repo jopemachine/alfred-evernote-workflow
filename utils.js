@@ -2,9 +2,46 @@ const config = require('./searchConfig.json');
 const _ = require("lodash");
 const createHtmlElement = require('create-html-element');
 const isTravis = require('is-travis');
+const fs = require('fs');
+const alfy = require('alfy');
 
 if (!isTravis) {
-  require("env2")("./authConfig.json");
+  require('dotenv').config()
+}
+
+function authenticationNotProgressed() {
+  alfy.output([
+    {
+      valid: false,
+      title: "Authentication has not progressed.",
+      subtitle: "Please get an API token by reference to README.md",
+      autocomplete: "",
+      arg: "error",
+    },
+  ]);
+  process.exit();
+}
+
+function getEnv(object) {
+  let result = "";
+  for (let key of Object.keys(object)) {
+    result += `${key}=${object[key]}
+`
+  }
+  return result;
+}
+
+function getEnvAsObject(envPath) {
+  const result = {};
+
+  const lines = fs.readFileSync(envPath).toString().split("\n");
+
+  for (let lineIndex in lines) {
+    if (lines[lineIndex].trim() === "") continue;
+    const [key, ...value] = lines[lineIndex].split("=");
+    result[key] = value.join("=");
+  }
+  return result;
 }
 
 function replaceAll(string, search, replace) {
@@ -290,6 +327,9 @@ const getLocaleString = (datetime, locale) => {
 
 module.exports = {
   ab2str,
+  authenticationNotProgressed,
+  getEnv,
+  getEnvAsObject,
   fetchTagGuid,
   fetchNotebookGuid,
   replaceAll,
@@ -299,5 +339,5 @@ module.exports = {
   catchThriftException,
   handleSubtitleRestrictor,
   insertResource,
-  getHtmlMetaData
+  getHtmlMetaData,
 }

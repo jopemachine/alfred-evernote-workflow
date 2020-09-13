@@ -241,6 +241,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C50EA56F-C368-42F6-9427-4C89A3873C0A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>2A558C07-C990-4AA3-A138-8D5EE38454B5</key>
 		<array>
@@ -2098,6 +2108,29 @@
 			<string>FAD951A7-7FDC-412F-90E0-5198E9E42EBE</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node setEnvAttr.js initialCaching true</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C50EA56F-C368-42F6-9427-4C89A3873C0A</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -6077,7 +6110,7 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 		<key>B682AF9E-BBAC-4D9B-9423-E13215621523</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>495</integer>
 			<key>ypos</key>
 			<integer>965</integer>
 		</dict>
@@ -6164,6 +6197,13 @@ https://github.com/jopemachine/alfred-evernote-workflow</string>
 			<integer>500</integer>
 			<key>ypos</key>
 			<integer>295</integer>
+		</dict>
+		<key>C50EA56F-C368-42F6-9427-4C89A3873C0A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>885</integer>
+			<key>ypos</key>
+			<integer>690</integer>
 		</dict>
 		<key>C55D4DE3-2EB5-4BD8-BCBA-C2C62878BAAD</key>
 		<dict>

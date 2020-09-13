@@ -1,34 +1,20 @@
 const alfy = require("alfy");
-const api = require("./api");
 const config = require("./searchConfig.json");
 const _ = require("lodash");
 const LogManager = require('./logManager');
 const isTravis = require('is-travis');
+require('./checkApiKey');
 
 if (!isTravis) {
-  require("env2")("./authConfig.json");
+  require('dotenv').config()
 }
+
+const api = require("./api")(process.env.oauthToken);
 
 const { 
   handleInput,
   replaceAll 
 } = require('./utils');
-
-if (process.env.oauthToken === -1) {
-  alfy.output([{
-    valid: false,
-    title : "Authentication has not progressed.",
-    subtitle: 'Please get an API token by reference to README.md',
-    autocomplete: '',
-    arg: 'error',
-  }]);
-  return;
-}
-
-if (!config) {
-  console.log("Can't find config file");
-  return;
-}
 
 let [ execPath, alfyInput, option ] = process.argv.slice(1);
 

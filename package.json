@@ -15,11 +15,12 @@
     "boxen": "^4.2.0",
     "clipboardy": "^2.3.0",
     "create-html-element": "^3.0.0",
-    "env2": "^2.2.2",
+    "dotenv": "^8.2.0",
     "evernote": "^2.0.5",
     "is-travis": "^2.0.0",
     "lodash": "^4.17.15",
-    "os-locale": "^5.0.0"
+    "os-locale": "^5.0.0",
+    "plist": "^3.0.1"
   },
   "deprecated": false,
   "description": "Evernote workflow for Alfred 4",
@@ -35,6 +36,7 @@
   },
   "files": [
     "info.plist",
+    "envTemplate",
     "*.js",
     "*.scpt",
     "icon.png",
@@ -42,12 +44,11 @@
     "icon/*.png",
     "initialCachingDescription.html",
     "searchConfig.json",
-    "authConfigTemplate.json",
     "commandLogTemplate.json",
     "search_content/htmlCacheLogTemplate.json",
     "search_content/thumbNailPathTemplate.json",
     "*.md",
-    "license"
+    "LICENSE"
   ],
   "homepage": "https://github.com/jopemachine/alfred-evernote-workflow#readme",
   "keywords": [
@@ -69,12 +70,13 @@
     "test": "xo && ava --verbose",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
-    "initSettingFile": "mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv authConfigTemplate.json authConfig.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
+    "initSettingFile": "mv envTemplate .env && mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
   },
-  "version": "0.8.3",
+  "version": "0.9.2",
   "ava": {
     "files": [
-      "e2e/**/*.js"
+      "e2e/**/*.js",
+      "test/*.js"
     ],
     "require": [
       "esm"

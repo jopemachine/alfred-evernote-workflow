@@ -1,15 +1,17 @@
 const alfy = require("alfy");
-const api = require("./api");
 const config = require("./searchConfig.json");
 const Evernote = require("evernote");
 const LogManager = require("./logManager");
 const fs = require("fs");
 const _ = require("lodash");
 const isTravis = require('is-travis');
+require('./checkApiKey');
 
 if (!isTravis) {
-  require("env2")("./authConfig.json");
+  require('dotenv').config()
 }
+
+const api = require("./api")(process.env.oauthToken);
 
 const {
   ab2str,
@@ -40,26 +42,8 @@ if (fs.existsSync("./Caching")) {
 const htmlCacheLog = require('./search_content/htmlCacheLog.json');
 const thumbNailImageFilePathes = require('./search_content/thumbNailPath.json');
 
-if (process.env.oauthToken === -1) {
-  alfy.output([{
-    valid: false,
-    title : "Authentication has not progressed.",
-    subtitle: 'Please get an API token by reference to README.md',
-    autocomplete: '',
-    arg: 'error',
-  }]);
-  return;
-}
-
-if (!config) {
-  console.log("Can't find config file");
-  return;
-}
-
-
 let [ execPath, input, option ] = process.argv.slice(1);
 input = replaceAll(handleInput(input), "\\\"", "\"").normalize().trim();
-
 
 let command = 'ens';
 let trashBinFlag = false,
