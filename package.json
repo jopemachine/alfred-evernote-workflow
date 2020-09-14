@@ -39,6 +39,7 @@
     "envTemplate",
     "*.js",
     "*.scpt",
+    "*.sh",
     "icon.png",
     "imgs/*.png",
     "icon/*.png",
@@ -70,9 +71,9 @@
     "test": "xo && ava --verbose",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
-    "initSettingFile": "mv envTemplate .env && mv ./search_content/thumbNailPathTemplate.json ./search_content/thumbNailPath.json && mv ./search_content/htmlCacheLogTemplate.json ./search_content/htmlCacheLog.json && mv commandLogTemplate.json commandLog.json"
+    "initSettingFile": "./initSettingFile.sh"
   },
-  "version": "0.9.3",
+  "version": "0.9.4",
   "ava": {
     "files": [
       "e2e/**/*.test.js",
