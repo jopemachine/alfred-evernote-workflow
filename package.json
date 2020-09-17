@@ -73,7 +73,7 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "initSettingFile": "./initSettingFile.sh"
   },
-  "version": "0.9.4",
+  "version": "0.9.5",
   "ava": {
     "files": [
       "e2e/**/*.test.js",
