@@ -36,7 +36,6 @@
   },
   "files": [
     "info.plist",
-    "envTemplate",
     "*.js",
     "*.scpt",
     "*.sh",
@@ -45,9 +44,6 @@
     "icon/*.png",
     "initialCachingDescription.html",
     "searchConfig.json",
-    "commandLogTemplate.json",
-    "search_content/htmlCacheLogTemplate.json",
-    "search_content/thumbNailPathTemplate.json",
     "*.md",
     "LICENSE"
   ],
@@ -66,14 +62,14 @@
   "scripts": {
     "run-node": "ESM_OPTIONS='{\"await\":true}' node --require esm \"${npm_config_target}\" \"${npm_config_query}\"",
     "run-ens": "npm run run-node --target=./searchNote.js --query='${npm_config_query}'",
-    "postinstall": "alfy-init && npm run initSettingFile && node printPostInstall.js",
+    "postinstall": "alfy-init && npm run init && node printPostInstall.js",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava --verbose",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
-    "initSettingFile": "./initSettingFile.sh"
+    "init": "node init.js"
   },
-  "version": "0.9.5",
+  "version": "0.9.6",
   "ava": {
     "files": [
       "e2e/**/*.test.js",
