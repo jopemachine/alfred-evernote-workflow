@@ -1,6 +1,16 @@
 const path = require('path');
 const fs = require('fs');
-const AuthConfig = require('./authConfig.json');
+const isTravis = require('is-travis');
+!isTravis && require('dotenv').config()
+const { getEnv } = require('./utils');
+
+const AuthConfig = {
+  oauthToken: process.env.oauthToken,
+  userId: process.env.userId,
+  userShardId: process.env.userShardId,
+  systemLocale: process.env.systemLocale,
+  initialCaching: process.env.initialCaching
+};
 
 const directoryPath = path.join(__dirname, 'search_content');
 
@@ -42,8 +52,8 @@ fs.readdir(directoryPath, function (err, files) {
 AuthConfig.initialCaching = "false";
 
 fs.writeFileSync(
-  `${__dirname}/authConfig.json`,
-  "\ufeff" + JSON.stringify(AuthConfig, null, 2),
+  `${__dirname}/.env`,
+  "\ufeff" + getEnv(AuthConfig),
   { encoding: "utf8" }
 );
 
