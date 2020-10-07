@@ -1,52 +1,52 @@
-const config = require('./searchConfig.json');
-const clipboardy = require('clipboardy');
-require('@jxa/global-type');
-const run = require('@jxa/run').run;
+const config = require('./searchConfig.json')
+const clipboardy = require('clipboardy')
+require('@jxa/global-type')
+const run = require('@jxa/run').run
 
-const input = process.argv.slice(2).join(" ").normalize();
+const input = process.argv.slice(2).join(' ').normalize()
 
-const [tag, queryList] = input.split("\\$content:");
+const [tag, queryList] = input.split('\\$content:')
 
 const createNoteByText = (noteTitle, noteContent, createAndOpen, tag) => {
-
   const callback = (noteTitle, noteContent, createAndOpen, tag) => {
-    const Evernote = Application('Evernote');
+    // eslint-disable-next-line no-undef
+    const Evernote = Application('Evernote')
 
-    const localNoteContent = noteContent !== '' ? noteContent : ' ';
+    const localNoteContent = noteContent !== '' ? noteContent : ' '
 
-    let newNote;
+    let newNote
 
-    if (!noteTitle || noteTitle === "") {
+    if (!noteTitle || noteTitle === '') {
       newNote = Evernote.createNote({
         title: new Date().toLocaleString(),
         withText: localNoteContent,
-        tags: [tag],
-      });
+        tags: [tag]
+      })
     } else {
       newNote = Evernote.createNote({
         title: noteTitle,
         withText: localNoteContent,
-        tags: [tag],
-      });
+        tags: [tag]
+      })
     }
 
-    if(createAndOpen === true) {
-      Evernote.openNoteWindow({ with: newNote });
+    if (createAndOpen === true) {
+      Evernote.openNoteWindow({ with: newNote })
     }
   }
 
-  return run(callback, noteTitle, noteContent, createAndOpen, tag);
+  return run(callback, noteTitle, noteContent, createAndOpen, tag)
 }
 
-let noteTitle = '';
-let noteContent = queryList;
+let noteTitle = ''
+let noteContent = queryList
 
-const inputArgs = queryList.split(" >> ");
+const inputArgs = queryList.split(' >> ')
 if (inputArgs.length >= 2) {
-  noteTitle = inputArgs[0];
-  noteContent = inputArgs.slice(1, inputArgs.length).join(" >> ");
+  noteTitle = inputArgs[0]
+  noteContent = inputArgs.slice(1, inputArgs.length).join(' >> ')
 }
 
-createNoteByText(noteTitle, noteContent, config.create_and_open, tag);
+createNoteByText(noteTitle, noteContent, config.create_and_open, tag)
 
-clipboardy.write(noteContent);
+clipboardy.write(noteContent)

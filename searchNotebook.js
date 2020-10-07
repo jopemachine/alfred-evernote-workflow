@@ -1,35 +1,35 @@
-const alfy = require("alfy");
-const _ = require("lodash");
+const alfy = require('alfy')
+const _ = require('lodash')
 const {
   handleInput,
   replaceAll
-} = require('./utils');
-const LogManager = require('./logManager');
-const isTravis = require('is-travis');
-require('./checkApiKey');
+} = require('./utils')
+const LogManager = require('./logManager')
+const isTravis = require('is-travis')
+require('./checkApiKey')
 !isTravis && require('dotenv').config()
-const api = require("./api")(process.env.oauthToken);
-require('./checkIsCaching');
+const api = require('./api')(process.env.oauthToken)
+require('./checkIsCaching')
 
-let alfyInput = replaceAll(handleInput(alfy.input), "\\", "");
+const alfyInput = replaceAll(handleInput(alfy.input), '\\', '')
 
-async function searchNotebook(listNotebooks) {
-  let items = listNotebooks;
-  
+async function searchNotebook (listNotebooks) {
+  let items = listNotebooks
+
   if (alfyInput) {
     items = _.filter(listNotebooks, notebook => {
       // Need to normalize alfy.input and match the encoding so that users can search normally in Korean
-      const notebookName = notebook.name.toLowerCase();
-      const input = alfyInput.normalize().toLowerCase();
+      const notebookName = notebook.name.toLowerCase()
+      const input = alfyInput.normalize().toLowerCase()
 
       if (!notebookName.includes(input)) {
-        return false;
+        return false
       }
-      return true;
-    });
+      return true
+    })
   }
 
-  items = _.orderBy(items, ['name'], ['asc']);
+  items = _.orderBy(items, ['name'], ['asc'])
 
   return _.map(items, (notebook) => {
     return {
@@ -39,25 +39,25 @@ async function searchNotebook(listNotebooks) {
       autocomplete: notebook.name,
       subtitle: `Created time: ${new Date(notebook.serviceCreated).toUTCString()}`,
       icon: {
-        path: "./icon/searchIcon.png",
+        path: './icon/searchIcon.png'
       },
       text: {
         copy: notebook.name,
-        largetype: notebook.name,
+        largetype: notebook.name
       },
       variables: {
-        notebookGuid: notebook.guid,
+        notebookGuid: notebook.guid
       }
-    };
-  });
+    }
+  })
 }
 
 (async function () {
   alfy.output(await api.listNotebooks(
     {
-      callback: searchNotebook,
+      callback: searchNotebook
     }
-  ));
+  ))
 
-  LogManager.write(`enb ${handleInput(alfy.input)}`);
-})();
+  LogManager.write(`enb ${handleInput(alfy.input)}`)
+})()

@@ -1,24 +1,24 @@
-const alfy = require("alfy");
-const clipboardy = require("clipboardy");
+const alfy = require('alfy')
+const clipboardy = require('clipboardy')
 
 clipboardy.read().then((data) => {
-  let title;
+  let title
 
   switch (alfy.input) {
-    case "{clip}":
-      title = "encl";
-      break;
-    case "{oclip}":
-      title = "enclo";
-      break;
-    case "{fclip}":
-      title = "enclf";
-      break;
+    case '{clip}':
+      title = 'encl'
+      break
+    case '{oclip}':
+      title = 'enclo'
+      break
+    case '{fclip}':
+      title = 'enclf'
+      break
   }
 
-  const strs = data.split("\n");
+  const strs = data.split('\n')
 
-  const subtitle = strs.length > 1 ? `${strs.join("\\n")} ...` : data;
+  const subtitle = strs.length > 1 ? `${strs.join('\\n')} ...` : data
 
   alfy.output([
     {
@@ -26,7 +26,7 @@ clipboardy.read().then((data) => {
       arg: title,
       valid: true,
       autocomplete: title,
-      subtitle: `Clipboard: "${subtitle}"`,
-    },
-  ]);
-});
+      subtitle: `Clipboard: "${subtitle}"`
+    }
+  ])
+})
