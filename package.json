@@ -27,6 +27,12 @@
   "devDependencies": {
     "alfy-test": "git+https://github.com/jopemachine/alfy-test",
     "ava": "^3.12.1",
+    "eslint": "^7.10.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "esm": "^3.2.25",
     "husky": "^4.3.0",
     "xo": "^0.17.1"
@@ -62,14 +68,14 @@
   "scripts": {
     "run-node": "ESM_OPTIONS='{\"await\":true}' node --require esm \"${npm_config_target}\" \"${npm_config_query}\"",
     "run-ens": "npm run run-node --target=./searchNote.js --query='${npm_config_query}'",
-    "postinstall": "alfy-init && npm run init && node printPostInstall.js",
+    "postinstall": "alfy-init && npm run init",
     "preuninstall": "alfy-cleanup",
     "test": "xo && ava --verbose",
     "saveHtmlCache": "osascript saveCache.scpt",
     "clearHtmlCache": "node deleteSearchContent.js",
     "init": "node init.js"
   },
-  "version": "0.9.6",
+  "version": "0.9.7",
   "ava": {
     "files": [
       "e2e/**/*.test.js",

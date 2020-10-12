@@ -1,13 +1,13 @@
-const isTravis = require('is-travis');
+const isTravis = require('is-travis')
 
 const {
   authenticationNotProgressed
-} = require('./utils');
+} = require('./utils')
 
 if (!isTravis) {
   require('dotenv').config()
 }
 
-if (process.env.oauthToken === "-1") {
-  authenticationNotProgressed();
+if (process.env.oauthToken === '-1') {
+  authenticationNotProgressed()
 }
