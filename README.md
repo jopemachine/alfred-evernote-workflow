@@ -77,7 +77,7 @@ In Preview, you can view the contents and images of your notes.
 
 The prerequisites below are required to use that package.
 
-* Evernote Client on macOS (None App-store version)
+* Evernote Client 7 on macOS (None App-store version), not support Evernote 10 yet
 
 * Node JS
 
