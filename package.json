@@ -1,8 +1,8 @@
 {
   "author": {
     "name": "jopemachine",
-    "email": "jopemachine@naver.com",
-    "url": "github.com/jopemachine/alfred-evernote-workflow"
+    "email": "jopemachine@gmail.com",
+    "url": "https://github.com/jopemachine/alfred-evernote-workflow"
   },
   "bugs": {
     "url": "https://github.com/jopemachine/alfred-evernote-workflow/issues"
@@ -75,7 +75,7 @@
     "clearHtmlCache": "node deleteSearchContent.js",
     "init": "node init.js"
   },
-  "version": "0.9.7",
+  "version": "0.9.8",
   "ava": {
     "files": [
       "e2e/**/*.test.js",

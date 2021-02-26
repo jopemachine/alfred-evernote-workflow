@@ -9,7 +9,7 @@
 
 [![NPM](https://nodei.co/npm/alfred-evernote-workflow.png)](https://nodei.co/npm/alfred-evernote-workflow/)
 
-Evernote workflow for Alfred 4
+Evernote Legacy version's workflow for Alfred 4
 
 * *Fast search using [Evernote sdk](https://github.com/evernote/evernote-sdk-js)*
 * *Preview feature using caching.*
@@ -77,23 +77,23 @@ In Preview, you can view the contents and images of your notes.
 
 The prerequisites below are required to use that package.
 
-* Evernote Client 7 on macOS (None App-store version), not support Evernote 10 yet
-
 * Node JS
+
+* [Evernote Legacy Client](https://help.evernote.com/hc/en-us/articles/360052560314) on macOS
 
 * [Alfred powerpack](https://www.alfredapp.com/powerpack/)
 
-Note that your Evernote Client shouldn't be App store version. (downloaded from the App Store)
+Note that your Evernote Client should be legacy version.
 
-If you're not sure your Evernote Client version, I'm recommending reinstall Evernote by below version to use this plugin.
-
-[Evernote client Download](https://evernote.com/intl/en/download)
+(You can use legacy version's evernote with latest version's evernote)
 
 And don't forget to login into Evernote client and sync should be completed.
 
 ##  🔨 How to install
 
-1. **Install package by npm**
+1. **Download [Evernote Legacy Client](https://help.evernote.com/hc/en-us/articles/360052560314) and move it to `/Applications` folder and open it.**
+
+2. **Install package by npm**
 
 ```
 $ npm install --global alfred-evernote-workflow
@@ -107,7 +107,7 @@ And let me know if the problem still remains or if there are other issues.
 
 If you want to install this package by not through NPM, you can download workflow file in [Packal](https://www.packal.org/workflow/alfred-evernote-workflow).
 
-2. **`en > gettoken` + <kbd>Enter</kbd>  to get your API key**
+3. **`en > gettoken` + <kbd>Enter</kbd>  to get your API key**
 
 Type `en > gettoken` and get your OAuth key.
 
@@ -124,7 +124,7 @@ If your token value is `S=s198:U=161532d:E=17b2ea2ba85:C=173d6f18bc8:P=185:A=jop
 </p>
 
 
-3. **`en > authtoken {your issued API key}` + <kbd>Enter</kbd>**
+4. **`en > authtoken {your issued API key}` + <kbd>Enter</kbd>**
 
 Alfred-evernote-workflow uses your token to authenticate your account.
 
@@ -135,11 +135,11 @@ Please pass the token value as a factor without quotation marks as shown below.
 </p>
 
 
-4. **`en > savecache` + <kbd>Enter</kbd>**
+5. **`en > savecache` + <kbd>Enter</kbd>**
 
 If you want to not use the preview feature, you can skip this phase.
 
-5. **Done!**
+6. **Done!**
 
 ## 📗 How to use
 
